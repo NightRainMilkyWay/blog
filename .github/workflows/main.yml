@@ -3,8 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
-
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest        #¿É Ê¹ÓÃÖ¸¶¨°æ±¾£¬Àý£ºruns-on: ubuntu-18.04
