@@ -1,4 +1,4 @@
-baseurl: https://nightrainmilkyway.cn
+baseurl: https://nightrainmilkyway.github.io
 languageCode: zh-CN
 theme: hugo-theme-stack
 paginate: 3
