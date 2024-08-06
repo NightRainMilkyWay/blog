@@ -1,0 +1,34 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest        #¿É Ê¹ÓÃÖ¸¶¨°æ±¾£¬Àý£ºruns-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: latest     # ¿ÉÊ¹ÓÃÖ¸¶¨°æ±¾£¬Àý£ºhugo-version: '0.83.1'
+          extended: true
+
+      - name: Build
+        run: hugo --gc --forceSyncStatic --minify --cleanDestinationDir
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }} # PERSONAL_TOKENÊÇÔ´Âë²Ö¿âsecretsµÄname
+          external_repository: username/NightRainMilkyWay.github.io # Pages Ô¶³Ì²Ö¿â 
+          publish_branch: pages  # ²¿ÊðµÄ·ÖÖ§
+          publish_dir: ./public
+          commit_message: ${{ github.event.head_commit.message }}
+          #cname: www.example.com # Ê¹ÓÃ×Ô¶¨ÒåÓòÃû
