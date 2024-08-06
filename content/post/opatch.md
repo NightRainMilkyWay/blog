@@ -12,4 +12,4 @@ categories: ["opatch"]
 tags: ["opatch"]
 ---
 
-
+# 事前注备
