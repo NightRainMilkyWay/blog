@@ -10,7 +10,6 @@ comments: true
 draft: false
 ---
 categories:
-  - ""
   - QQ装扮
 tags:
   - 百变气泡
