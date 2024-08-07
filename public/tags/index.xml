@@ -31,6 +31,14 @@
         <guid>http://localhost:1313/tags/lspatch/</guid>
         <description></description>
         </item>
+        <item>
+        <title>Opatch</title>
+        <link>http://localhost:1313/tags/opatch/</link>
+        <pubDate>Tue, 06 Aug 2024 20:38:40 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/opatch/</guid>
+        <description></description>
+        </item>
         
     </channel>
 </rss>

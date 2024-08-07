@@ -13,7 +13,7 @@
         <pubDate>Wed, 07 Aug 2024 01:06:31 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/</guid>
-        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8QQ%E4%B8%AA%E6%80%A7%E8%A3%85%E6%89%AE/98661043_p0.jpg" alt="Featured image of post 使用QQ装扮" /&gt;&lt;h2 id=&#34;事前准备&#34;&gt;事前准备
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/98661043_p0.jpg" alt="Featured image of post 使用QQ装扮" /&gt;&lt;h2 id=&#34;事前准备&#34;&gt;事前准备
 &lt;/h2&gt;&lt;p&gt;1.有root权限&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; mt管理器&lt;/li&gt;
@@ -28,7 +28,7 @@
 &lt;/h2&gt;&lt;p&gt;首先打开装扮商店，找一个免费的主题或气泡
 点击分享复制链接例如https://zb.vip.qq.com/mall/item-detail?appid=3&amp;amp;itemid=&lt;code&gt;3614&lt;/code&gt;&amp;amp;_nav_titleclr=000000&amp;amp;_nav_txtclr=000000&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3614&lt;/strong&gt;就是主题ID可以在&lt;code&gt;/data/user/0/com.tencent.mobileqq/app_theme_810/&lt;/code&gt;找到&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-31-34_1874.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/ResizedImage_2024-08-07_01-31-34_1874.png&#34;
 	
 	
 	
@@ -39,7 +39,7 @@
 &lt;p&gt;需要将原主题包里面的文件替换即可，压缩包那一个也需要替换，强制停止QQ后重启生效&lt;/p&gt;
 &lt;p&gt;类似的气泡ID也是一样的方法获取，例如https://zb.vip.qq.com/mall/item-detail?appid=2&amp;amp;itemid=&lt;code&gt;6390&lt;/code&gt;&amp;amp;_nav_titleclr=000000&amp;amp;_nav_txtclr=000000&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;6390&lt;/strong&gt;就是这个气泡ID在&lt;code&gt;/data/user/0/com.tencent.mobileqq/files/files/vas_material_folder/bubble_dir/&lt;/code&gt;可以找到
-&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-27-03_2196.png&#34;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/ResizedImage_2024-08-07_01-27-03_2196.png&#34;
 	
 	
 	
@@ -83,8 +83,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#气泡路径
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;怎么添加呢，看图,选择添加本地目录，文件选择器点左上角三横，选择QQ，点击使用目录返回即可添加访问，其余步骤和上面一样，
-&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-39-34_1774.png&#34;
+&lt;/div&gt;&lt;p&gt;怎么添加呢，看图,选择添加本地目录，文件选择器点左上角三横，选择QQ，点击使用目录返回即可添加访问，其余步骤和上面一样，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/ResizedImage_2024-08-07_01-39-34_1774.png&#34;
 	
 	
 	
@@ -95,12 +95,12 @@
 </description>
         </item>
         <item>
-        <title>怎么使用LSPpatch</title>
-        <link>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</link>
+        <title>怎么使用OPatch</title>
+        <link>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/</link>
         <pubDate>Tue, 06 Aug 2024 20:38:40 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</guid>
-        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8opatch/119588511_p0.png" alt="Featured image of post 怎么使用LSPpatch" /&gt;&lt;h3 id=&#34;事前注备&#34;&gt;事前注备
+        <guid>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/</guid>
+        <description>&lt;img src="https://raw.githubusercontent.com/NightRainMilkyWay/PicPlus/main/img/1723022891732.png" alt="Featured image of post 怎么使用OPatch" /&gt;&lt;h3 id=&#34;事前注备&#34;&gt;事前注备
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 一台手机📱&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 携带一颗正常的大脑🧠&lt;/li&gt;
@@ -108,28 +108,28 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;正文部分&#34;&gt;正文部分
 &lt;/h3&gt;&lt;h4 id=&#34;安装&#34;&gt;安装
-&lt;/h4&gt;&lt;p&gt;首先下载并安装&lt;a class=&#34;link&#34; href=&#34;https://github.com/LSPosed/LSPatch/releases/download/v0.6/manager-v0.6-398-release.apk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;LSPatch.apk&lt;/a&gt;
-当然你也可以选择&lt;code&gt;opatch&lt;/code&gt;或者&lt;code&gt;ZPatch&lt;/code&gt;,再者&lt;code&gt;NPatch&lt;/code&gt; 都是可以的&lt;/p&gt;
-&lt;p&gt;当我们安装好后打开桌面上上的LSPatch图标
-&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+&lt;/h4&gt;&lt;p&gt;首先下载并安装&lt;a class=&#34;link&#34; href=&#34;http://pan.nightrainmilkyway.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OPatch.apk&lt;/a&gt;
+当然你也可以选择&lt;code&gt;LSPatch&lt;/code&gt;或者&lt;code&gt;ZPatch&lt;/code&gt;,再者&lt;code&gt;NPatch&lt;/code&gt; 都是可以的&lt;/p&gt;
+&lt;p&gt;当我们安装好后打开桌面上上的LSPatch图标&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180015641.jpg&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+		alt=&#34;20240807180015641&#34;
 	
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;然后我们就可以看到主页，点看下面的低栏，点看左侧低栏，点击右下角加号，然后选择一个目录（==建议创建一个目录==）,然后选择启用此文件夹，然后返回，回到界面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180125159.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+		alt=&#34;20240807180125159&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -142,13 +142,13 @@
 &lt;em&gt;&lt;strong&gt;可根据个人自由选择&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180132737.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+		alt=&#34;20240807180132737&#34;
 	
 	
 &gt;&lt;/p&gt;

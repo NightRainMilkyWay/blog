@@ -32,10 +32,13 @@
     <loc>http://localhost:1313/categories/lspatch/</loc>
     <lastmod>2024-08-06T20:38:40+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/opatch/</loc>
+    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/opatch/</loc>
     <lastmod>2024-08-06T20:38:40+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</loc>
+    <loc>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/</loc>
     <lastmod>2024-08-06T20:38:40+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
