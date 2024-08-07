@@ -1,5 +1,5 @@
 ---
-title: 怎么使用LSPpatch
+title: 怎么使用OPatch
 description: 
 date: 2024-08-06T20:38:40+08:00
 image: post/使用opatch/119588511_p0.png
@@ -13,6 +13,7 @@ categories:
   - opatch
 tags:
   - LSPatch
+  - opatch
 ---
 
 ### 事前注备
@@ -24,8 +25,8 @@ tags:
 ### 正文部分
 
 #### 安装
-首先下载并安装[LSPatch.apk](https://github.com/LSPosed/LSPatch/releases/download/v0.6/manager-v0.6-398-release.apk)
-当然你也可以选择`opatch`或者`ZPatch`,再者`NPatch` 都是可以的
+首先下载并安装[OPatch.apk](http://pan.nightrainmilkyway.cn/)
+当然你也可以选择`LSPatch`或者`ZPatch`,再者`NPatch` 都是可以的
 
 当我们安装好后打开桌面上上的LSPatch图标
 ![Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg](post/使用opatch/Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg)
