@@ -18,7 +18,9 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --accent-color-text: #fff;
     --body-text-color: #707070;
 
-    --tag-border-radius: 4px;
+    --tag-border-radius: 24px; // Change from 4px to make it round corner
+--category-border-radius: 4px; // Add category border setting
+
 
     --section-separation: 40px;
 

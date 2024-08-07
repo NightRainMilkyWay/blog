@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>LSPatch on Nightrain&#39;s Blog</title>
+        <link>http://localhost:1313/tags/lspatch/</link>
+        <description>Recent content in LSPatch on Nightrain&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 06 Aug 2024 20:38:40 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/lspatch/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>怎么使用LSPpatch</title>
+        <link>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</link>
+        <pubDate>Tue, 06 Aug 2024 20:38:40 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8opatch/119588511_p0.png" alt="Featured image of post 怎么使用LSPpatch" /&gt;&lt;h3 id=&#34;事前注备&#34;&gt;事前注备
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 一台手机📱&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 携带一颗正常的大脑🧠&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 接受过&lt;code&gt;6年义务教育&lt;/code&gt;及以上 &lt;strong&gt;非必要&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;正文部分&#34;&gt;正文部分
+&lt;/h3&gt;&lt;h4 id=&#34;安装&#34;&gt;安装
+&lt;/h4&gt;&lt;p&gt;首先下载并安装&lt;a class=&#34;link&#34; href=&#34;https://github.com/LSPosed/LSPatch/releases/download/v0.6/manager-v0.6-398-release.apk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LSPatch.apk&lt;/a&gt;
+当然你也可以选择&lt;code&gt;opatch&lt;/code&gt;或者&lt;code&gt;ZPatch&lt;/code&gt;,再者&lt;code&gt;NPatch&lt;/code&gt; 都是可以的&lt;/p&gt;
+&lt;p&gt;当我们安装好后打开桌面上上的LSPatch图标
+&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后我们就可以看到主页，点看下面的低栏，点看左侧低栏，点击右下角加号，然后选择一个目录（==建议创建一个目录==）,然后选择启用此文件夹，然后返回，回到界面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;使用&#34;&gt;使用
+&lt;/h4&gt;&lt;p&gt;再次点击加号，有2种选择，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;选择一个apk文件，&lt;/li&gt;
+&lt;li&gt;选择已安装的应用
+&lt;em&gt;&lt;strong&gt;可根据个人自由选择&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;注入原神加载模式&#34;&gt;注入原神加载模式
+&lt;/h5&gt;&lt;p&gt;字面意思,.无需root权限,使用模块注入加载，&lt;/p&gt;
+&lt;h5 id=&#34;集成原神模式&#34;&gt;集成原神模式
+&lt;/h5&gt;&lt;p&gt;将模块内置到应用内部，无需额外安装模块注入&lt;/p&gt;
+&lt;h5 id=&#34;注入文件提供者&#34;&gt;注入文件提供者
+&lt;/h5&gt;&lt;p&gt;可以实现无root权限访问data目录，有大用后续文章会设计到&lt;/p&gt;
+&lt;h5 id=&#34;输出日志到media目录&#34;&gt;输出日志到media目录
+&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
+&lt;h5 id=&#34;复写版本号&#34;&gt;复写版本号
+&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
+&lt;h5 id=&#34;破解签名校验&#34;&gt;破解签名校验
+&lt;/h5&gt;&lt;p&gt;如果你不明白保持默认即可&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;特别注意，注入后签名与官方签名不一致，无root权限无法覆盖安装，需要卸载后安装，请做好备份工作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;推荐模块&#34;&gt;推荐模块
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;哔哩哔哩漫游&lt;/li&gt;
+&lt;li&gt;叼毛网易云&lt;/li&gt;
+&lt;li&gt;QA&lt;/li&gt;
+&lt;li&gt;QX&lt;/li&gt;
+&lt;li&gt;fuck for vip&lt;/li&gt;
+&lt;li&gt;hook vip&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

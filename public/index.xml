@@ -7,7 +7,178 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 06 Aug 2024 20:38:40 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 Aug 2024 01:06:31 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用QQ装扮</title>
+        <link>http://localhost:1313/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/</link>
+        <pubDate>Wed, 07 Aug 2024 01:06:31 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8QQ%E4%B8%AA%E6%80%A7%E8%A3%85%E6%89%AE/98661043_p0.jpg" alt="Featured image of post 使用QQ装扮" /&gt;&lt;h2 id=&#34;事前准备&#34;&gt;事前准备
+&lt;/h2&gt;&lt;p&gt;1.有root权限&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; mt管理器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2.无root权限&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 提前注入好文件提取的QQ&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; mt管理器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;root篇&#34;&gt;root篇
+&lt;/h2&gt;&lt;p&gt;首先打开装扮商店，找一个免费的主题或气泡
+点击分享复制链接例如https://zb.vip.qq.com/mall/item-detail?appid=3&amp;amp;itemid=&lt;code&gt;3614&lt;/code&gt;&amp;amp;_nav_titleclr=000000&amp;amp;_nav_txtclr=000000&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3614&lt;/strong&gt;就是主题ID可以在&lt;code&gt;/data/user/0/com.tencent.mobileqq/app_theme_810/&lt;/code&gt;找到&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-31-34_1874.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;需要将原主题包里面的文件替换即可，压缩包那一个也需要替换，强制停止QQ后重启生效&lt;/p&gt;
+&lt;p&gt;类似的气泡ID也是一样的方法获取，例如https://zb.vip.qq.com/mall/item-detail?appid=2&amp;amp;itemid=&lt;code&gt;6390&lt;/code&gt;&amp;amp;_nav_titleclr=000000&amp;amp;_nav_txtclr=000000&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6390&lt;/strong&gt;就是这个气泡ID在&lt;code&gt;/data/user/0/com.tencent.mobileqq/files/files/vas_material_folder/bubble_dir/&lt;/code&gt;可以找到
+&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-27-03_2196.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+打开文件替换粘贴下面的内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;animation_sets&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;bubbleframe_anim&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;16&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;repeat&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;zip_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;bubbleframe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;zoom_point&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;64&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;56&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}},&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;animations&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;stc1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;align&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;TL&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;alpha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;16&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;cycle_count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;rect&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;128&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;112&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;static&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;zip_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;voice&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;bubbleframe_animation&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;animation_set&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;bubbleframe_anim&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;color&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0xFFe99ddd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;13909&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;key_animations&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;align&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;TL&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;animation&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;stc1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;16&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;cycle_count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;key_word&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;麻薯&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;小兔&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;变色&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;好萌&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;你&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;我&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;他&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;她&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;rect&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;128&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;112&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;version&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1596179687&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;zip_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;voice&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;link_color&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0xFF007eff&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;loopList&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2053641&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2083075&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2082103&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2069692&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2059096&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2070015&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2081859&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2082557&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2087018&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;颜文字-麻薯小兔&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;version&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1596179687&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;voice_animation&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;align&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;TL&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;animation&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;stc1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;count&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;16&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;rect&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;128&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;112&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;100&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;zoom_point&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;64&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;56&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;下面这一串就是气泡ID，把你想要的气泡样式填进去就可以，强制停止后重启生效&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2053641&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2083075&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2082103&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2069692&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2059096&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2070015&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2081859&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2082557&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2087018&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;非root篇&#34;&gt;非root篇
+&lt;/h2&gt;&lt;p&gt;之前提到过文件提前，可以无root权限访问data目录是的，非root用户的目录就变成了下面这样&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;app_theme_810/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 主题路径
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;files/files/vas_material_folder/bubble_dir/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#气泡路径
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;怎么添加呢，看图,选择添加本地目录，文件选择器点左上角三横，选择QQ，点击使用目录返回即可添加访问，其余步骤和上面一样，
+&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8QQ%e4%b8%aa%e6%80%a7%e8%a3%85%e6%89%ae/ResizedImage_2024-08-07_01-39-34_1774.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>怎么使用LSPpatch</title>
+        <link>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</link>
+        <pubDate>Tue, 06 Aug 2024 20:38:40 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8opatch/119588511_p0.png" alt="Featured image of post 怎么使用LSPpatch" /&gt;&lt;h3 id=&#34;事前注备&#34;&gt;事前注备
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 一台手机📱&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 携带一颗正常的大脑🧠&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 接受过&lt;code&gt;6年义务教育&lt;/code&gt;及以上 &lt;strong&gt;非必要&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;正文部分&#34;&gt;正文部分
+&lt;/h3&gt;&lt;h4 id=&#34;安装&#34;&gt;安装
+&lt;/h4&gt;&lt;p&gt;首先下载并安装&lt;a class=&#34;link&#34; href=&#34;https://github.com/LSPosed/LSPatch/releases/download/v0.6/manager-v0.6-398-release.apk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LSPatch.apk&lt;/a&gt;
+当然你也可以选择&lt;code&gt;opatch&lt;/code&gt;或者&lt;code&gt;ZPatch&lt;/code&gt;,再者&lt;code&gt;NPatch&lt;/code&gt; 都是可以的&lt;/p&gt;
+&lt;p&gt;当我们安装好后打开桌面上上的LSPatch图标
+&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot_2024-08-07-00-18-30-369_com.miui.home-edit.jpg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后我们就可以看到主页，点看下面的低栏，点看左侧低栏，点击右下角加号，然后选择一个目录（==建议创建一个目录==）,然后选择启用此文件夹，然后返回，回到界面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ResizedImage_2024-08-07_00-30-00_7309.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;使用&#34;&gt;使用
+&lt;/h4&gt;&lt;p&gt;再次点击加号，有2种选择，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;选择一个apk文件，&lt;/li&gt;
+&lt;li&gt;选择已安装的应用
+&lt;em&gt;&lt;strong&gt;可根据个人自由选择&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%e4%bd%bf%e7%94%a8opatch/ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ResizedImage_2024-08-07_00-45-02_1817.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;注入原神加载模式&#34;&gt;注入原神加载模式
+&lt;/h5&gt;&lt;p&gt;字面意思,.无需root权限,使用模块注入加载，&lt;/p&gt;
+&lt;h5 id=&#34;集成原神模式&#34;&gt;集成原神模式
+&lt;/h5&gt;&lt;p&gt;将模块内置到应用内部，无需额外安装模块注入&lt;/p&gt;
+&lt;h5 id=&#34;注入文件提供者&#34;&gt;注入文件提供者
+&lt;/h5&gt;&lt;p&gt;可以实现无root权限访问data目录，有大用后续文章会设计到&lt;/p&gt;
+&lt;h5 id=&#34;输出日志到media目录&#34;&gt;输出日志到media目录
+&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
+&lt;h5 id=&#34;复写版本号&#34;&gt;复写版本号
+&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
+&lt;h5 id=&#34;破解签名校验&#34;&gt;破解签名校验
+&lt;/h5&gt;&lt;p&gt;如果你不明白保持默认即可&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;特别注意，注入后签名与官方签名不一致，无root权限无法覆盖安装，需要卸载后安装，请做好备份工作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;推荐模块&#34;&gt;推荐模块
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;哔哩哔哩漫游&lt;/li&gt;
+&lt;li&gt;叼毛网易云&lt;/li&gt;
+&lt;li&gt;QA&lt;/li&gt;
+&lt;li&gt;QX&lt;/li&gt;
+&lt;li&gt;fuck for vip&lt;/li&gt;
+&lt;li&gt;hook vip&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>Archives</title>
         <link>http://localhost:1313/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
@@ -64,7 +235,180 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
+        <description>&lt;div id=&#34;heatmap&#34; style=&#34;
+  max-width: 1900px;
+  height: 180px;
+  padding: 2px;
+  text-align: center;
+  &#34;
+&gt;&lt;/div&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+  var chartDom = document.getElementById(&#39;heatmap&#39;);
+  var myChart = echarts.init(chartDom);
+  window.onresize = function() {
+      myChart.resize();
+  };
+  var option;
+
+  
+  
+  
+  
+  
+  
+  var dataMap = new Map();
+  
+    var key = &#34;2024-08-07&#34;;
+    var value = dataMap.get(key);
+    var wordCount =  2398 ;
+    var link = &#34;/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/&#34;;
+    var title = &#34;使用QQ装扮&#34;;
+    
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }
+    var key = &#34;2024-08-06&#34;;
+    var value = dataMap.get(key);
+    var wordCount =  447 ;
+    var link = &#34;/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/&#34;;
+    var title = &#34;怎么使用LSPpatch&#34;;
+    
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }var data = [];
+  
+  for (const [key, value] of dataMap.entries()) {
+    var sum = 0;
+    for (const v of value) {
+      sum += v.wordCount;
+    }
+    data.push([key, (sum / 1000).toFixed(1)]);
+  }
+  
+  var startDate = new Date();
+  var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+  var startDate = +new Date(year_Mill);
+  var endDate = +new Date();
+
+  var dayTime = 3600 * 24 * 1000;
+  startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
+  endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
+
+  
+  function heatmap_width(months){             
+    var startDate = new Date();
+    var mill = startDate.setMonth((startDate.getMonth() - months));
+    var endDate = +new Date();
+    startDate = +new Date(mill);
+
+    endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
+    startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
+
+    var showmonth = [];
+    showmonth.push([
+        startDate,
+        endDate
+    ]);
+    return showmonth
+  };
+
+  function getRangeArr() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth &gt;= 600) {
+      return heatmap_width(12);
+    } else if (windowWidth &gt;= 400) {
+      return heatmap_width(9);
+    } else {
+      return heatmap_width(6);
+    }
+  }
+
+  option = {
+    title: {
+        top: 0,
+        left: &#39;center&#39;,
+        text: &#39;博客热力图&#39;
+    },
+    tooltip: {
+      hideDelay: 1000,
+      enterable: true,
+      formatter: function (p) {
+        const date = p.data[0];
+        const posts = dataMap.get(date);
+        var content = `${date}`;
+        for (const [i, post] of posts.entries()) {
+            content += &#34;&lt;br&gt;&#34;;
+            var link = post.link;
+            var title = post.title;
+            var wordCount = (post.wordCount / 1000).toFixed(1);
+            content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34;&gt;${title} | ${wordCount} k&lt;/a&gt;`
+        }
+        return content;
+      }
+    },
+    visualMap: {
+        min: 0,
+        max: 10,
+        type: &#39;piecewise&#39;,
+        orient: &#39;horizontal&#39;,
+        left: &#39;center&#39;,
+        top: 30,
+        
+        inRange: {   
+          
+          color: [&#39;#7aa8744c&#39;, &#39;#7AA874&#39; ] 
+        },
+        splitNumber: 4,
+        text: [&#39;千字&#39;, &#39;&#39;],
+        showLabel: true,
+        itemGap: 20,
+    },
+    calendar: {
+        top: 80,
+        left: 20,
+        right: 4,
+        cellSize: [&#39;auto&#39;, 13],
+        range: getRangeArr(),
+        itemStyle: {
+            color: &#39;#F1F1F1&#39;,
+            borderWidth: 1.5,
+            borderColor: &#39;#fff&#39;,
+        },
+        yearLabel: { show: false },
+        
+        splitLine: {
+          lineStyle: {
+            color: &#39;rgba(0, 0, 0, 0.0)&#39;,
+            
+            
+            
+            
+          }
+        }
+    },
+    series: {
+        type: &#39;heatmap&#39;,
+        coordinateSystem: &#39;calendar&#39;,
+        data: data,
+    }
+  };
+  myChart.setOption(option);
+  myChart.on(&#39;click&#39;, function(params) {
+    if (params.componentType === &#39;series&#39;) {
+      
+      const post = dataMap.get(params.data[0])[0];
+      const link = window.location.origin + post.link;
+      window.open(link, &#39;_blank&#39;).focus();
+    }
+});
+&lt;/script&gt;
 </description>
         </item>
         

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="This is a test page for i18n support.">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
 <title>关于</title>
 
 <link rel='canonical' href='http://localhost:1313/%E5%85%B3%E4%BA%8E/'>
 
-<link rel="stylesheet" href="/scss/style.min.622f0d1ccb1c53a86801feebb1cdc1096a94003a1f076bc3b3c1462db993f435.css"><meta property='og:title' content="关于">
-<meta property='og:description' content="This is a test page for i18n support.">
+<link rel="stylesheet" href="/scss/style.min.d910d65b8679a418080d2ec133fc8fe9183f6b99bd013b2ae377aca0d16b347c.css"><meta property='og:title' content="关于">
+<meta property='og:description' content="">
 <meta property='og:url' content='http://localhost:1313/%E5%85%B3%E4%BA%8E/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Page' />
 <meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="This is a test page for i18n support.">
+<meta name="twitter:description" content="">
   
 
 
@@ -262,7 +262,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 0 分钟
                 </time>
             </div>
         
@@ -289,7 +289,180 @@
     <section class="article-content">
     
     
-    <p>This is a test page for i18n support.</p>
+    <div id="heatmap" style="
+  max-width: 1900px;
+  height: 180px;
+  padding: 2px;
+  text-align: center;
+  "
+></div>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+<script type="text/javascript">
+  var chartDom = document.getElementById('heatmap');
+  var myChart = echarts.init(chartDom);
+  window.onresize = function() {
+      myChart.resize();
+  };
+  var option;
+
+  
+  
+  
+  
+  
+  
+  var dataMap = new Map();
+  
+    var key = "2024-08-07";
+    var value = dataMap.get(key);
+    var wordCount =  2398 ;
+    var link = "/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/";
+    var title = "使用QQ装扮";
+    
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }
+    var key = "2024-08-06";
+    var value = dataMap.get(key);
+    var wordCount =  447 ;
+    var link = "/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8lsppatch/";
+    var title = "怎么使用LSPpatch";
+    
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }var data = [];
+  
+  for (const [key, value] of dataMap.entries()) {
+    var sum = 0;
+    for (const v of value) {
+      sum += v.wordCount;
+    }
+    data.push([key, (sum / 1000).toFixed(1)]);
+  }
+  
+  var startDate = new Date();
+  var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+  var startDate = +new Date(year_Mill);
+  var endDate = +new Date();
+
+  var dayTime = 3600 * 24 * 1000;
+  startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+  endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+  
+  function heatmap_width(months){             
+    var startDate = new Date();
+    var mill = startDate.setMonth((startDate.getMonth() - months));
+    var endDate = +new Date();
+    startDate = +new Date(mill);
+
+    endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+    startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+
+    var showmonth = [];
+    showmonth.push([
+        startDate,
+        endDate
+    ]);
+    return showmonth
+  };
+
+  function getRangeArr() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 600) {
+      return heatmap_width(12);
+    } else if (windowWidth >= 400) {
+      return heatmap_width(9);
+    } else {
+      return heatmap_width(6);
+    }
+  }
+
+  option = {
+    title: {
+        top: 0,
+        left: 'center',
+        text: '博客热力图'
+    },
+    tooltip: {
+      hideDelay: 1000,
+      enterable: true,
+      formatter: function (p) {
+        const date = p.data[0];
+        const posts = dataMap.get(date);
+        var content = `${date}`;
+        for (const [i, post] of posts.entries()) {
+            content += "<br>";
+            var link = post.link;
+            var title = post.title;
+            var wordCount = (post.wordCount / 1000).toFixed(1);
+            content += `<a href="${link}" target="_blank">${title} | ${wordCount} k</a>`
+        }
+        return content;
+      }
+    },
+    visualMap: {
+        min: 0,
+        max: 10,
+        type: 'piecewise',
+        orient: 'horizontal',
+        left: 'center',
+        top: 30,
+        
+        inRange: {   
+          
+          color: ['#7aa8744c', '#7AA874' ] 
+        },
+        splitNumber: 4,
+        text: ['千字', ''],
+        showLabel: true,
+        itemGap: 20,
+    },
+    calendar: {
+        top: 80,
+        left: 20,
+        right: 4,
+        cellSize: ['auto', 13],
+        range: getRangeArr(),
+        itemStyle: {
+            color: '#F1F1F1',
+            borderWidth: 1.5,
+            borderColor: '#fff',
+        },
+        yearLabel: { show: false },
+        
+        splitLine: {
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.0)',
+            
+            
+            
+            
+          }
+        }
+    },
+    series: {
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: data,
+    }
+  };
+  myChart.setOption(option);
+  myChart.on('click', function(params) {
+    if (params.componentType === 'series') {
+      
+      const post = dataMap.get(params.data[0])[0];
+      const link = window.location.origin + post.link;
+      window.open(link, '_blank').focus();
+    }
+});
+</script>
 
 </section>
 
@@ -349,8 +522,12 @@
         
         
         
-        发表了0篇文章，共计74字
-        总计0.07k字
+        
+        
+        
+        
+        发表了2篇文章，共计2911字
+        总计2.91k字
     </section>
 
     
