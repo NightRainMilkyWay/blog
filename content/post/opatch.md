@@ -2,7 +2,7 @@
 title: 怎么使用OPatch
 description: 
 date: 2024-08-06T20:38:40+08:00
-image: https://raw.githubusercontent.com/NightRainMilkyWay/PicPlus/main/img/1723022891732.png
+image: https://img.nightrainmilkyway.cn/img/1723033155544.webp
 math: 
 license: 
 hidden: false
@@ -30,12 +30,10 @@ tags:
 
 当我们安装好后打开桌面上上的LSPatch图标
 
-![20240807180015641](https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180015641.jpg)
-
+![1723033155887.webp](https://img.nightrainmilkyway.cn/img/1723033155887.webp)
 然后我们就可以看到主页，点看下面的低栏，点看左侧低栏，点击右下角加号，然后选择一个目录（==建议创建一个目录==）,然后选择启用此文件夹，然后返回，回到界面
 
-![20240807180125159](https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180125159.png)
-
+![1723033154463.png](https://img.nightrainmilkyway.cn/img/1723033154463.png)
 
 #### 使用
 
@@ -44,7 +42,7 @@ tags:
 > 2. 选择已安装的应用
 > ***可根据个人自由选择***
 
-![20240807180132737](https://cdn.jsdelivr.net/gh/NightRainMilkyWay/PicPlus@main/2024/08/07/20240807180132737.png)
+![1723032990892.png](https://img.nightrainmilkyway.cn/img/1723032990892.png)
 
 ##### 注入原神加载模式
 字面意思,.无需root权限,使用模块注入加载，
