@@ -45,12 +45,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Git Configuration
-        run: |
-          git config --global core.quotePath false
-          git config --global core.autocrlf false
-          git config --global core.safecrlf true
-          git config --global core.ignorecase false  
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -71,8 +65,14 @@ jobs:
         with:
           path: ./public
 
-      - name: Deploy GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          BRANCH: pages
-          FOLDER: public
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
