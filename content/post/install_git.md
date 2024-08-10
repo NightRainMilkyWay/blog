@@ -1,5 +1,5 @@
 ---
-title: "Zerotermux折腾日记(2)-安装git"
+title: "Zerotermux折腾日记(2)-Arch linux安装git"
 description: 
 date: 2024-08-10T20:58:28+08:00
 image: https://img.nightrainmilkyway.cn/img/1723295107649.webp
