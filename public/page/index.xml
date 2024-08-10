@@ -59,12 +59,25 @@
         <description></description>
         </item>
         <item>
-        <title>关于</title>
-        <link>http://localhost:1313/%E5%85%B3%E4%BA%8E/</link>
+        <title>关于我</title>
+        <link>http://localhost:1313/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;div id=&#34;heatmap&#34; style=&#34;
+        <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
+        <description>&lt;h2 id=&#34;我是nightrainmilkyway&#34;&gt;我是NightRainMilkyWay
+&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/1723221496024.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1723221496024.webp&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div id=&#34;heatmap&#34; style=&#34;
   max-width: 1900px;
   height: 180px;
   padding: 2px;
@@ -88,6 +101,18 @@
   
   var dataMap = new Map();
   
+    var key = &#34;2024-08-10&#34;;
+    var value = dataMap.get(key);
+    var wordCount =  1120 ;
+    var link = &#34;/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/&#34;;
+    var title = &#34;Zerotermux折腾日记(1)-安装arch Linux&#34;;
+    
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }
     var key = &#34;2024-08-07&#34;;
     var value = dataMap.get(key);
     var wordCount =  2398 ;

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="事前注备 一台手机📱 携带一颗正常的大脑🧠 接受过6年义务教育及以上 非必要 正文部分 安装 首先下载并安装OPatch.apk 当然你也可以选择LSPat">
-<title>怎么使用OPatch</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="开始 termux作为一个能在Android上运行的终端模拟器，能够模拟Linux环境，重点是不需要root也可以使用，只不过局限性不是很大 换">
+<title>Zerotermux折腾日记(1)-安装arch Linux</title>
 
-<link rel='canonical' href='http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/'>
+<link rel='canonical' href='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/'>
 
-<link rel="stylesheet" href="/scss/style.min.d910d65b8679a418080d2ec133fc8fe9183f6b99bd013b2ae377aca0d16b347c.css"><meta property='og:title' content="怎么使用OPatch">
-<meta property='og:description' content="事前注备 一台手机📱 携带一颗正常的大脑🧠 接受过6年义务教育及以上 非必要 正文部分 安装 首先下载并安装OPatch.apk 当然你也可以选择LSPat">
-<meta property='og:url' content='http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/'>
+<link rel="stylesheet" href="/scss/style.min.d910d65b8679a418080d2ec133fc8fe9183f6b99bd013b2ae377aca0d16b347c.css"><meta property='og:title' content="Zerotermux折腾日记(1)-安装arch Linux">
+<meta property='og:description' content="开始 termux作为一个能在Android上运行的终端模拟器，能够模拟Linux环境，重点是不需要root也可以使用，只不过局限性不是很大 换">
+<meta property='og:url' content='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='LSPatch' /><meta property='article:tag' content='opatch' /><meta property='article:published_time' content='2024-08-06T20:38:40&#43;08:00'/><meta property='article:modified_time' content='2024-08-06T20:38:40&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/1723033155544.webp' />
-<meta name="twitter:title" content="怎么使用OPatch">
-<meta name="twitter:description" content="事前注备 一台手机📱 携带一颗正常的大脑🧠 接受过6年义务教育及以上 非必要 正文部分 安装 首先下载并安装OPatch.apk 当然你也可以选择LSPat"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723033155544.webp' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='termux' /><meta property='article:tag' content='zerotermux' /><meta property='article:tag' content='Arch_linux' /><meta property='article:published_time' content='2024-08-10T00:42:16&#43;08:00'/><meta property='article:modified_time' content='2024-08-10T00:42:16&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/1723221912885.webp' />
+<meta name="twitter:title" content="Zerotermux折腾日记(1)-安装arch Linux">
+<meta name="twitter:description" content="开始 termux作为一个能在Android上运行的终端模拟器，能够模拟Linux环境，重点是不需要root也可以使用，只不过局限性不是很大 换"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723221912885.webp' />
   
 
 
@@ -249,16 +249,22 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#开始">开始</a></li>
+    <li><a href="#换源安装tome脚本">换源&amp;安装tome脚本</a>
       <ol>
-        <li><a href="#事前注备">事前注备</a></li>
-        <li><a href="#正文部分">正文部分</a>
+        <li>
           <ol>
-            <li><a href="#安装">安装</a></li>
-            <li><a href="#使用">使用</a></li>
+            <li><a href="#换清华源">换清华源</a></li>
+            <li><a href="#安装tome一键脚本">安装tome一键脚本</a></li>
+            <li><a href="#选择一个linux发行版安装">选择一个Linux发行版安装</a></li>
           </ol>
         </li>
-        <li><a href="#推荐模块">推荐模块</a></li>
+      </ol>
+    </li>
+    <li><a href="#pacman-包管理">Pacman 包管理</a></li>
+    <li><a href="#linux终端基本命令">linux终端基本命令</a>
+      <ol>
+        <li><a href="#终端美化">终端美化</a></li>
       </ol>
     </li>
   </ol>
@@ -275,9 +281,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/">
+            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/">
                 
-                    <img src="https://img.nightrainmilkyway.cn/img/1723033155544.webp" loading="lazy" alt="Featured image of post 怎么使用OPatch" />
+                    <img src="https://img.nightrainmilkyway.cn/img/1723221912885.webp" loading="lazy" alt="Featured image of post Zerotermux折腾日记(1)-安装arch Linux" />
                 
             </a>
         </div>
@@ -288,12 +294,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/lspatch/" >
-                LSPatch
-            </a>
-        
-            <a href="/categories/opatch/" >
-                Opatch
+            <a href="/categories/termux/" >
+                Termux
             </a>
         
     </header>
@@ -301,7 +303,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/">怎么使用OPatch</a>
+            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/">Zerotermux折腾日记(1)-安装arch Linux</a>
         </h2>
     
         
@@ -323,7 +325,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 06, 2024</time>
+                <time class="article-time--published">Aug 10, 2024</time>
             </div>
         
 
@@ -338,7 +340,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -365,82 +367,204 @@
     <section class="article-content">
     
     
-    <h3 id="事前注备">事前注备
-</h3><ul>
-<li><input disabled="" type="checkbox"> 一台手机📱</li>
-<li><input disabled="" type="checkbox"> 携带一颗正常的大脑🧠</li>
-<li><input disabled="" type="checkbox"> 接受过<code>6年义务教育</code>及以上 <strong>非必要</strong></li>
-</ul>
-<h3 id="正文部分">正文部分
-</h3><h4 id="安装">安装
-</h4><p>首先下载并安装<a class="link" href="http://pan.nightrainmilkyway.cn/"  target="_blank" rel="noopener"
-    >OPatch.apk</a>
-当然你也可以选择<code>LSPatch</code>或者<code>ZPatch</code>,再者<code>NPatch</code> 都是可以的</p>
-<p>当我们安装好后打开桌面上上的LSPatch图标</p>
-<p><img src="https://img.nightrainmilkyway.cn/img/1723033155887.webp"
+    <h2 id="开始">开始
+</h2><p><code>termux</code>作为一个能在Android上运行的终端模拟器，能够模拟Linux环境，重点是不需要root也可以使用，只不过局限性不是很大</p>
+<h2 id="换源安装tome脚本">换源&amp;安装tome脚本
+</h2><h4 id="换清华源">换清华源
+</h4><p>国内网络环境确实很差，官方源可能连不上，这里换源加速</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sed -i <span class="s1">&#39;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#39;</span> <span class="nv">$PREFIX</span>/etc/apt/sources.list <span class="o">&amp;&amp;</span> apt update <span class="o">&amp;&amp;</span> apt upgrade
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="安装tome一键脚本">安装tome一键脚本
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">awk -f &lt;<span class="o">(</span>curl -L l.tmoe.me/2.awk<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 备用地址</span>
+</span></span><span class="line"><span class="cl">awk -f &lt;<span class="o">(</span>curl -L gitee.com/mo2/linux/raw/2/2.awk<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>在出现 您要继续吗? Do you want to continue? 之类的选项时：[Y/n]直接按回车，[y/N]输入y再回车
+<img src="https://img.nightrainmilkyway.cn/img/1723222504923.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="1723033155887.webp"
+		alt="1723222504923.jpg"
+	
+	
+></p>
+</blockquote>
+<p>前面直接回车即可，直到出现选项输入 <code>y</code>时，输入小写的 <code>y</code>即可，然后等待到出现图形化界面</p>
+<p><img src="https://img.nightrainmilkyway.cn/img/1723222504686.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1723222504686.jpg"
+	
+	
+></p>
+<ul>
+<li>
+<p>DNS 推荐选择：<a class="link" href="CFIEC" >240c::6666</a></p>
+</li>
+<li>
+<p>一言：推荐选择，增加观赏性</p>
+</li>
+<li>
+<p>时区(Timezone)：Asia/Shanghai 回车</p>
+</li>
+<li>
+<p>共享目录：用于在容器中访问宿主文件，默认即可</p>
+</li>
+</ul>
+<h4 id="选择一个linux发行版安装">选择一个Linux发行版安装
+</h4><blockquote>
+<p>如果有root权限建议安装<code>chroot</code>，没有root权限选择<code>proot</code>
+推荐使用 <code>Ubuntu , arch</code></p>
+</blockquote>
+<p><img src="https://img.nightrainmilkyway.cn/img/1723222504804.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1723222504804.jpg"
 	
 	
 >
-然后我们就可以看到主页，点看下面的低栏，点看左侧低栏，点击右下角加号，然后选择一个目录（==建议创建一个目录==）,然后选择启用此文件夹，然后返回，回到界面</p>
-<p><img src="https://img.nightrainmilkyway.cn/img/1723033154463.png"
+选择arm64发行版列表</p>
+<p><img src="https://img.nightrainmilkyway.cn/img/1723222504999.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="1723033154463.png"
+		alt="1723222504999.jpg"
 	
 	
-></p>
-<h4 id="使用">使用
-</h4><p>再次点击加号，有2种选择，</p>
-<blockquote>
-<ol>
-<li>选择一个apk文件，</li>
-<li>选择已安装的应用
-<em><strong>可根据个人自由选择</strong></em></li>
-</ol>
-</blockquote>
-<p><img src="https://img.nightrainmilkyway.cn/img/1723032990892.png"
+>
+<img src="https://img.nightrainmilkyway.cn/img/1723222505079.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="1723032990892.png"
+		alt="1723222505079.jpg"
 	
 	
 ></p>
-<h5 id="注入原神加载模式">注入原神加载模式
-</h5><p>字面意思,.无需root权限,使用模块注入加载，</p>
-<h5 id="集成原神模式">集成原神模式
-</h5><p>将模块内置到应用内部，无需额外安装模块注入</p>
-<h5 id="注入文件提供者">注入文件提供者
-</h5><p>可以实现无root权限访问data目录，有大用后续文章会设计到</p>
-<h5 id="输出日志到media目录">输出日志到media目录
-</h5><p>字面意思</p>
-<h5 id="复写版本号">复写版本号
-</h5><p>字面意思</p>
-<h5 id="破解签名校验">破解签名校验
-</h5><p>如果你不明白保持默认即可</p>
-<blockquote>
-<p>特别注意，注入后签名与官方签名不一致，无root权限无法覆盖安装，需要卸载后安装，请做好备份工作</p>
-</blockquote>
-<h3 id="推荐模块">推荐模块
-</h3><ul>
-<li>哔哩哔哩漫游</li>
-<li>叼毛网易云</li>
-<li>QA</li>
-<li>QX</li>
-<li>fuck for vip</li>
-<li>hook vip</li>
-</ul>
+<p>默默等待安装，中途会出现是否安装 <code>zsh</code>建议安装，<code>tool</code>如果有桌面需求可以安装，建议 <code>xfce</code></p>
+<h2 id="pacman-包管理">Pacman 包管理
+</h2><p>在 <code>archlinux</code> 上安装的软件都通过 <code>Pacman</code> 来进行管理。</p>
+<p>为了使用 <code>Pacman</code> 额外的命令需要先安装 <code>pacman-contribextra / aur。</code></p>
+<p>安装 <code>pacman-contrib</code> ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S pacman-contrib
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以把 Pacman 理解为一个软件管理器（软件管家？），可以进行软件的安装、删除、查询等：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S package_name <span class="c1"># 安装软件包</span>
+</span></span><span class="line"><span class="cl">pacman -Ss <span class="c1"># 在同步数据库中搜索包，包括包的名称和描述</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Syu <span class="c1"># 升级系统。 -y:标记刷新、-yy：标记强制刷新、-u：标记升级动作（一般使用 -Syu 即可）</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Rns package_name <span class="c1"># 删除软件包，及其所有没有被其他已安装软件包使用的依赖包</span>
+</span></span><span class="line"><span class="cl">sudo pacman -R package_name <span class="c1"># 删除软件包，保留其全部已经安装的依赖关系</span>
+</span></span><span class="line"><span class="cl">pacman -Qi package_name <span class="c1"># 检查已安装包的相关信息。-Q：查询本地软件包数据库</span>
+</span></span><span class="line"><span class="cl">pacman -Qdt <span class="c1"># 找出孤立包。-d：标记依赖包、-t：标记不需要的包、-dt：合并标记孤立包</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Rns <span class="k">$(</span>pacman -Qtdq<span class="k">)</span> <span class="c1"># 删除孤立包</span>
+</span></span><span class="line"><span class="cl">sudo pacman -Fy <span class="c1"># 更新命令查询文件列表数据库</span>
+</span></span><span class="line"><span class="cl">pacman -F some_command <span class="c1"># 当不知道某个命令属于哪个包时，用来在远程软件包中查询某个命令属于哪个包（即使没有安装）</span>
+</span></span><span class="line"><span class="cl">pactree package_name <span class="c1"># </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="linux终端基本命令">linux终端基本命令
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /some_path <span class="c1"># 查看某个文件夹下的文件与子文件夹。/ 代表根目录，是 Linux 最顶端的路径，以此开头则为绝对路径</span>
+</span></span><span class="line"><span class="cl"><span class="nb">pwd</span> <span class="c1"># 查看当前终端所在路径</span>
+</span></span><span class="line"><span class="cl">cat /home/testuser/testfile <span class="c1"># 以输出流方式查看某个文件</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/testuser <span class="c1"># 切换目录命令。将当前终端切换到某一个路径下</span>
+</span></span><span class="line"><span class="cl">cp ./a.py ./b.py <span class="c1"># 复制命令。将当前路径下的 a.py 复制一份并命名为 b.py。./ 代表当前文件夹所在路径，以此开头则为相对路径</span>
+</span></span><span class="line"><span class="cl">cp -r ./a ./b <span class="c1"># 复制整体文件夹</span>
+</span></span><span class="line"><span class="cl">rm b.py <span class="c1"># 删除命令。删除 b.py</span>
+</span></span><span class="line"><span class="cl">mv a.py b.py <span class="c1"># 移动（重命名）命令。将 a.py 更名为 b.py</span>
+</span></span><span class="line"><span class="cl">mkdir my_folder <span class="c1"># 新建名为 my_folder 的文件夹</span>
+</span></span><span class="line"><span class="cl">sudo some_command <span class="c1"># 使普通用户以 root 权限执行某些命令</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="终端美化">终端美化
+</h3><p>安装 lolcat：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S lolcat
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过管道符（|）将其它命令（如 neofetch）的输出传递给 lolcat：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">neofetch <span class="p">|</span> lolcat
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img.nightrainmilkyway.cn/img/1723223723218.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1723223723218.jpg"
+	
+	
+></p>
 
 </section>
 
@@ -449,9 +573,11 @@
     
     <section class="article-tags">
         
-            <a href="/tags/lspatch/">LSPatch</a>
+            <a href="/tags/termux/">Termux</a>
         
-            <a href="/tags/opatch/">Opatch</a>
+            <a href="/tags/zerotermux/">Zerotermux</a>
+        
+            <a href="/tags/arch_linux/">Arch_linux</a>
         
     </section>
 
