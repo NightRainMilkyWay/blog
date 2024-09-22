@@ -7,12 +7,52 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 10 Aug 2024 00:42:16 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 10 Aug 2024 21:23:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android</title>
+        <link>http://localhost:1313/categories/android/</link>
+        <pubDate>Sat, 10 Aug 2024 21:23:21 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/android/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>NDK</title>
+        <link>http://localhost:1313/categories/ndk/</link>
+        <pubDate>Sat, 10 Aug 2024 21:23:21 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/ndk/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Termux</title>
         <link>http://localhost:1313/categories/termux/</link>
-        <pubDate>Sat, 10 Aug 2024 00:42:16 +0800</pubDate>
+        <pubDate>Sat, 10 Aug 2024 21:23:21 +0800</pubDate>
         
         <guid>http://localhost:1313/categories/termux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CuprumTurbo Scheduler</title>
+        <link>http://localhost:1313/categories/cuprumturbo-scheduler/</link>
+        <pubDate>Sat, 10 Aug 2024 21:18:22 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/cuprumturbo-scheduler/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Tritium</title>
+        <link>http://localhost:1313/categories/tritium/</link>
+        <pubDate>Sat, 10 Aug 2024 21:18:22 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/tritium/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Git</title>
+        <link>http://localhost:1313/categories/git/</link>
+        <pubDate>Sat, 10 Aug 2024 20:58:28 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/git/</guid>
         <description></description>
         </item>
         <item>

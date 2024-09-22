@@ -64,205 +64,64 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
-        <description>&lt;h2 id=&#34;我是nightrainmilkyway&#34;&gt;我是NightRainMilkyWay
-&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/1723221496024.webp&#34;
+        <description>&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://readme-typing-svg.demolab.com?font=Fira&amp;#43;Code&amp;amp;size=35&amp;amp;pause=1000&amp;amp;color=FCBFC7&amp;amp;center=%E5%81%87&amp;amp;vCenter=%E5%81%87&amp;amp;repeat=%E7%9C%9F&amp;amp;random=%E5%81%87&amp;amp;width=435&amp;amp;lines=NightRainMilkyWay&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;1723221496024.webp&#34;
+		alt=&#34;Typing SVG&#34;
 	
 	
 &gt;&lt;/p&gt;
-&lt;div id=&#34;heatmap&#34; style=&#34;
-  max-width: 1900px;
-  height: 180px;
-  padding: 2px;
-  text-align: center;
-  &#34;
-&gt;&lt;/div&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34;&gt;
-  var chartDom = document.getElementById(&#39;heatmap&#39;);
-  var myChart = echarts.init(chartDom);
-  window.onresize = function() {
-      myChart.resize();
-  };
-  var option;
-
-  
-  
-  
-  
-  
-  
-  var dataMap = new Map();
-  
-    var key = &#34;2024-08-10&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  1120 ;
-    var link = &#34;/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/&#34;;
-    var title = &#34;Zerotermux折腾日记(1)-安装arch Linux&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }
-    var key = &#34;2024-08-07&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  2398 ;
-    var link = &#34;/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/&#34;;
-    var title = &#34;使用QQ装扮&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }
-    var key = &#34;2024-08-06&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  447 ;
-    var link = &#34;/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/&#34;;
-    var title = &#34;怎么使用OPatch&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }var data = [];
-  
-  for (const [key, value] of dataMap.entries()) {
-    var sum = 0;
-    for (const v of value) {
-      sum += v.wordCount;
-    }
-    data.push([key, (sum / 1000).toFixed(1)]);
-  }
-  
-  var startDate = new Date();
-  var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
-  var startDate = +new Date(year_Mill);
-  var endDate = +new Date();
-
-  var dayTime = 3600 * 24 * 1000;
-  startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
-  endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
-
-  
-  function heatmap_width(months){             
-    var startDate = new Date();
-    var mill = startDate.setMonth((startDate.getMonth() - months));
-    var endDate = +new Date();
-    startDate = +new Date(mill);
-
-    endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
-    startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
-
-    var showmonth = [];
-    showmonth.push([
-        startDate,
-        endDate
-    ]);
-    return showmonth
-  };
-
-  function getRangeArr() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth &gt;= 600) {
-      return heatmap_width(12);
-    } else if (windowWidth &gt;= 400) {
-      return heatmap_width(9);
-    } else {
-      return heatmap_width(6);
-    }
-  }
-
-  option = {
-    title: {
-        top: 0,
-        left: &#39;center&#39;,
-        text: &#39;博客热力图&#39;
-    },
-    tooltip: {
-      hideDelay: 1000,
-      enterable: true,
-      formatter: function (p) {
-        const date = p.data[0];
-        const posts = dataMap.get(date);
-        var content = `${date}`;
-        for (const [i, post] of posts.entries()) {
-            content += &#34;&lt;br&gt;&#34;;
-            var link = post.link;
-            var title = post.title;
-            var wordCount = (post.wordCount / 1000).toFixed(1);
-            content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34;&gt;${title} | ${wordCount} k&lt;/a&gt;`
-        }
-        return content;
-      }
-    },
-    visualMap: {
-        min: 0,
-        max: 10,
-        type: &#39;piecewise&#39;,
-        orient: &#39;horizontal&#39;,
-        left: &#39;center&#39;,
-        top: 30,
-        
-        inRange: {   
-          
-          color: [&#39;#7aa8744c&#39;, &#39;#7AA874&#39; ] 
-        },
-        splitNumber: 4,
-        text: [&#39;千字&#39;, &#39;&#39;],
-        showLabel: true,
-        itemGap: 20,
-    },
-    calendar: {
-        top: 80,
-        left: 20,
-        right: 4,
-        cellSize: [&#39;auto&#39;, 13],
-        range: getRangeArr(),
-        itemStyle: {
-            color: &#39;#F1F1F1&#39;,
-            borderWidth: 1.5,
-            borderColor: &#39;#fff&#39;,
-        },
-        yearLabel: { show: false },
-        
-        splitLine: {
-          lineStyle: {
-            color: &#39;rgba(0, 0, 0, 0.0)&#39;,
-            
-            
-            
-            
-          }
-        }
-    },
-    series: {
-        type: &#39;heatmap&#39;,
-        coordinateSystem: &#39;calendar&#39;,
-        data: data,
-    }
-  };
-  myChart.setOption(option);
-  myChart.on(&#39;click&#39;, function(params) {
-    if (params.componentType === &#39;series&#39;) {
-      
-      const post = dataMap.get(params.data[0])[0];
-      const link = window.location.origin + post.link;
-      window.open(link, &#39;_blank&#39;).focus();
-    }
-});
-&lt;/script&gt;
+&lt;p&gt;自由开发者 | 开源爱好者 | 技术博主？&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/113845204_p0.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;113845204_p0.jpg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;关于我&lt;/p&gt;
+&lt;p&gt;你好！我是&lt;em&gt;&lt;strong&gt;nightrainmilkyway&lt;/strong&gt;&lt;/em&gt;，一名热爱编程的开发者，我喜欢参与开源项目、学习新技术，并通过博客和演讲分享我的经验&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/NightRainMilkyWay@main/github-metrics.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Metrics&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/NightRainMilkyWay@main/profile-3d-contrib/profile-season-animate.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;picture&gt;
+  &lt;source media=&#34;(prefers-color-scheme: dark)&#34; srcset=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake-dark.svg&#34;&gt;
+  &lt;source media=&#34;(prefers-color-scheme: light)&#34; srcset=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake.svg&#34;&gt;
+  &lt;img alt=&#34;github contribution grid snake animation&#34; src=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake.svg&#34;&gt;
+&lt;/picture&gt;
+&lt;hr&gt;
+&lt;p&gt;与我联系&lt;/p&gt;
+&lt;p&gt;Gmail : &lt;a class=&#34;link&#34; href=&#34;mailto:nightrainmilkyway@gmail.com&#34; &gt;nightrainmilkyway@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;QQ：   3293811490&lt;/p&gt;
+&lt;hr&gt;
+&lt;!---
+NightRainMilkyWay/NightRainMilkyWay is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+---&gt;
 </description>
         </item>
         

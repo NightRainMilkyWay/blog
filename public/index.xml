@@ -7,7 +7,260 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 10 Aug 2024 00:42:16 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 10 Aug 2024 21:23:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Zerotermux折腾日记(3)-Arch linux上跑NDK</title>
+        <link>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/</link>
+        <pubDate>Sat, 10 Aug 2024 21:23:21 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723296375281.webp" alt="Featured image of post Zerotermux折腾日记(3)-Arch linux上跑NDK" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。&lt;/p&gt;
+&lt;p&gt;在Arch Linux上安装NDK非常简单，只需要在终端中输入以下命令即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S ndk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完成后，可以在终端中输入以下命令来验证NDK是否安装成功：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ndk-build --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;如果按照前面操作的话不出所料应该是报错的因为arch-linux的包管理器中没有ndk这个包所以我们需要手动下载ndk&#34;&gt;如果按照前面操作的话，不出所料应该是报错的，因为Arch Linux的包管理器中没有ndk这个包，所以我们需要手动下载NDK。
+&lt;/h2&gt;&lt;h2 id=&#34;下载ndk&#34;&gt;下载NDK
+&lt;/h2&gt;&lt;p&gt;在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads&lt;/p&gt;
+&lt;p&gt;选择适合自己系统的版本进行下载，下载完成后解压到任意目录即可&lt;/p&gt;
+&lt;h2 id=&#34;配置环境变量&#34;&gt;配置环境变量
+&lt;/h2&gt;&lt;p&gt;将NDK的路径添加到环境变量中，这样就可以在终端中直接使用ndk-build命令了。&lt;/p&gt;
+&lt;p&gt;在终端中输入以下命令来编辑环境变量：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;正文&#34;&gt;正文
+&lt;/h2&gt;&lt;p&gt;正常情况在linux上安装上这样，但在termux上安装linux，本质上还是模拟，arm架构能跑动就奇怪了，
+NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
+&lt;h2 id=&#34;解决方案&#34;&gt;解决方案
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/zongou/android-sndk.git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/zongou/android-sndk.git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip;待续&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>CuprumTurbo Scheduler使用</title>
+        <link>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Sat, 10 Aug 2024 21:18:22 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723295109779.webp" alt="Featured image of post CuprumTurbo Scheduler使用" /&gt;&lt;h2 id=&#34;使用须知&#34;&gt;使用须知
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1.安装软件或者模块之前请务必删除asoulopt&lt;/li&gt;
+&lt;li&gt;2.使用软件和模块时请勿开启系统的性能模式开关，如果有Extreme gt请务必开启&lt;/li&gt;
+&lt;li&gt;3.使用模块的就没有必要安装软件&lt;/li&gt;
+&lt;li&gt;4.模块是由scene控制，scene需要关闭核心分配&lt;/li&gt;
+&lt;li&gt;5.请务必安装CuJankDetector模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用方法1--app导入&#34;&gt;使用方法1 -app导入
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-52-03_8500.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法2--模块刷入&#34;&gt;使用方法2 -模块刷入
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-42-00_2162.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;检查日志&#34;&gt;检查日志
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果为&lt;code&gt;APP&lt;/code&gt;导入使用，即可在APP内查看日志&lt;/li&gt;
+&lt;li&gt;如果为模块，则CuprumTurbo Scheduler日志输出路径为&lt;code&gt;/storage/emulated/0/Android/ct/scheduler.log&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;出现&lt;code&gt;Daemon Running&lt;/code&gt;即为调度正常运行&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Zerotermux折腾日记(2)-Arch linux安装git</title>
+        <link>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B02-arch-linux%E5%AE%89%E8%A3%85git/</link>
+        <pubDate>Sat, 10 Aug 2024 20:58:28 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B02-arch-linux%E5%AE%89%E8%A3%85git/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723295107649.webp" alt="Featured image of post Zerotermux折腾日记(2)-Arch linux安装git" /&gt;&lt;h2 id=&#34;安装git&#34;&gt;安装git
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -S  git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;配置git&#34;&gt;配置git
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Your Name&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;youremail@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;测试git&#34;&gt;测试git
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;克隆仓库&#34;&gt;克隆仓库
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/yourusername/yourrepository.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;提交代码&#34;&gt;提交代码
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;your commit message&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;拉取代码&#34;&gt;拉取代码
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;使用ssh连接github&#34;&gt;使用ssh连接github
+&lt;/h2&gt;&lt;h3 id=&#34;生成ssh密钥&#34;&gt;生成ssh密钥
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;youremail@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;添加ssh密钥到ssh-agent&#34;&gt;添加ssh密钥到ssh-agent
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;eval&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;ssh-agent -s&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-add ~/.ssh/id_rsa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;添加ssh密钥到github&#34;&gt;添加ssh密钥到github
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat ~/.ssh/id_rsa.pub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;测试ssh连接&#34;&gt;测试ssh连接
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -T git@github.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;克隆仓库-1&#34;&gt;克隆仓库
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone git@github.com:yourusername/yourrepository.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;git常用命令及注释&#34;&gt;git常用命令及注释
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init &lt;span class=&#34;c1&#34;&gt;# 初始化仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add . &lt;span class=&#34;c1&#34;&gt;# 添加所有文件到暂存区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;commit message&amp;#34;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 提交暂存区文件到仓库区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin master &lt;span class=&#34;c1&#34;&gt;# 将本地分支推送到远程仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull origin master &lt;span class=&#34;c1&#34;&gt;# 从远程仓库拉取最新代码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git status &lt;span class=&#34;c1&#34;&gt;# 查看仓库状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git log &lt;span class=&#34;c1&#34;&gt;# 查看提交历史&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git diff &lt;span class=&#34;c1&#34;&gt;# 查看暂存区与工作区差异&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard HEAD &lt;span class=&#34;c1&#34;&gt;# 回滚到最新提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout -- file &lt;span class=&#34;c1&#34;&gt;# 撤销工作区修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch &lt;span class=&#34;c1&#34;&gt;# 查看分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch &amp;lt;branch-name&amp;gt; &lt;span class=&#34;c1&#34;&gt;# 创建分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout &amp;lt;branch-name&amp;gt; &lt;span class=&#34;c1&#34;&gt;# 切换分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git merge &amp;lt;branch-name&amp;gt; &lt;span class=&#34;c1&#34;&gt;# 合并分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote -v &lt;span class=&#34;c1&#34;&gt;# 查看远程仓库信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin &amp;lt;repository-url&amp;gt; &lt;span class=&#34;c1&#34;&gt;# 添加远程仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote remove origin &lt;span class=&#34;c1&#34;&gt;# 删除远程仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote set-url origin &amp;lt;repository-url&amp;gt; &lt;span class=&#34;c1&#34;&gt;# 修改远程仓库地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote update origin --prune &lt;span class=&#34;c1&#34;&gt;# 更新远程仓库信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote show origin &lt;span class=&#34;c1&#34;&gt;# 查看远程仓库详细信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Zerotermux折腾日记(1)-安装arch Linux</title>
         <link>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/</link>
         <pubDate>Sat, 10 Aug 2024 00:42:16 +0800</pubDate>
@@ -447,205 +700,64 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
-        <description>&lt;h2 id=&#34;我是nightrainmilkyway&#34;&gt;我是NightRainMilkyWay
-&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/1723221496024.webp&#34;
+        <description>&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://readme-typing-svg.demolab.com?font=Fira&amp;#43;Code&amp;amp;size=35&amp;amp;pause=1000&amp;amp;color=FCBFC7&amp;amp;center=%E5%81%87&amp;amp;vCenter=%E5%81%87&amp;amp;repeat=%E7%9C%9F&amp;amp;random=%E5%81%87&amp;amp;width=435&amp;amp;lines=NightRainMilkyWay&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;1723221496024.webp&#34;
+		alt=&#34;Typing SVG&#34;
 	
 	
 &gt;&lt;/p&gt;
-&lt;div id=&#34;heatmap&#34; style=&#34;
-  max-width: 1900px;
-  height: 180px;
-  padding: 2px;
-  text-align: center;
-  &#34;
-&gt;&lt;/div&gt;
-&lt;script src=&#34;https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34;&gt;
-  var chartDom = document.getElementById(&#39;heatmap&#39;);
-  var myChart = echarts.init(chartDom);
-  window.onresize = function() {
-      myChart.resize();
-  };
-  var option;
-
-  
-  
-  
-  
-  
-  
-  var dataMap = new Map();
-  
-    var key = &#34;2024-08-10&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  1120 ;
-    var link = &#34;/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/&#34;;
-    var title = &#34;Zerotermux折腾日记(1)-安装arch Linux&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }
-    var key = &#34;2024-08-07&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  2398 ;
-    var link = &#34;/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/&#34;;
-    var title = &#34;使用QQ装扮&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }
-    var key = &#34;2024-08-06&#34;;
-    var value = dataMap.get(key);
-    var wordCount =  447 ;
-    var link = &#34;/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/&#34;;
-    var title = &#34;怎么使用OPatch&#34;;
-    
-    
-    if (value == null) {
-      dataMap.set(key, [{wordCount, link, title}]);
-    } else {
-      value.push({wordCount, link, title});
-    }var data = [];
-  
-  for (const [key, value] of dataMap.entries()) {
-    var sum = 0;
-    for (const v of value) {
-      sum += v.wordCount;
-    }
-    data.push([key, (sum / 1000).toFixed(1)]);
-  }
-  
-  var startDate = new Date();
-  var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
-  var startDate = +new Date(year_Mill);
-  var endDate = +new Date();
-
-  var dayTime = 3600 * 24 * 1000;
-  startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
-  endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
-
-  
-  function heatmap_width(months){             
-    var startDate = new Date();
-    var mill = startDate.setMonth((startDate.getMonth() - months));
-    var endDate = +new Date();
-    startDate = +new Date(mill);
-
-    endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
-    startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
-
-    var showmonth = [];
-    showmonth.push([
-        startDate,
-        endDate
-    ]);
-    return showmonth
-  };
-
-  function getRangeArr() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth &gt;= 600) {
-      return heatmap_width(12);
-    } else if (windowWidth &gt;= 400) {
-      return heatmap_width(9);
-    } else {
-      return heatmap_width(6);
-    }
-  }
-
-  option = {
-    title: {
-        top: 0,
-        left: &#39;center&#39;,
-        text: &#39;博客热力图&#39;
-    },
-    tooltip: {
-      hideDelay: 1000,
-      enterable: true,
-      formatter: function (p) {
-        const date = p.data[0];
-        const posts = dataMap.get(date);
-        var content = `${date}`;
-        for (const [i, post] of posts.entries()) {
-            content += &#34;&lt;br&gt;&#34;;
-            var link = post.link;
-            var title = post.title;
-            var wordCount = (post.wordCount / 1000).toFixed(1);
-            content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34;&gt;${title} | ${wordCount} k&lt;/a&gt;`
-        }
-        return content;
-      }
-    },
-    visualMap: {
-        min: 0,
-        max: 10,
-        type: &#39;piecewise&#39;,
-        orient: &#39;horizontal&#39;,
-        left: &#39;center&#39;,
-        top: 30,
-        
-        inRange: {   
-          
-          color: [&#39;#7aa8744c&#39;, &#39;#7AA874&#39; ] 
-        },
-        splitNumber: 4,
-        text: [&#39;千字&#39;, &#39;&#39;],
-        showLabel: true,
-        itemGap: 20,
-    },
-    calendar: {
-        top: 80,
-        left: 20,
-        right: 4,
-        cellSize: [&#39;auto&#39;, 13],
-        range: getRangeArr(),
-        itemStyle: {
-            color: &#39;#F1F1F1&#39;,
-            borderWidth: 1.5,
-            borderColor: &#39;#fff&#39;,
-        },
-        yearLabel: { show: false },
-        
-        splitLine: {
-          lineStyle: {
-            color: &#39;rgba(0, 0, 0, 0.0)&#39;,
-            
-            
-            
-            
-          }
-        }
-    },
-    series: {
-        type: &#39;heatmap&#39;,
-        coordinateSystem: &#39;calendar&#39;,
-        data: data,
-    }
-  };
-  myChart.setOption(option);
-  myChart.on(&#39;click&#39;, function(params) {
-    if (params.componentType === &#39;series&#39;) {
-      
-      const post = dataMap.get(params.data[0])[0];
-      const link = window.location.origin + post.link;
-      window.open(link, &#39;_blank&#39;).focus();
-    }
-});
-&lt;/script&gt;
+&lt;p&gt;自由开发者 | 开源爱好者 | 技术博主？&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/113845204_p0.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;113845204_p0.jpg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;关于我&lt;/p&gt;
+&lt;p&gt;你好！我是&lt;em&gt;&lt;strong&gt;nightrainmilkyway&lt;/strong&gt;&lt;/em&gt;，一名热爱编程的开发者，我喜欢参与开源项目、学习新技术，并通过博客和演讲分享我的经验&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/NightRainMilkyWay@main/github-metrics.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Metrics&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NightRainMilkyWay/NightRainMilkyWay@main/profile-3d-contrib/profile-season-animate.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;picture&gt;
+  &lt;source media=&#34;(prefers-color-scheme: dark)&#34; srcset=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake-dark.svg&#34;&gt;
+  &lt;source media=&#34;(prefers-color-scheme: light)&#34; srcset=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake.svg&#34;&gt;
+  &lt;img alt=&#34;github contribution grid snake animation&#34; src=&#34;https://raw.githubusercontent.com/NightRainMilkyWay/NightRainMilkyWay/output/github-contribution-grid-snake.svg&#34;&gt;
+&lt;/picture&gt;
+&lt;hr&gt;
+&lt;p&gt;与我联系&lt;/p&gt;
+&lt;p&gt;Gmail : &lt;a class=&#34;link&#34; href=&#34;mailto:nightrainmilkyway@gmail.com&#34; &gt;nightrainmilkyway@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;QQ：   3293811490&lt;/p&gt;
+&lt;hr&gt;
+&lt;!---
+NightRainMilkyWay/NightRainMilkyWay is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+---&gt;
 </description>
         </item>
         
