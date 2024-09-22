@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Root玩机 on Nightrain&#39;s Blog</title>
+        <link>http://localhost:1313/tags/root%E7%8E%A9%E6%9C%BA/</link>
+        <description>Recent content in Root玩机 on Nightrain&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 10 Aug 2024 21:18:22 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/root%E7%8E%A9%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>CuprumTurbo Scheduler使用</title>
+        <link>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Sat, 10 Aug 2024 21:18:22 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723295109779.webp" alt="Featured image of post CuprumTurbo Scheduler使用" /&gt;&lt;h2 id=&#34;使用须知&#34;&gt;使用须知
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1.安装软件或者模块之前请务必删除asoulopt&lt;/li&gt;
+&lt;li&gt;2.使用软件和模块时请勿开启系统的性能模式开关，如果有Extreme gt请务必开启&lt;/li&gt;
+&lt;li&gt;3.使用模块的就没有必要安装软件&lt;/li&gt;
+&lt;li&gt;4.模块是由scene控制，scene需要关闭核心分配&lt;/li&gt;
+&lt;li&gt;5.请务必安装CuJankDetector模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用方法1--app导入&#34;&gt;使用方法1 -app导入
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-52-03_8500.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法2--模块刷入&#34;&gt;使用方法2 -模块刷入
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-42-00_2162.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;检查日志&#34;&gt;检查日志
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果为&lt;code&gt;APP&lt;/code&gt;导入使用，即可在APP内查看日志&lt;/li&gt;
+&lt;li&gt;如果为模块，则CuprumTurbo Scheduler日志输出路径为&lt;code&gt;/storage/emulated/0/Android/ct/scheduler.log&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;出现&lt;code&gt;Daemon Running&lt;/code&gt;即为调度正常运行&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
