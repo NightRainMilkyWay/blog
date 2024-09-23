@@ -7,7 +7,60 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 10 Aug 2024 21:23:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Sep 2024 10:08:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>修改 hosts 文件理解 DNS</title>
+        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</link>
+        <pubDate>Mon, 23 Sep 2024 10:08:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改 hosts 文件理解 DNS" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
+&lt;/h2&gt;&lt;p&gt;相信大家都看过流浪地球 2，其中有这么一个情节，&lt;code&gt;重启世界根服务器&lt;/code&gt;，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/f44d30758a58254024433c.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f44d30758a58254024433c.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
+&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间&lt;/p&gt;
+&lt;p&gt;当我们打开这个&lt;code&gt;hosts&lt;/code&gt;文件之后可以发现里面有一下内容&lt;/p&gt;
+&lt;p&gt;Windows 目录是: &lt;code&gt;C:\Windows\System32\drivers\etc\hosts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Linux 目录是: &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;127.0.0.1       localhost
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;::1     localhost ip6-localhost ip6-loopback
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::1 ip6-allnodes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::2 ip6-allrouters
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;20.205.243.166　　github.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个&lt;code&gt;hosts&lt;/code&gt;文件的作用&lt;/p&gt;
+&lt;h2 id=&#34;dns-是什么&#34;&gt;DNS 是什么
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Zerotermux折腾日记(3)-Arch linux上跑NDK</title>
         <link>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/</link>
         <pubDate>Sat, 10 Aug 2024 21:23:21 +0800</pubDate>
@@ -58,20 +111,23 @@ NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>CuprumTurbo Scheduler使用</title>
-        <link>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</link>
+        <title>CuprumTurbo Scheduler 使用</title>
+        <link>http://localhost:1313/p/cuprumturbo-scheduler-%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Sat, 10 Aug 2024 21:18:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/cuprumturbo-scheduler%E4%BD%BF%E7%94%A8/</guid>
-        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723295109779.webp" alt="Featured image of post CuprumTurbo Scheduler使用" /&gt;&lt;h2 id=&#34;使用须知&#34;&gt;使用须知
+        <guid>http://localhost:1313/p/cuprumturbo-scheduler-%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/1723295109779.webp" alt="Featured image of post CuprumTurbo Scheduler 使用" /&gt;&lt;h2 id=&#34;使用须知&#34;&gt;使用须知
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;1.安装软件或者模块之前请务必删除asoulopt&lt;/li&gt;
-&lt;li&gt;2.使用软件和模块时请勿开启系统的性能模式开关，如果有Extreme gt请务必开启&lt;/li&gt;
+&lt;li&gt;1.安装软件或者模块之前请务必删除 asoulopt&lt;/li&gt;
+&lt;li&gt;2.使用软件和模块时请勿开启系统的性能模式开关，如果有 Extreme gt 请务必开启&lt;/li&gt;
 &lt;li&gt;3.使用模块的就没有必要安装软件&lt;/li&gt;
-&lt;li&gt;4.模块是由scene控制，scene需要关闭核心分配&lt;/li&gt;
-&lt;li&gt;5.请务必安装CuJankDetector模块&lt;/li&gt;
+&lt;li&gt;4.模块是由 scene 控制，scene 需要关闭核心分配&lt;/li&gt;
+&lt;li&gt;5.请务必安装 CuJankDetector 模块&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;使用方法1--app导入&#34;&gt;使用方法1 -app导入
+&lt;h2 id=&#34;下载&#34;&gt;下载
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TimeBreeze/Tritium/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub release&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法-1--app-导入&#34;&gt;使用方法 1 -app 导入
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-52-03_8500.png&#34;
 	
 	
@@ -80,7 +136,7 @@ NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;使用方法2--模块刷入&#34;&gt;使用方法2 -模块刷入
+&lt;h2 id=&#34;使用方法-2--模块刷入&#34;&gt;使用方法 2 -模块刷入
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-42-00_2162.png&#34;
 	
 	
@@ -91,8 +147,8 @@ NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;检查日志&#34;&gt;检查日志
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;如果为&lt;code&gt;APP&lt;/code&gt;导入使用，即可在APP内查看日志&lt;/li&gt;
-&lt;li&gt;如果为模块，则CuprumTurbo Scheduler日志输出路径为&lt;code&gt;/storage/emulated/0/Android/ct/scheduler.log&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果为&lt;code&gt;APP&lt;/code&gt;导入使用，即可在 APP 内查看日志&lt;/li&gt;
+&lt;li&gt;如果为模块，则 CuprumTurbo Scheduler 日志输出路径为&lt;code&gt;/storage/emulated/0/Android/ct/scheduler.log&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;出现&lt;code&gt;Daemon Running&lt;/code&gt;即为调度正常运行&lt;/p&gt;
 </description>
@@ -617,19 +673,45 @@ NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;h5 id=&#34;注入原神加载模式&#34;&gt;注入原神加载模式
-&lt;/h5&gt;&lt;p&gt;字面意思,.无需root权限,使用模块注入加载，&lt;/p&gt;
-&lt;h5 id=&#34;集成原神模式&#34;&gt;集成原神模式
-&lt;/h5&gt;&lt;p&gt;将模块内置到应用内部，无需额外安装模块注入&lt;/p&gt;
-&lt;h5 id=&#34;注入文件提供者&#34;&gt;注入文件提供者
-&lt;/h5&gt;&lt;p&gt;可以实现无root权限访问data目录，有大用后续文章会设计到&lt;/p&gt;
-&lt;h5 id=&#34;输出日志到media目录&#34;&gt;输出日志到media目录
-&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
-&lt;h5 id=&#34;复写版本号&#34;&gt;复写版本号
-&lt;/h5&gt;&lt;p&gt;字面意思&lt;/p&gt;
-&lt;h5 id=&#34;破解签名校验&#34;&gt;破解签名校验
-&lt;/h5&gt;&lt;p&gt;如果你不明白保持默认即可&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 注入原神加载模式
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;字面意思,.无需root权限,使用模块注入加载，
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 集成原神模式
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;将模块内置到应用内部，无需额外安装模块注入
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 注入文件提供者
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;可以实现无root权限访问data目录，有大用后续文章会设计到
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 输出日志到media目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;字面意思
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 复写版本号
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;字面意思
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 破解签名校验
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;如果你不明白保持默认即可
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;特别注意，注入后签名与官方签名不一致，无root权限无法覆盖安装，需要卸载后安装，请做好备份工作&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;推荐模块&#34;&gt;推荐模块

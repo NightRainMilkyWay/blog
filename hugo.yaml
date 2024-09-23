@@ -1,7 +1,7 @@
 baseurl: https://nightrainmilkyway.cn
 languageCode: zh-cn
 theme: hugo-theme-stack
-paginate: 3
+paginate: 5
 title: Nightrain's Blog
 copyright: Example Person
 

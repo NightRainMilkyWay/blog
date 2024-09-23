@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Hosts on Nightrain&#39;s Blog</title>
+        <link>http://localhost:1313/tags/hosts/</link>
+        <description>Recent content in Hosts on Nightrain&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 23 Sep 2024 10:08:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hosts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>修改 hosts 文件理解 DNS</title>
+        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</link>
+        <pubDate>Mon, 23 Sep 2024 10:08:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改 hosts 文件理解 DNS" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
+&lt;/h2&gt;&lt;p&gt;相信大家都看过流浪地球 2，其中有这么一个情节，&lt;code&gt;重启世界根服务器&lt;/code&gt;，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/f44d30758a58254024433c.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f44d30758a58254024433c.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
+&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间&lt;/p&gt;
+&lt;p&gt;当我们打开这个&lt;code&gt;hosts&lt;/code&gt;文件之后可以发现里面有一下内容&lt;/p&gt;
+&lt;p&gt;Windows 目录是: &lt;code&gt;C:\Windows\System32\drivers\etc\hosts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Linux 目录是: &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;127.0.0.1       localhost
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;::1     localhost ip6-localhost ip6-loopback
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::1 ip6-allnodes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::2 ip6-allrouters
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;20.205.243.166　　github.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个&lt;code&gt;hosts&lt;/code&gt;文件的作用&lt;/p&gt;
+&lt;h2 id=&#34;dns-是什么&#34;&gt;DNS 是什么
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
