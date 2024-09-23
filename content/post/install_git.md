@@ -4,7 +4,7 @@ description:
 date: 2024-08-10T20:58:28+08:00
 image: https://img.nightrainmilkyway.cn/img/1723295107649.webp
 math: 
-license: 
+license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
 draft: false
@@ -95,3 +95,12 @@ git remote set-url origin <repository-url> # 修改远程仓库地址
 git remote update origin --prune # 更新远程仓库信息
 git remote show origin # 查看远程仓库详细信息
 ```
+
+
+## 附录
+
+### 参考文献
+
+### 版权信息
+
+本文原载于 [nightrainmilkyway.cn](https://nightrainmilkyway.cn)，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。

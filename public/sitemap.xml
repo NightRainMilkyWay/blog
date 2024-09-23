@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-09-23T10:08:44+08:00</lastmod>
+    <lastmod>2024-09-23T19:42:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/p/custom-block/</loc>
+    <lastmod>2024-09-23T19:42:21+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-09-23T19:42:21+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
@@ -15,9 +21,6 @@
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/hosts/</loc>
-    <lastmod>2024-09-23T10:08:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>

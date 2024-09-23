@@ -4,7 +4,7 @@ description:
 date: 2024-08-06T20:38:40+08:00
 image: https://img.nightrainmilkyway.cn/img/1723033155544.webp
 math: 
-license: 
+license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
 draft: false
@@ -73,3 +73,13 @@ tags:
 - QX
 - fuck for vip
 - hook vip
+
+
+
+## 附录
+
+### 参考文献
+
+### 版权信息
+
+本文原载于 [nightrainmilkyway.cn](https://nightrainmilkyway.cn)，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。

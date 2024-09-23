@@ -32,23 +32,137 @@
 &lt;p&gt;Linux 目录是: &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;127.0.0.1       localhost
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;::1     localhost ip6-localhost ip6-loopback
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::1 ip6-allnodes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ff02::2 ip6-allrouters
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;20.205.243.166　　github.com
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;127.0.0.1&lt;/span&gt;       &lt;span class=&#34;n&#34;&gt;localhost&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;     &lt;span class=&#34;n&#34;&gt;localhost&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ip6&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;localhost&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ip6&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loopback&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ff02&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ip6&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;allnodes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ff02&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ip6&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;allrouters&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;20.205.243.166&lt;/span&gt;　　&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;www&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;gcr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;www&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gcr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;accounts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;61.91.161.217&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;accounts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;google&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cn&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个&lt;code&gt;hosts&lt;/code&gt;文件的作用&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;看到第一行就是我们所熟悉的&lt;code&gt;127.0.0.1　　localhost&lt;/code&gt;，就是在hosts中定义的&lt;/p&gt;
+&lt;p&gt;可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个&lt;code&gt;hosts&lt;/code&gt;文件的作用&lt;/p&gt;
 &lt;h2 id=&#34;dns-是什么&#34;&gt;DNS 是什么
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
+&lt;/h2&gt;&lt;p&gt;DNS（Domain Name System，域名系统），将人类可读的域名（例如 &lt;a class=&#34;link&#34; href=&#34;https://www.example.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;www.example.com&lt;/a&gt;）转换为机器用于相互通信的IP地址（例如 192.0.2.1 或 2001:db8::1）的一种分布式数据库。打个比方来说，DNS就像一个电话簿，IP相当于电话号码，域名相当于联系人&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+     
+    notice {
+        --title-color: #fff;
+        --title-background-color: #6be;
+        --content-color: #444;
+        --content-background-color: #e7f2fa;
+    }
+
+    .notice.info {
+        --title-background-color: #EFF0F5;
+        --content-background-color: #EFF0F5;
+    }
+
+    .notice.tip {
+        --title-background-color: #E8EAFF;
+        --content-background-color: #E8EAFF;
+    }
+
+    .notice.warning {
+        --title-background-color: #FEF4D8;
+        --content-background-color: #FEF4D8;
+    }
+    
+    .notice.danger {
+        --title-background-color: #FFE2E7;
+        --content-background-color: #FFE2E7;
+    }
+    
+    
+
+   
+
+     
+    .notice {
+        
+        padding: 1px 18px;  
+        line-height: 24px;  
+        margin-bottom: 24px;  
+        border-radius: 18px;  
+        color: var(--content-color);  
+        background: var(--content-background-color);  
+    }
+    
+    &lt;!--   --&gt;
+    &lt;!-- .notice p:last-child { --&gt;
+        &lt;!-- margin-bottom: 0;   --&gt;
+    &lt;!-- } --&gt;
+    
+     
+    .notice-title {
+        margin: -18px -18px 12px;  
+        padding: 8px 18px;  
+        border-radius: 18px 18px 0 0;  
+        font-weight: 700;  
+        color: var(--title-color);  
+        background: var(--title-background-color);  
+    }
+    
+     
+    .icon-notice {
+        display: inline-flex;  
+        align-self: center;  
+        margin-right: 8px;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em;  
+        width: 1em;  
+        fill: currentColor;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em;  
+        position: relative;  
+    }
+&lt;/style&gt;&lt;div class=&#34;notice tip&#34; &gt;
+
+    &lt;p class=&#34;notice-title&#34;&gt;
+        &lt;span class=&#34;icon-notice baseline&#34;&gt;
+            
+        &lt;/span&gt;小贴示&lt;/p&gt;&lt;p&gt;这几条可以看出一个 IP 地址可以同时对应多个域名，这也就是为什么平时在地址栏上输入 google.com或www.google.com都可以访问 google 了。而https://是浏览器自动帮你加上去的，平时我们访问不了 google 的原因是，google 的域名 在本机转化为 IP 地址后经过中国大陆的防火长城，被防火长城检测到与黑名单内的关键词匹配（如：Google、Facebook、twitter等都在黑名单内），然后就会伪装成目标域名的解析服务器返回虚假的查询结果。关键的是通常的域名查询没有任何认证机制，而且域名的查询一般是基于无连接不可靠的 UDP 协议，所以浏览器只能接受最先到达的格式正确结果，并把之后的所有结果丢弃。所以这也就访问不了啦，这种情况就是所谓的 DNS 缓存污染，也称为 DNS 缓存投毒（这个真形象…）&lt;a class=&#34;link&#34; href=&#34;https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;参考文献-从修改hosts文件科学上网中理解DNS（上）&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;p&gt;一个域名背后可以有多个I地址。当域名解析服务器在解析域名记录的“值”中包含多个IP地址时，LDNS会返回所有IP地址，但返回I地址的顺序是随机的。浏览器默认选取第一个返回的 IP地址作为解析结果，其解析流程如下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网站访问者通过浏览器向Local DNS（简称LDNS）发送解析请求。&lt;/li&gt;
+&lt;li&gt;LDNS将解析请求逐级转发（递归）至权威DNS。&lt;/li&gt;
+&lt;li&gt;权威DNS在收到解析请求后，将所有I地址以随机顺序返回LDNS。&lt;/li&gt;
+&lt;li&gt;LDNS将所有IP地址返回浏览器。&lt;/li&gt;
+&lt;li&gt;网站访问者的浏览器随机访问其中一个I地址，通常（不是绝对）选取第一个返回的IP地址。在没有做反向代理的情况下，如果返回的IP地址有多个，那么访问到这些IP地址的机会一般是均等的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp&#34;
 	
 	
 	
@@ -58,6 +172,115 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;在DNS解析的描述过程中，浏览器首先通过本地的DNS服务（LDNS）发送第一个
+解析请求，然后由LDNS返回IP地址，访问对应的服务器所提供的互联网服务。
+这样就带来了一个问题：如果LDNS返回的不是公网的域名解析服务解析出的IP地址，
+而是经过本地篡改的呢？&lt;/p&gt;
+&lt;h3 id=&#34;域名篡改&#34;&gt;域名篡改
+&lt;/h3&gt;&lt;p&gt;域名会被篡改吗？或域名解析服务器在解析域名后返回的IP地址会被篡改吗？
+在回答上述问题前，我们先查看Linux系统中有关DNS的配置文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/hosts：记录hostname对应的I地址
+/etc/resolv.conf：设置DNS服务器的I地址
+/etc/host.conf：指定域名解析的顺序，是先从hosts 解析还是先从DNS解析&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;LDNS 优先解析hosts 文件（Windows 路径是&lt;code&gt;C：\Windows\System32\driversletclhosts&lt;/code&gt;）,在hosts文件中，改变域名指向的I地址，我们将不会访问到原来的公网主机。示例如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ping linuxido.com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→在修改前，对城名执行ping命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PING linuxido.com (123.56.94.254) 56(84) bytes of data.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;64 bytes from 123.56.94.254 (123.56.94.254): icmp _seq=1 ttl=53 time=25.6 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido ~l# dig +short linuxido.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→使用dig命令解析域名&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;123.56.94.254
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;##→修改域名对应的IP地址
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido~]# echo &amp;#39;120.120.120.120 linuxido.com&amp;#39; &amp;gt;&amp;gt; /etc/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido~]# ping linuxido.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→修改后，再对域名执行ping命今&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PING linuxido.com (120.120.120.120) 56(84) bytes of data.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;并→可以看到ping命令失败，无法ping通120.120.120.120
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→使用host命令解析城名，可以看到依然是公网IP地址&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido~l# host linuxido.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;linuxido.com has address 123.56.94.254[root@linuxido ~]# nslookup linuxido.com Server:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Address:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8.8.8.8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8.8.8.8#53
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Non-authoritative answer:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;linuxido.com Address: 123.56.94.254
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido ~]# dig linuxido.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;linuxido.com.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;599
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;IN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;123.56.94.254
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;##一修改hosts 文件后，dig命令解析的城名依然是公网IP地址。找寻A的记录，它是不经过LDNS
+iSERVER:8.8.8.8#53（8.8.8.8)
+##→本机的DNS地址设置为8.8.8.8，DNS的默认端口是53
+如果没有修改 hosts 文件，在什么情况下可能出现DNS返回错误的IP 地址呢？域名劫持是最可能出现的情况。域名劫持就是通过攻击或伪造域名解析服务器的方式，把目标网站域名解析到错误的 I地址，从而使用户访问一些非法、恶意网站。因此，我们需要使用域名解工具查看访问域名是都真正对应IP地址&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录
+&lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;参考文献（1）-从修改hosts文件科学上网中理解DNS（上）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;参考文献（2）-Linux从入门到精通 第八章 Linux网络与安全&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
+&lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://nightrainmilkyway.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nightrainmilkyway.cn&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
 </description>
         </item>
         

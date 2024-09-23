@@ -1,0 +1,107 @@
+{{/* Available notice types: warning, info, note, tip */}}
+{{- $noticeType := .Get 0 | default "note" -}} 
+
+{{/* Workaround markdownify inconsistency for single/multiple paragraphs */}}
+{{- $raw := (markdownify .Inner | chomp) -}} 
+
+
+{{- $block := findRE "(?is)^<(?:address|article|aside|blockquote|canvas|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h(?:1|2|3|4|5|6)|header|hgroup|hr|li|main|nav|noscript|ol|output|p|pre|section|table|tfoot|ul|video)\\b" $raw 1 -}} 
+
+{{/* Load the css if it's the first time */}}
+{{- if not ($.Page.Scratch.Get "notice-style-loaded-flag") -}} 
+
+<style type="text/css">
+    /* Light theme */
+    notice {
+        --title-color: #fff;
+        --title-background-color: #6be;
+        --content-color: #444;
+        --content-background-color: #e7f2fa;
+    }
+
+    .notice.info {
+        --title-background-color: #d3f6de;
+        --content-background-color: #d3f6de;
+    }
+
+    .notice.tip {
+        --title-background-color: #E8EAFF;
+        --content-background-color: #E8EAFF;
+    }
+
+    .notice.warning {
+        --title-background-color: #FEF4D8;
+        --content-background-color: #FEF4D8;
+    }
+    
+    .notice.danger {
+        --title-background-color: #FFE2E7;
+        --content-background-color: #FFE2E7;
+    }
+    
+    // 定义 warning 类型通知的标题和内容背景颜色。
+
+   
+
+    /* 内容部分: 设置通知框的整体样式 */
+    .notice {
+        
+        padding: 1px 18px; /* 设置通知框内部的间距，确保内容不贴边 */
+        line-height: 24px; /* 设置文本的行高，确保行与行之间的间距适中 */
+        margin-bottom: 24px; /* 设置通知框底部的外边距，与其他元素保持24px的距离 */
+        border-radius: 18px; /* 将通知框的四个角设为圆角，半径为4px */
+        color: var(--content-color); /* 使用CSS变量定义文字颜色 */
+        background: var(--content-background-color); /* 使用CSS变量定义背景颜色 */
+    }
+    
+    <!-- /* 针对通知框内的最后一段文本 */ -->
+    <!-- .notice p:last-child { -->
+        <!-- margin-bottom: 0; /* 取消最后一个段落的底部外边距 */ -->
+    <!-- } -->
+    
+    /* 标题部分: 设置通知框标题的样式 */
+    .notice-title {
+        margin: -18px -18px 12px; /* 设置标题的外边距，上下左右分别为 -18px, -18px, 12px */
+        padding: 8px 18px; /* 标题内容的内边距，上下为4px，左右为18px */
+        border-radius: 18px 18px 0 0; /* 将标题框的上半部分设为圆角，半径为20px，底部保持直角 */
+        font-weight: 700; /* 设置字体的粗细为常规 */
+        color: var(--title-color); /* 使用CSS变量定义标题文字颜色 */
+        background: var(--title-background-color); /* 使用CSS变量定义标题背景颜色 */
+    }
+    
+    /* 图标部分: 设置通知框中图标的样式 */
+    .icon-notice {
+        display: inline-flex; /* 设置为行内弹性布局 */
+        align-self: center; /* 图标垂直居中对齐 */
+        margin-right: 8px; /* 图标与右侧内容的间距为8px */
+    }
+    
+    /* 图标图片和SVG的尺寸 */
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em; /* 高度设为1em，相当于当前字体的高度 */
+        width: 1em; /* 宽度设为1em，保持与高度一致 */
+        fill: currentColor; /* 使用当前文本颜色填充SVG图标 */
+    }
+    
+    /* 针对图标的基线对齐样式 */
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em; /* 图标相对于文本基线的位置微调，向下偏移0.125em */
+        position: relative; /* 设置相对定位，以便可以进行位置调整 */
+    }
+</style>
+
+{{- $.Page.Scratch.Set "notice-style-loaded-flag" true -}} 
+{{- end -}}
+
+<div class="notice {{ $noticeType }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            {{ printf "icons/%s.svg" $noticeType | readFile | safeHTML }}
+        </span>
+        {{- i18n $noticeType -}}
+    </p>
+    {{- if or $block (not $raw) }}{{ $raw }}{{ else }}<p>{{ $raw }}</p>{{ end -}}
+</div>

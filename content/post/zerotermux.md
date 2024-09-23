@@ -4,7 +4,7 @@ description:
 date: 2024-08-10T00:42:16+08:00
 image: https://img.nightrainmilkyway.cn/img/1723221912885.webp
 math: 
-license: 
+license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
 draft: false
@@ -123,3 +123,12 @@ neofetch | lolcat
 ```
 
 ![1723223723218.jpg](https://img.nightrainmilkyway.cn/img/1723223723218.jpg)
+
+
+## 附录
+
+### 参考文献
+
+### 版权信息
+
+本文原载于 [nightrainmilkyway.cn](https://nightrainmilkyway.cn)，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。

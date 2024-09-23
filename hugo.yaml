@@ -47,8 +47,8 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        emoji: 🍥
-        subtitle: "Hello, I'm Nightrain"
+        emoji: 🤓
+        subtitle: "梦——それは现実の続き；现実——それは梦の终わり"
         avatar:
             enabled: true
             local: true
@@ -227,3 +227,4 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
+

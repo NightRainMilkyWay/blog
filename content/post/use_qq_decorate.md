@@ -4,7 +4,7 @@ description:
 date: 2024-08-07T01:06:31+08:00
 image: https://img.nightrainmilkyway.cn/img/1723033154734.png
 math: 
-license: 
+license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
 draft: false
@@ -63,3 +63,12 @@ files/files/vas_material_folder/bubble_dir/
 怎么添加呢，看图,选择添加本地目录，文件选择器点左上角三横，选择QQ，点击使用目录返回即可添加访问，其余步骤和上面一样，
 
 ![1723033155326.webp](https://img.nightrainmilkyway.cn/img/1723033155326.webp)
+
+
+## 附录
+
+### 参考文献
+
+### 版权信息
+
+本文原载于 [nightrainmilkyway.cn](https://nightrainmilkyway.cn)，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。

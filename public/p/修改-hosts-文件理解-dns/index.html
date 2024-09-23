@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/'>
 
-<link rel="stylesheet" href="/scss/style.min.0e6e3e7d98a9a348218b193a8c95c973354fe27ea2fe57a73d9c3ac56b3316da.css"><meta property='og:title' content="修改 hosts 文件理解 DNS">
+<link rel="stylesheet" href="/scss/style.min.283057219efee29b4127a0267538a73d2cf242ebc7b97312fae10c7fefba0673.css"><meta property='og:title' content="修改 hosts 文件理解 DNS">
 <meta property='og:description' content="hosts 是什么？ 相信大家都看过流浪地球 2，其中有这么一个情节，重启世界根服务器，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了 ">
 <meta property='og:url' content='http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
@@ -63,7 +63,7 @@
                 
                 </a>
                 
-                    <span class="emoji">🍥</span>
+                    <span class="emoji">🤓</span>
                 
             </figure>
             
@@ -71,7 +71,7 @@
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Nightrain&#39;s Blog</a></h1>
-            <h2 class="site-description">Hello, I&#39;m Nightrain</h2>
+            <h2 class="site-description">梦——それは现実の続き；现実——それは梦の终わり</h2>
         </div>
     </header><ol class="menu-social">
             
@@ -247,7 +247,18 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#hosts-是什么">hosts 是什么？</a></li>
-    <li><a href="#dns-是什么">DNS 是什么</a></li>
+    <li><a href="#dns-是什么">DNS 是什么</a>
+      <ol>
+        <li><a href="#域名篡改">域名篡改</a></li>
+        <li><a href="#dns污染">DNS污染</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+        <li><a href="#版权信息">版权信息</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -321,7 +332,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -367,23 +378,137 @@
 <p>Linux 目录是: <code>/etc/hosts</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">127.0.0.1       localhost
-</span></span><span class="line"><span class="cl">::1     localhost ip6-localhost ip6-loopback
-</span></span><span class="line"><span class="cl">ff02::1 ip6-allnodes
-</span></span><span class="line"><span class="cl">ff02::2 ip6-allrouters
-</span></span><span class="line"><span class="cl">20.205.243.166　　github.com
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">127.0.0.1</span>       <span class="n">localhost</span>
+</span></span><span class="line"><span class="cl"><span class="o">::</span><span class="mi">1</span>     <span class="n">localhost</span> <span class="n">ip6</span><span class="o">-</span><span class="n">localhost</span> <span class="n">ip6</span><span class="o">-</span><span class="n">loopback</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="o">::</span><span class="mi">1</span> <span class="n">ip6</span><span class="o">-</span><span class="n">allnodes</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="o">::</span><span class="mi">2</span> <span class="n">ip6</span><span class="o">-</span><span class="n">allrouters</span>
+</span></span><span class="line"><span class="cl"><span class="mf">20.205.243.166</span>　　<span class="n">github</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">www</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">gcr</span><span class="p">.</span><span class="n">io</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">www</span><span class="p">.</span><span class="n">gcr</span><span class="p">.</span><span class="n">io</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">com</span><span class="p">.</span><span class="n">google</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">admin</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">accounts</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">accounts</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">cn</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个<code>hosts</code>文件的作用</p>
+</div><p>看到第一行就是我们所熟悉的<code>127.0.0.1　　localhost</code>，就是在hosts中定义的</p>
+<p>可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个<code>hosts</code>文件的作用</p>
 <h2 id="dns-是什么">DNS 是什么
-</h2><p><img src="https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp"
+</h2><p>DNS（Domain Name System，域名系统），将人类可读的域名（例如 <a class="link" href="https://www.example.com"  target="_blank" rel="noopener"
+    >www.example.com</a>）转换为机器用于相互通信的IP地址（例如 192.0.2.1 或 2001:db8::1）的一种分布式数据库。打个比方来说，DNS就像一个电话簿，IP相当于电话号码，域名相当于联系人</p>
+<style type="text/css">
+     
+    notice {
+        --title-color: #fff;
+        --title-background-color: #6be;
+        --content-color: #444;
+        --content-background-color: #e7f2fa;
+    }
+
+    .notice.info {
+        --title-background-color: #d3f6de;
+        --content-background-color: #d3f6de;
+    }
+
+    .notice.tip {
+        --title-background-color: #E8EAFF;
+        --content-background-color: #E8EAFF;
+    }
+
+    .notice.warning {
+        --title-background-color: #FEF4D8;
+        --content-background-color: #FEF4D8;
+    }
+    
+    .notice.danger {
+        --title-background-color: #FFE2E7;
+        --content-background-color: #FFE2E7;
+    }
+    
+    
+
+   
+
+     
+    .notice {
+        
+        padding: 1px 18px;  
+        line-height: 24px;  
+        margin-bottom: 24px;  
+        border-radius: 18px;  
+        color: var(--content-color);  
+        background: var(--content-background-color);  
+    }
+    
+    <!--   -->
+    <!-- .notice p:last-child { -->
+        <!-- margin-bottom: 0;   -->
+    <!-- } -->
+    
+     
+    .notice-title {
+        margin: -18px -18px 12px;  
+        padding: 8px 18px;  
+        border-radius: 18px 18px 0 0;  
+        font-weight: 700;  
+        color: var(--title-color);  
+        background: var(--title-background-color);  
+    }
+    
+     
+    .icon-notice {
+        display: inline-flex;  
+        align-self: center;  
+        margin-right: 8px;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em;  
+        width: 1em;  
+        fill: currentColor;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em;  
+        position: relative;  
+    }
+</style><div class="notice tip" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>小贴示</p><p>这几条可以看出一个 IP 地址可以同时对应多个域名，这也就是为什么平时在地址栏上输入 google.com或www.google.com都可以访问 google 了。而https://是浏览器自动帮你加上去的，平时我们访问不了 google 的原因是，google 的域名 在本机转化为 IP 地址后经过中国大陆的防火长城，被防火长城检测到与黑名单内的关键词匹配（如：Google、Facebook、twitter等都在黑名单内），然后就会伪装成目标域名的解析服务器返回虚假的查询结果。关键的是通常的域名查询没有任何认证机制，而且域名的查询一般是基于无连接不可靠的 UDP 协议，所以浏览器只能接受最先到达的格式正确结果，并把之后的所有结果丢弃。所以这也就访问不了啦，这种情况就是所谓的 DNS 缓存污染，也称为 DNS 缓存投毒（这个真形象…）<a class="link" href="https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/"  target="_blank" rel="noopener"
+    >参考文献-从修改hosts文件科学上网中理解DNS（上）</a></p></div>
+<p>一个域名背后可以有多个I地址。当域名解析服务器在解析域名记录的“值”中包含多个IP地址时，LDNS会返回所有IP地址，但返回I地址的顺序是随机的。浏览器默认选取第一个返回的 IP地址作为解析结果，其解析流程如下。</p>
+<ol>
+<li>网站访问者通过浏览器向Local DNS（简称LDNS）发送解析请求。</li>
+<li>LDNS将解析请求逐级转发（递归）至权威DNS。</li>
+<li>权威DNS在收到解析请求后，将所有I地址以随机顺序返回LDNS。</li>
+<li>LDNS将所有IP地址返回浏览器。</li>
+<li>网站访问者的浏览器随机访问其中一个I地址，通常（不是绝对）选取第一个返回的IP地址。在没有做反向代理的情况下，如果返回的IP地址有多个，那么访问到这些IP地址的机会一般是均等的。</li>
+</ol>
+<p><img src="https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp"
 	
 	
 	
@@ -393,6 +518,128 @@
 	
 	
 ></p>
+<p>在DNS解析的描述过程中，浏览器首先通过本地的DNS服务（LDNS）发送第一个
+解析请求，然后由LDNS返回IP地址，访问对应的服务器所提供的互联网服务。
+这样就带来了一个问题：如果LDNS返回的不是公网的域名解析服务解析出的IP地址，
+而是经过本地篡改的呢？</p>
+<h3 id="域名篡改">域名篡改
+</h3><p>域名会被篡改吗？或域名解析服务器在解析域名后返回的IP地址会被篡改吗？
+在回答上述问题前，我们先查看Linux系统中有关DNS的配置文件。</p>
+<div class="notice info" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>引言</p><p><code>/etc/hosts</code>：记录hostname对应的IP地址
+<code>/etc/resolv.conf</code>：设置DNS服务器的IP地址
+<code>/etc/host.conf</code>：指定域名解析的顺序，是先从hosts 解析还是先从DNS解析</p></div>
+<p>LDNS 优先解析hosts 文件（Windows 路径是<code>C：\Windows\System32\driversletclhosts</code>）,在hosts文件中，改变域名指向的I地址，我们将不会访问到原来的公网主机。示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>root@linuxido ~<span class="o">]</span><span class="c1"># ping linuxido.com({})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→在修改前，对城名执行ping命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">PING linuxido.com <span class="o">(</span>123.56.94.254<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 123.56.94.254 <span class="o">(</span>123.56.94.254<span class="o">)</span>: icmp <span class="nv">_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">53</span> <span class="nv">time</span><span class="o">=</span>25.6 ms
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido ~l# dig +short linuxido.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→使用dig命令解析域名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">123.56.94.254
+</span></span><span class="line"><span class="cl"><span class="c1">##→修改域名对应的IP地址</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido~<span class="o">]</span><span class="c1"># echo &#39;120.120.120.120 linuxido.com&#39; &gt;&gt; /etc/hosts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido~<span class="o">]</span><span class="c1"># ping linuxido.com</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→修改后，再对域名执行ping命今</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PING linuxido.com (120.120.120.120) 56(84) bytes of data.
+</span></span><span class="line"><span class="cl">并→可以看到ping命令失败，无法ping通120.120.120.120
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→使用host命令解析城名，可以看到依然是公网IP地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@linuxido~l# host linuxido.com
+</span></span><span class="line"><span class="cl">linuxido.com has address 123.56.94.254[root@linuxido ~]# nslookup linuxido.com Server:
+</span></span><span class="line"><span class="cl">Address:
+</span></span><span class="line"><span class="cl">8.8.8.8
+</span></span><span class="line"><span class="cl">8.8.8.8#53
+</span></span><span class="line"><span class="cl">Non-authoritative answer:
+</span></span><span class="line"><span class="cl">Name:
+</span></span><span class="line"><span class="cl">linuxido.com Address: 123.56.94.254
+</span></span><span class="line"><span class="cl">[root@linuxido ~]# dig linuxido.com
+</span></span><span class="line"><span class="cl">linuxido.com.
+</span></span><span class="line"><span class="cl">599
+</span></span><span class="line"><span class="cl">IN
+</span></span><span class="line"><span class="cl">A
+</span></span><span class="line"><span class="cl">123.56.94.254
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>##一修改hosts 文件后，dig命令解析的城名依然是公网IP地址。找寻A的记录，它是不经过LDNS
+iSERVER:8.8.8.8#53（8.8.8.8)
+##→本机的DNS地址设置为8.8.8.8，DNS的默认端口是53
+如果没有修改 hosts 文件，在什么情况下可能出现DNS返回错误的IP 地址呢？域名劫持是最可能出现的情况。域名劫持就是通过攻击或伪造域名解析服务器的方式，把目标网站域名解析到错误的 I地址，从而使用户访问一些非法、恶意网站。因此，我们需要使用域名解工具查看访问域名是都真正对应IP地址</p>
+<h3 id="dns污染">DNS污染
+</h3><div class="notice tip" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>小贴示</p><p>网域服务器缓存污染（英语：DNS cache pollution）、DNS污染或DNS劫持，是一种破坏域名系统查询解析的行为。[1]通常有计算机程序自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由计算机程序执行的DNS劫持攻击。污染一词可能取自域名系统域名解析之特性，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响 <a class="link" href="https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"  target="_blank" rel="noopener"
+    >参考文献（3）-域名服务器缓存污染</a></p></div>
+<h2 id="附录">附录
+</h2><h3 id="参考文献">参考文献
+</h3><p><a class="link" href="https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/"  target="_blank" rel="noopener"
+    >参考文献（1）-从修改hosts文件科学上网中理解DNS（上）</a></p>
+<p><a class="link" href="" >参考文献（2）-Linux从入门到精通 第八章 Linux网络与安全</a></p>
+<p><a class="link" href="https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"  target="_blank" rel="noopener"
+    >参考文献（3）-域名服务器缓存污染</a></p>
+<h3 id="版权信息">版权信息
+</h3><p>本文原载于 <a class="link" href="https://nightrainmilkyway.cn"  target="_blank" rel="noopener"
+    >nightrainmilkyway.cn</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
 
 </section>
 
@@ -418,7 +665,7 @@
 
 
 
-        <span>MIT</span>
+        <span>CC BY-NC-SA 4.0</span>
     </section>
     </footer>
 
@@ -474,8 +721,10 @@
         
         
         
-        发表了7篇文章，共计5828字
-        总计5.83k字
+        
+        
+        发表了8篇文章，共计8335字
+        总计8.34k字
     </section>
 
     
