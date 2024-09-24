@@ -44,54 +44,21 @@
             animation: fade-out-up 0.5s forwards;
         }
 
-          .loading-bg
-            display: flex;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            background: var(--anzhiyu-card-bg);
-            z-index: 1001;
-            opacity: 1;
-            transition: .3s;
-        
-          #loading-box
-            .loading-img
-              width: 100px;
-              height: 100px;
-              border-radius: 50%;
-              margin: auto;
-              border: 4px solid #f0f0f2;
-              animation-duration: .3s;
-              animation-name: loadingAction;
-              animation-iteration-count: infinite;
-              animation-direction: alternate;
-            .loading-image-dot
-              width: 30px;
-              height: 30px;
-              background: #6bdf8f;
-              position: absolute;
-              border-radius: 50%;
-              border: 6px solid #fff;
-              top: 50%;
-              left: 50%;
-              transform: translate(18px, 24px);
-            &.loaded
-              .loading-bg
-                opacity: 0;
-                z-index: -1000;
-        
-          @keyframes loadingAction
-            0% {
-                opacity: 1;
-            }
-        
-            100% {
-                opacity: .4;
-            }
-            .loading-img {
-  background: url(https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/avatar.webp) no-repeat center center;
-  background-size: cover;
-}
+        .loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #fff;  
+        z-index: 1001;  
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+    
+    .loaded .loading {
+        z-index: -1;  
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
     </style>
     
 </head>
@@ -961,52 +928,54 @@
 
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainElement = document.querySelector('.main');
-        const loadingElement = document.getElementById('loading');
-
-        function showContent() {
-            loadingElement.classList.add('show');
-            setTimeout(() => {
-                mainElement.classList.add('loaded');
-                loadingElement.classList.remove('show');
-            }, 500); 
-        }
-
-        
-        showContent();
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                mainElement.classList.remove('loaded');
-                document.body.classList.add('fade-out');
-
+        document.addEventListener("DOMContentLoaded", function() {
+            const mainElement = document.querySelector('.main');
+            const loadingElement = document.getElementById('loading');
+    
+            function showContent() {
+                loadingElement.classList.add('show');
                 setTimeout(() => {
-                    loadingElement.classList.add('show');
-                    window.location.href = targetUrl; 
+                    mainElement.classList.add('loaded');
+                    loadingElement.style.zIndex = -1;  
+                }, 500); 
+            }
+    
+            
+            showContent();
+    
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.href;
+    
+                    mainElement.classList.remove('loaded');
+                    document.body.classList.add('fade-out');
+                    loadingElement.style.zIndex = 1001;  
+    
+                    setTimeout(() => {
+                        window.location.href = targetUrl; 
+                    }, 500); 
+                });
+            });
+    
+            
+            window.addEventListener('popstate', function(event) {
+                loadingElement.style.zIndex = 1001;  
+                loadingElement.classList.add('show');
+                setTimeout(() => {
+                    loadingElement.style.zIndex = -1;  
+                    window.location.reload(); 
                 }, 500); 
             });
+    
+            
+            window.onpageshow = function(event) {
+                if (event.persisted) { 
+                    showContent(); 
+                }
+            };
         });
-
-        
-        window.addEventListener('popstate', function(event) {
-            loadingElement.classList.add('show'); 
-            setTimeout(() => {
-                window.location.reload(); 
-            }, 500); 
-        });
-
-        
-        window.onpageshow = function(event) {
-            if (event.persisted) { 
-                window.location.reload(); 
-            }
-        };
-    });
-</script>
+    </script>
 </body>
 </html>

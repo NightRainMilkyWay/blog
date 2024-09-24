@@ -35,54 +35,21 @@
             animation: fade-out-up 0.5s forwards;
         }
 
-          .loading-bg
-            display: flex;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            background: var(--anzhiyu-card-bg);
-            z-index: 1001;
-            opacity: 1;
-            transition: .3s;
-        
-          #loading-box
-            .loading-img
-              width: 100px;
-              height: 100px;
-              border-radius: 50%;
-              margin: auto;
-              border: 4px solid #f0f0f2;
-              animation-duration: .3s;
-              animation-name: loadingAction;
-              animation-iteration-count: infinite;
-              animation-direction: alternate;
-            .loading-image-dot
-              width: 30px;
-              height: 30px;
-              background: #6bdf8f;
-              position: absolute;
-              border-radius: 50%;
-              border: 6px solid #fff;
-              top: 50%;
-              left: 50%;
-              transform: translate(18px, 24px);
-            &.loaded
-              .loading-bg
-                opacity: 0;
-                z-index: -1000;
-        
-          @keyframes loadingAction
-            0% {
-                opacity: 1;
-            }
-        
-            100% {
-                opacity: .4;
-            }
-            .loading-img {
-  background: url(https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/avatar.webp) no-repeat center center;
-  background-size: cover;
-}
+        .loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #fff; /* 背景可以根据需求调整 */
+        z-index: 1001; /* 显示动画时提升 z-index */
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+    
+    .loaded .loading {
+        z-index: -1; /* 动画结束后降低 z-index，确保内容可见 */
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
     </style>
     {{ end }}
 </head>
@@ -114,52 +81,54 @@
     {{ partial "footer/include.html" . }}
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainElement = document.querySelector('.main');
-        const loadingElement = document.getElementById('loading');
-
-        function showContent() {
-            loadingElement.classList.add('show');
-            setTimeout(() => {
-                mainElement.classList.add('loaded');
-                loadingElement.classList.remove('show');
-            }, 500); // 确保加载动画有时间显示
-        }
-
-        // 页面内容加载完成后显示
-        showContent();
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                mainElement.classList.remove('loaded');
-                document.body.classList.add('fade-out');
-
+        document.addEventListener("DOMContentLoaded", function() {
+            const mainElement = document.querySelector('.main');
+            const loadingElement = document.getElementById('loading');
+    
+            function showContent() {
+                loadingElement.classList.add('show');
                 setTimeout(() => {
-                    loadingElement.classList.add('show');
-                    window.location.href = targetUrl; // 正常跳转到目标页面
-                }, 500); // 500ms 动画过渡时间
-            });
-        });
-
-        // 监听浏览器“返回”按钮，返回时刷新页面，避免白屏
-        window.addEventListener('popstate', function(event) {
-            loadingElement.classList.add('show'); // 显示加载动画
-            setTimeout(() => {
-                window.location.reload(); // 返回时强制刷新页面，避免白屏
-            }, 500); // 确保动画有时间完成
-        });
-
-        // 处理页面缓存问题，确保从缓存返回时动画显示
-        window.onpageshow = function(event) {
-            if (event.persisted) { // 如果页面从缓存中恢复
-                window.location.reload(); // 强制刷新，避免加载问题
+                    mainElement.classList.add('loaded');
+                    loadingElement.style.zIndex = -1;  // 动画完成后降低 z-index，确保内容可见
+                }, 500); // 确保加载动画有时间显示
             }
-        };
-    });
-</script>
+    
+            // 页面内容加载完成后显示
+            showContent();
+    
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.href;
+    
+                    mainElement.classList.remove('loaded');
+                    document.body.classList.add('fade-out');
+                    loadingElement.style.zIndex = 1001;  // 跳转前提升 z-index，显示动画
+    
+                    setTimeout(() => {
+                        window.location.href = targetUrl; // 正常跳转到目标页面
+                    }, 500); // 500ms 动画过渡时间
+                });
+            });
+    
+            // 监听浏览器“返回”按钮，返回时刷新页面并处理动画
+            window.addEventListener('popstate', function(event) {
+                loadingElement.style.zIndex = 1001;  // 确保加载动画在返回时出现
+                loadingElement.classList.add('show');
+                setTimeout(() => {
+                    loadingElement.style.zIndex = -1;  // 动画完成后隐藏
+                    window.location.reload(); // 强制刷新，避免白屏
+                }, 500); // 确保动画有时间完成
+            });
+    
+            // 处理页面缓存问题，确保从缓存返回时动画显示
+            window.onpageshow = function(event) {
+                if (event.persisted) { // 如果页面从缓存中恢复
+                    showContent(); // 重新显示内容
+                }
+            };
+        });
+    </script>
 </body>
 </html>
