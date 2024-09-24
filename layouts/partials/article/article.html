@@ -1,6 +1,9 @@
 <article class="{{ if .Params.image }}has-image {{ end }}main-article">
     {{ partial "article/components/header" . }}
-
+    {{ if and (ne .Params.ai false) (ne .Site.Params.article.ai false) }}
+     {{ partial "article/components/aisummary" . }}
+    {{ end }}
+    
     {{ partial "article/components/content" . }}
 
     {{ partial "article/components/footer" . }}

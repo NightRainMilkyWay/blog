@@ -6,6 +6,7 @@ image: https://img.nightrainmilkyway.cn/img/1723033154734.png
 math: 
 license: CC BY-NC-SA 4.0
 hidden: false
+ai: false
 comments: true
 draft: false
 categories:

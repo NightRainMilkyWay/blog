@@ -1,28 +1,148 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
-    <head>
-        {{- partial "head/head.html" . -}}
-        {{- block "head" . -}}{{ end }}
-    </head>
-    <body class="{{ block `body-class` . }}{{ end }}">
-        {{- partial "head/colorScheme" . -}}
+<head>
+    {{- partial "head/head.html" . -}}
+    {{- block "head" . -}}
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* 避免滚动条出现 */
+        }
 
-        {{/* The container is wider when there's any activated widget */}}
-        {{- $hasWidget := false -}}
-        {{- range .Site.Params.widgets -}}
-            {{- if gt (len .) 0 -}}
-                {{- $hasWidget = true -}}
-            {{- end -}}
+        .main {
+            opacity: 0; /* 初始状态透明 */
+            transform: translateY(20px); /* 初始位置向下 */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
+        }
+
+        .main.loaded {
+            opacity: 1; /* 加载后可见 */
+            transform: translateY(0); /* 回到原位 */
+        }
+
+        @keyframes fade-out-up {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-out {
+            animation: fade-out-up 0.5s forwards;
+        }
+
+          .loading-bg
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: var(--anzhiyu-card-bg);
+            z-index: 1001;
+            opacity: 1;
+            transition: .3s;
+        
+          #loading-box
+            .loading-img
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              margin: auto;
+              border: 4px solid #f0f0f2;
+              animation-duration: .3s;
+              animation-name: loadingAction;
+              animation-iteration-count: infinite;
+              animation-direction: alternate;
+            .loading-image-dot
+              width: 30px;
+              height: 30px;
+              background: #6bdf8f;
+              position: absolute;
+              border-radius: 50%;
+              border: 6px solid #fff;
+              top: 50%;
+              left: 50%;
+              transform: translate(18px, 24px);
+            &.loaded
+              .loading-bg
+                opacity: 0;
+                z-index: -1000;
+        
+          @keyframes loadingAction
+            0% {
+                opacity: 1;
+            }
+        
+            100% {
+                opacity: .4;
+            }
+            .loading-img {
+  background: url(https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/avatar.webp) no-repeat center center;
+  background-size: cover;
+}
+    </style>
+    {{ end }}
+</head>
+<body class="{{ block `body-class` . }}{{ end }}">
+    {{- partial "head/colorScheme" . -}}
+
+    {{/* The container is wider when there's any activated widget */}}
+    {{- $hasWidget := false -}}
+    {{- range .Site.Params.widgets -}}
+        {{- if gt (len .) 0 -}}
+            {{- $hasWidget = true -}}
         {{- end -}}
-        <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
-            {{- block "left-sidebar" . -}}
-                {{ partial "sidebar/left.html" . }}
-            {{- end -}}
-            {{- block "right-sidebar" . -}}{{ end }}
-            <main class="main full-width">
-                {{- block "main" . }}{{- end }}
-            </main>
-        </div>
-        {{ partial "footer/include.html" . }}
-    </body>
+    {{- end -}}
+    
+    <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
+        {{- block "left-sidebar" . -}}
+            {{ partial "sidebar/left.html" . }}
+        {{- end -}}
+        {{- block "right-sidebar" . -}}{{ end }}
+        <main class="main full-width">
+            {{- block "main" . }}{{- end }}
+        </main>
+    </div>
+    
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+    
+    {{ partial "footer/include.html" . }}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mainElement = document.querySelector('.main');
+            const loadingElement = document.getElementById('loading');
+
+            // 页面内容加载完成后显示内容
+            loadingElement.classList.add('show');
+
+            setTimeout(() => {
+                mainElement.classList.add('loaded');
+                loadingElement.classList.remove('show'); // 隐藏加载动画
+            }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
+
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.href;
+
+                    // 添加淡出效果
+                    mainElement.classList.remove('loaded'); // 移除 loaded 类以触发淡出效果
+                    document.body.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        loadingElement.classList.add('show'); // 显示加载动画
+                        window.location.href = targetUrl;
+                    }, 500); // 等待动画结束再跳转
+                });
+            });
+        });
+    </script>
+</body>
 </html>

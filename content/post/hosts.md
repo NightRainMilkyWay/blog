@@ -1,5 +1,5 @@
 ---
-title: "修改 hosts 文件理解 DNS"
+title: "修改hosts文件理解dns"
 description: 
 date: 2024-09-23T10:08:44+08:00
 image: https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png
@@ -7,6 +7,10 @@ math:
 license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
+ai: true
+summary: 本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。
+
+
 draft: false
 categories:
   - hosts

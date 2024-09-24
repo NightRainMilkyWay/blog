@@ -4,7 +4,7 @@ theme: hugo-theme-stack
 paginate: 5
 title: Nightrain's Blog
 copyright: Example Person
-
+article.ai: true
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
 DefaultContentLanguage: zh-cn
@@ -40,7 +40,7 @@ params:
 
     footer:
         since: 2023
-        customText:
+        customText: 梦——それは现実の続き；现実——それは梦の终わり
 
     dateFormat:
         published: Jan 02, 2006
@@ -52,7 +52,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/海琴烟.jpg
+            src: img/作者.webp
 
     article:
         math: false

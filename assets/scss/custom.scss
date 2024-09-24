@@ -1,5 +1,5 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
-
+@import "ai.scss";
 :root {
     --body-background: #EBEBEB;
     --accent-color: #1B365D;
@@ -7,6 +7,7 @@
     --accent-color-text: #FFF;
     --body-text-color: #202A44;
 }
+
 
 :root {
     --card-background: #FFF;
@@ -487,3 +488,174 @@ button:hover {
 
 //代码复制按钮
 // 如 {cursor: url('https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/default.cur'), default;}
+
+
+
+//首页欢迎板块样式
+.welcome {
+  color: var(--card-text-color-main);
+  background: var(--card-background);
+  box-shadow: var(--shadow-l2);
+  border-radius: 30px;
+  display: inline-block;
+}
+
+// 👋emoji实现摆动效果
+.shake {
+  display: inline-block;
+  animation: shake 1s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: shake;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  animation-delay: 2s;
+  @keyframes shake {
+    0% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    50% {
+      transform: rotate(0) scale(1.2);
+    }
+    75% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+}
+// 实现字符跳动动画
+.jump-text1 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+}
+
+.jump-text2 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.1s;
+}
+
+.jump-text3 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.2s;
+}
+
+.jump-text4 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.3s;
+}
+
+.jump-text5 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.4s;
+}
+
+.jump-text6 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.5s;
+}
+
+.jump-text7 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.6s;
+}
+
+.jump-text8 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.7s;
+}
+
+.jump-text9 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.9s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+::selection {
+    color: #ffff;
+    background: #557697;
+}
+//--------------------------------------------------
+//引入左上角返回按钮
+.back-home {
+  background: var(--card-background);
+  border-radius: var(--tag-border-radius);
+  color: var(--card-text-color-tertiary);
+  margin-right: 0.1rem;
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  padding: 10px 20px 10px 15px;
+  transition: box-shadow 0.3s ease;
+  box-shadow: var(--shadow-l3);
+
+  &:hover {
+    box-shadow: var(--shadow-l2);
+  }
+
+  svg {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+
+.main-container .right-sidebar {
+  order: 2;
+  max-width: var(--right-sidebar-max-width);
+
+  /// Display right sidebar when min-width: lg
+  @include respond(lg) {
+    display: flex;
+  }
+}
+
+main.main {
+  order: 1;
+  min-width: 0;
+  max-width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-separation);
+
+  @include respond(md) {
+    padding-top: var(--main-top-padding);
+  }
+}

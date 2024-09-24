@@ -6,10 +6,11 @@ date: 2024-09-23T19:42:21+08:00
 lastmod: "2024-09-23T19:42:21+08:00"
 image: 
 math: 
+ai: false
 license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
-draft: false
+draft: true
 categories:
   - 
 tags:

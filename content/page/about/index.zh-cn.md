@@ -1,5 +1,6 @@
 ---
 title: 关于我
+ai: false
 menu:
   main:
     weight: -90
@@ -22,6 +23,7 @@ menu:
 关于我
 
 你好！我是***nightrainmilkyway***，一名热爱编程的开发者，我喜欢参与开源项目、学习新技术，并通过博客和演讲分享我的经验
+    {{< heatmap >}}
 
 ![Metrics](https://cdn.jsdelivr.net/gh/NightRainMilkyWay/NightRainMilkyWay@main/github-metrics.svg)
 

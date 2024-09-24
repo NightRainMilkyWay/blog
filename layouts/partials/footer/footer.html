@@ -25,10 +25,62 @@
     <!-- Add busuanzi²»Ëâ×Ó count -->
     <span id="busuanzi_container_site_pv" style='display:none'> 本站总访问量 <span id="busuanzi_value_site_pv"></span> ´次
     </span>
-    <span id="busuanzi_container_site_uv" style='display:none'> 总访客树 <span id="busuanzi_value_site_uv"></span> 人</span>
+    <span id="busuanzi_container_site_uv" style='display:none'> 总访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+
+<script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        // 当前时间
+        now.setTime(now.getTime() + 250);
+        
+        // 网站诞生时间，修改为实际的日期
+        var grt = new Date("2023/03/18 00:00:00"); 
+        
+        // 计算天数、小时、分钟、秒数
+        var days = (now - grt) / 1000 / 60 / 60 / 24;
+        var dnum = Math.floor(days);
+        
+        var hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        var hnum = Math.floor(hours);
+        if (String(hnum).length == 1) { hnum = "0" + hnum; }
+        
+        var minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        var mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) { mnum = "0" + mnum; }
+        
+        var seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        var snum = Math.round(seconds);
+        if (String(snum).length == 1) { snum = "0" + snum; }
+
+        // 更新 HTML 内容
+        document.getElementById("timeDate").innerHTML = "本站已稳定运行 " + dnum + " 天";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+
+    // 使用 setInterval 调用 createtime
+    setInterval(createtime, 250); 
+</script>
 
 
+    <span id="voyager">载入旅行者一号离地球距离信息...</span>
+
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            // 当前时间
+            now.setTime(now.getTime()+250);
+            var start = new Date("08/01/2022 00:00:00"); // 旅行者1号开始计算的时间
+            var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒
+            var unit = (dis / 149600000).toFixed(6);  // 天文单位
     
+            document.getElementById("voyager").innerHTML = "<br>旅行者 1 号当前距离地球 "+ dis +" 千米，约为 "+ unit +" 个天文单位 🚀"
+        }
+        setInterval("createtime()",250); 
+    </script> 
+
     <section class="powerby">
         {{ with .Site.Params.footer.customText }}
             {{ . | safeHTML }} <br/>

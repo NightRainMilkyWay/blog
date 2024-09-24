@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/'>
 
-<link rel="stylesheet" href="/scss/style.min.283057219efee29b4127a0267538a73d2cf242ebc7b97312fae10c7fefba0673.css"><meta property='og:title' content="修改 hosts 文件理解 DNS">
+<link rel="stylesheet" href="/scss/style.min.5ed96401aa16e0085e0b36a0776d668cf5af123c2c9279fc634fd7c4b2829def.css"><meta property='og:title' content="修改 hosts 文件理解 DNS">
 <meta property='og:description' content="hosts 是什么？ 相信大家都看过流浪地球 2，其中有这么一个情节，重启世界根服务器，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了 ">
 <meta property='og:url' content='http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
@@ -57,7 +57,7 @@
                     
                     
                         
-                        <img src="/img/%E6%B5%B7%E7%90%B4%E7%83%9F_hu2745446303548187160.jpg" width="300"
+                        <img src="/img/%E4%BD%9C%E8%80%85_hu3478721340347809698.webp" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -153,7 +153,7 @@
 
 
                 
-                <span>Archives</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -172,13 +172,13 @@
 
 
                 
-                <span>Search</span>
+                <span>搜索</span>
             </a>
         </li>
         
         
         <li >
-            <a href='/links/' >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
                 
                 
                 
@@ -191,7 +191,7 @@
 
 
                 
-                <span>Links</span>
+                <span>链接</span>
             </a>
         </li>
         
@@ -355,7 +355,49 @@
         if (document.readyState === "complete") NProgress.done();
     });
 </script>
+    
+     
 
+
+
+
+
+
+<div class="post-ai">
+    <div class="ai-title">
+        <i class="fas fa-robot ai-title-icon"></i>
+        <div class="ai-title-text">AI 摘要</div>
+    </div>
+
+    
+    <div id="ai-explanation" class="ai-explanation"></div>
+
+    <div class="ai-explanation ai-explanation-content">
+        
+            AI 摘要接口暂时失联……
+        
+    </div>
+</div>
+
+
+<script src="https://npm.elemecdn.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const matchingSummary = document.querySelector(".ai-explanation-content").textContent;
+
+    new TypeIt("#ai-explanation", {
+        strings: matchingSummary,
+        speed: 10,
+        lifeLike: true,
+        waitUntilVisible: true,
+    }).go();
+});
+</script>
+
+    
+    
     <section class="article-content">
     
     
@@ -723,18 +765,74 @@ iSERVER:8.8.8.8#53（8.8.8.8)
         
         
         
-        发表了8篇文章，共计8335字
-        总计8.34k字
+        
+        
+        发表了9篇文章，共计8458字
+        总计8.46k字
     </section>
 
     
     <span id="busuanzi_container_site_pv" style='display:none'> 本站总访问量 <span id="busuanzi_value_site_pv"></span> ´次
     </span>
-    <span id="busuanzi_container_site_uv" style='display:none'> 总访客树 <span id="busuanzi_value_site_uv"></span> 人</span>
+    <span id="busuanzi_container_site_uv" style='display:none'> 总访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
 
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+
+<script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        
+        now.setTime(now.getTime() + 250);
+        
+        
+        var grt = new Date("2023/03/18 00:00:00"); 
+        
+        
+        var days = (now - grt) / 1000 / 60 / 60 / 24;
+        var dnum = Math.floor(days);
+        
+        var hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        var hnum = Math.floor(hours);
+        if (String(hnum).length == 1) { hnum = "0" + hnum; }
+        
+        var minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        var mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) { mnum = "0" + mnum; }
+        
+        var seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        var snum = Math.round(seconds);
+        if (String(snum).length == 1) { snum = "0" + snum; }
+
+        
+        document.getElementById("timeDate").innerHTML = "本站已稳定运行 " + dnum + " 天";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
 
     
+    setInterval(createtime, 250); 
+</script>
+
+
+    <span id="voyager">载入旅行者一号离地球距离信息...</span>
+
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            
+            now.setTime(now.getTime()+250);
+            var start = new Date("08/01/2022 00:00:00"); 
+            var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); 
+            var unit = (dis / 149600000).toFixed(6);  
+    
+            document.getElementById("voyager").innerHTML = "<br>旅行者 1 号当前距离地球 "+ dis +" 千米，约为 "+ unit +" 个天文单位 🚀"
+        }
+        setInterval("createtime()",250); 
+    </script> 
+
     <section class="powerby">
+        
+            梦——それは现実の続き；现実——それは梦の终わり <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>

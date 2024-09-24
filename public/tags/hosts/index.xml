@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
         <lastBuildDate>Mon, 23 Sep 2024 10:08:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hosts/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>修改 hosts 文件理解 DNS</title>
-        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</link>
+        <title>修改hosts文件理解dns</title>
+        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</link>
         <pubDate>Mon, 23 Sep 2024 10:08:44 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3-dns/</guid>
-        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改 hosts 文件理解 DNS" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
+        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改hosts文件理解dns" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
 &lt;/h2&gt;&lt;p&gt;相信大家都看过流浪地球 2，其中有这么一个情节，&lt;code&gt;重启世界根服务器&lt;/code&gt;，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
 &lt;img src=&#34;https://img.nightrainmilkyway.cn/img/f44d30758a58254024433c.png&#34;
 	
@@ -77,8 +77,8 @@
     }
 
     .notice.info {
-        --title-background-color: #EFF0F5;
-        --content-background-color: #EFF0F5;
+        --title-background-color: #d3f6de;
+        --content-background-color: #d3f6de;
     }
 
     .notice.tip {
@@ -179,18 +179,21 @@
 &lt;h3 id=&#34;域名篡改&#34;&gt;域名篡改
 &lt;/h3&gt;&lt;p&gt;域名会被篡改吗？或域名解析服务器在解析域名后返回的IP地址会被篡改吗？
 在回答上述问题前，我们先查看Linux系统中有关DNS的配置文件。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/etc/hosts：记录hostname对应的I地址
-/etc/resolv.conf：设置DNS服务器的I地址
-/etc/host.conf：指定域名解析的顺序，是先从hosts 解析还是先从DNS解析&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+
+    &lt;p class=&#34;notice-title&#34;&gt;
+        &lt;span class=&#34;icon-notice baseline&#34;&gt;
+            
+        &lt;/span&gt;引言&lt;/p&gt;&lt;p&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;：记录hostname对应的IP地址
+&lt;code&gt;/etc/resolv.conf&lt;/code&gt;：设置DNS服务器的IP地址
+&lt;code&gt;/etc/host.conf&lt;/code&gt;：指定域名解析的顺序，是先从hosts 解析还是先从DNS解析&lt;/p&gt;&lt;/div&gt;
 &lt;p&gt;LDNS 优先解析hosts 文件（Windows 路径是&lt;code&gt;C：\Windows\System32\driversletclhosts&lt;/code&gt;）,在hosts文件中，改变域名指向的I地址，我们将不会访问到原来的公网主机。示例如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ping linuxido.com&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ping linuxido.com({})&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;→在修改前，对城名执行ping命令&lt;/p&gt;
@@ -201,9 +204,9 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PING linuxido.com (123.56.94.254) 56(84) bytes of data.
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;64 bytes from 123.56.94.254 (123.56.94.254): icmp _seq=1 ttl=53 time=25.6 ms
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido ~l# dig +short linuxido.com
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PING linuxido.com &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;123.56.94.254&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 56&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;84&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; bytes of data.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bytes from 123.56.94.254 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;123.56.94.254&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: icmp &lt;span class=&#34;nv&#34;&gt;_seq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ttl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;53&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;25.6 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido ~l# dig +short linuxido.com
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;→使用dig命令解析域名&lt;/p&gt;
@@ -216,11 +219,11 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;123.56.94.254
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;##→修改域名对应的IP地址
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido~]# echo &amp;#39;120.120.120.120 linuxido.com&amp;#39; &amp;gt;&amp;gt; /etc/hosts
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;123.56.94.254
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;##→修改域名对应的IP地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# echo &amp;#39;120.120.120.120 linuxido.com&amp;#39; &amp;gt;&amp;gt; /etc/hosts&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[root@linuxido~]# ping linuxido.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@linuxido~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ping linuxido.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;→修改后，再对域名执行ping命今&lt;/p&gt;
@@ -273,11 +276,21 @@
 iSERVER:8.8.8.8#53（8.8.8.8)
 ##→本机的DNS地址设置为8.8.8.8，DNS的默认端口是53
 如果没有修改 hosts 文件，在什么情况下可能出现DNS返回错误的IP 地址呢？域名劫持是最可能出现的情况。域名劫持就是通过攻击或伪造域名解析服务器的方式，把目标网站域名解析到错误的 I地址，从而使用户访问一些非法、恶意网站。因此，我们需要使用域名解工具查看访问域名是都真正对应IP地址&lt;/p&gt;
+&lt;h3 id=&#34;dns污染&#34;&gt;DNS污染
+&lt;/h3&gt;&lt;div class=&#34;notice tip&#34; &gt;
+
+    &lt;p class=&#34;notice-title&#34;&gt;
+        &lt;span class=&#34;icon-notice baseline&#34;&gt;
+            
+        &lt;/span&gt;小贴示&lt;/p&gt;&lt;p&gt;网域服务器缓存污染（英语：DNS cache pollution）、DNS污染或DNS劫持，是一种破坏域名系统查询解析的行为。[1]通常有计算机程序自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由计算机程序执行的DNS劫持攻击。污染一词可能取自域名系统域名解析之特性，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响 &lt;a class=&#34;link&#34; href=&#34;https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;参考文献（3）-域名服务器缓存污染&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;h2 id=&#34;附录&#34;&gt;附录
 &lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;参考文献（1）-从修改hosts文件科学上网中理解DNS（上）&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;参考文献（2）-Linux从入门到精通 第八章 Linux网络与安全&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;参考文献（3）-域名服务器缓存污染&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;版权信息&#34;&gt;版权信息
 &lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://nightrainmilkyway.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;nightrainmilkyway.cn&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
