@@ -848,17 +848,10 @@ NDK是没有arm架构的，真的没有办法了吗？</p>
 
                 setTimeout(() => {
                     loadingElement.classList.add('show');
-                    window.location.href = targetUrl;
-                }, 500);
+                    window.location.href = targetUrl; 
+                }, 500); 
             });
         });
-
-        
-        window.onpageshow = function(event) {
-            if (event.persisted) { 
-                showContent(); 
-            }
-        };
 
         
         window.addEventListener('popstate', function(event) {
@@ -867,6 +860,13 @@ NDK是没有arm架构的，真的没有办法了吗？</p>
                 window.location.reload(); 
             }, 500); 
         });
+
+        
+        window.onpageshow = function(event) {
+            if (event.persisted) { 
+                window.location.reload(); 
+            }
+        };
     });
 </script>
 </body>

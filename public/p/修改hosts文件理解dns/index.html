@@ -1061,17 +1061,10 @@ iSERVER:8.8.8.8#53（8.8.8.8)
 
                 setTimeout(() => {
                     loadingElement.classList.add('show');
-                    window.location.href = targetUrl;
-                }, 500);
+                    window.location.href = targetUrl; 
+                }, 500); 
             });
         });
-
-        
-        window.onpageshow = function(event) {
-            if (event.persisted) { 
-                showContent(); 
-            }
-        };
 
         
         window.addEventListener('popstate', function(event) {
@@ -1080,6 +1073,13 @@ iSERVER:8.8.8.8#53（8.8.8.8)
                 window.location.reload(); 
             }, 500); 
         });
+
+        
+        window.onpageshow = function(event) {
+            if (event.persisted) { 
+                window.location.reload(); 
+            }
+        };
     });
 </script>
 </body>

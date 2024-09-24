@@ -140,25 +140,25 @@
 
                 setTimeout(() => {
                     loadingElement.classList.add('show');
-                    window.location.href = targetUrl;
-                }, 500);
+                    window.location.href = targetUrl; // 正常跳转到目标页面
+                }, 500); // 500ms 动画过渡时间
             });
         });
 
-        // 处理浏览器返回按钮和页面从缓存恢复的情况
-        window.onpageshow = function(event) {
-            if (event.persisted) { // 如果页面从缓存中恢复
-                showContent(); // 重新触发加载动画
-            }
-        };
-
-        // 处理浏览器“返回”按钮时的白屏问题
+        // 监听浏览器“返回”按钮，返回时刷新页面，避免白屏
         window.addEventListener('popstate', function(event) {
             loadingElement.classList.add('show'); // 显示加载动画
             setTimeout(() => {
-                window.location.reload(); // 确保页面重新加载，避免白屏
-            }, 500); // 等待动画完成再刷新页面
+                window.location.reload(); // 返回时强制刷新页面，避免白屏
+            }, 500); // 确保动画有时间完成
         });
+
+        // 处理页面缓存问题，确保从缓存返回时动画显示
+        window.onpageshow = function(event) {
+            if (event.persisted) { // 如果页面从缓存中恢复
+                window.location.reload(); // 强制刷新，避免加载问题
+            }
+        };
     });
 </script>
 </body>
