@@ -11,13 +11,13 @@
             margin: 0;
             overflow: hidden; /* 避免滚动条出现 */
         }
-    
+
         .main {
             opacity: 0; /* 初始状态透明 */
             transform: translateY(20px); /* 初始位置向下 */
             transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
         }
-    
+
         .main.loaded {
             opacity: 1; /* 加载后可见 */
             transform: translateY(0); /* 回到原位 */
@@ -35,7 +35,7 @@
             {{- $hasWidget = true -}}
         {{- end -}}
     {{- end -}}
-    
+
     <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
         {{- block "left-sidebar" . -}}
             {{ partial "sidebar/left.html" . }}
@@ -45,17 +45,17 @@
             {{- block "main" . }}{{- end }}
         </main>
     </div>
-    
+
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
-    
+
     {{ partial "footer/include.html" . }}
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const mainElement = document.querySelector('.main');
-        
+
         // 页面内容加载完成后添加 loaded 类
         setTimeout(() => {
             mainElement.classList.add('loaded');
