@@ -21,13 +21,13 @@
             margin: 0;
             overflow: hidden;  
         }
-    
+
         .main {
             opacity: 0;  
             transform: translateY(20px);  
             transition: opacity 0.5s ease, transform 0.5s ease;  
         }
-    
+
         .main.loaded {
             opacity: 1;  
             transform: translateY(0);  
@@ -723,11 +723,11 @@ NDK是没有arm架构的，真的没有办法了吗？</p>
 
         </main>
     </div>
-    
+
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
-    
+
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -763,7 +763,7 @@ NDK是没有arm架构的，真的没有办法了吗？</p>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const mainElement = document.querySelector('.main');
-        
+
         
         setTimeout(() => {
             mainElement.classList.add('loaded');
