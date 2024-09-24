@@ -145,14 +145,13 @@
     
             // 处理浏览器“返回”按钮时的白屏问题
             window.addEventListener('popstate', function(event) {
-                loadingElement.classList.add('show'); // 显示加载动画
-                mainElement.classList.remove('loaded'); // 确保加载动画重新显示
+                // 显示加载动画
+                loadingElement.classList.add('show');
     
-                // 模拟内容加载
+                // 页面返回时触发刷新，确保动画和内容正常加载
                 setTimeout(() => {
-                    mainElement.classList.add('loaded'); // 加载完成后显示内容
-                    loadingElement.classList.remove('show'); // 隐藏加载动画
-                }, 500); // 可以根据实际情况调整
+                    window.location.reload(); // 刷新页面，确保返回后正确加载
+                }, 500); // 延迟刷新以保证过渡动画有机会完成
             });
         });
     </script>
