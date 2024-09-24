@@ -11,18 +11,18 @@
             margin: 0;
             overflow: hidden; /* 避免滚动条出现 */
         }
-
+    
         .main {
             opacity: 0; /* 初始状态透明 */
             transform: translateY(20px); /* 初始位置向下 */
             transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
         }
-
+    
         .main.loaded {
             opacity: 1; /* 加载后可见 */
             transform: translateY(0); /* 回到原位 */
         }
-
+    
         @keyframes fade-out-up {
             0% {
                 opacity: 1;
@@ -33,26 +33,10 @@
                 transform: translateY(-20px);
             }
         }
-
+    
         .fade-out {
             animation: fade-out-up 0.5s forwards;
         }
-
-        .loading {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: #fff; /* 背景可以根据需求调整 */
-        z-index: 1001; /* 显示动画时提升 z-index */
-        opacity: 1;
-        transition: opacity 0.5s ease;
-    }
-    
-    .loaded .loading {
-        z-index: -1; /* 动画结束后降低 z-index，确保内容可见 */
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
     </style>
     {{ end }}
 </head>
@@ -83,55 +67,31 @@
     
     {{ partial "footer/include.html" . }}
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const mainElement = document.querySelector('.main');
-            const loadingElement = document.getElementById('loading');
-    
-            function showContent() {
-                loadingElement.classList.add('show');
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+        
+        // 页面内容加载完成后添加 loaded 类
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
+
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.href;
+
+                // 添加淡出效果
+                mainElement.classList.remove('loaded'); // 移除 loaded 类以触发淡出效果
+                document.body.classList.add('fade-out');
+
                 setTimeout(() => {
-                    mainElement.classList.add('loaded');
-                    loadingElement.style.zIndex = -1;  // 动画完成后降低 z-index，确保内容可见
-                }, 500); // 确保加载动画有时间显示
-            }
-    
-            // 页面内容加载完成后显示
-            showContent();
-    
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetUrl = this.href;
-    
-                    mainElement.classList.remove('loaded');
-                    document.body.classList.add('fade-out');
-                    loadingElement.style.zIndex = 1001;  // 跳转前提升 z-index，显示动画
-    
-                    setTimeout(() => {
-                        window.location.href = targetUrl; // 正常跳转到目标页面
-                    }, 500); // 500ms 动画过渡时间
-                });
+                    window.location.href = targetUrl;
+                }, 500); // 等待动画结束再跳转
             });
-    
-            // 监听浏览器“返回”按钮，返回时刷新页面并处理动画
-            window.addEventListener('popstate', function(event) {
-                loadingElement.style.zIndex = 1001;  // 确保加载动画在返回时出现
-                loadingElement.classList.add('show');
-                setTimeout(() => {
-                    loadingElement.style.zIndex = -1;  // 动画完成后隐藏
-                    window.location.reload(); // 强制刷新，避免白屏
-                }, 500); // 确保动画有时间完成
-            });
-    
-            // 处理页面缓存问题，确保从缓存返回时动画显示
-            window.onpageshow = function(event) {
-                if (event.persisted) { // 如果页面从缓存中恢复
-                    showContent(); // 重新显示内容
-                }
-            };
         });
-    </script>
+    });
+</script>
 </body>
 </html>
