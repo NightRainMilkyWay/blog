@@ -1,0 +1,38 @@
+<!-- 获取 Front Matter 中的摘要 -->
+{{ $currentSlug := .Params.slug }}
+{{ $matchingSummary := .Params.summary }}
+<div class="post-ai">
+    <div class="ai-title">
+        <i class="fas fa-robot ai-title-icon"></i>
+        <div class="ai-title-text">AI 摘要</div>
+    </div>
+
+    <!-- Typeit 打字机效果 -->
+    <div id="ai-explanation" class="ai-explanation"></div>
+
+    <div class="ai-explanation ai-explanation-content">
+        {{ if $matchingSummary }}
+            {{ $matchingSummary }}
+        {{ else }}
+            AI 摘要接口暂时失联……
+        {{ end }}
+    </div>
+</div>
+
+
+<!-- 打字机效果的 JS，不需要则注释掉 -->
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 从 .ai-explanation-content 取值
+    const matchingSummary = document.querySelector(".ai-explanation-content").textContent;
+
+    new TypeIt("#ai-explanation", {
+        strings: matchingSummary,
+        speed: 10,
+        lifeLike: true,
+        waitUntilVisible: true,
+    }).go();
+});
+</script>
