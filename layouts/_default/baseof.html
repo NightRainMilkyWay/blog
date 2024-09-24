@@ -117,30 +117,42 @@
         document.addEventListener("DOMContentLoaded", function() {
             const mainElement = document.querySelector('.main');
             const loadingElement = document.getElementById('loading');
-
+    
             // 页面内容加载完成后显示内容
             loadingElement.classList.add('show');
-
+    
             setTimeout(() => {
                 mainElement.classList.add('loaded');
                 loadingElement.classList.remove('show'); // 隐藏加载动画
             }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
-
+    
             const links = document.querySelectorAll('a');
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetUrl = this.href;
-
+    
                     // 添加淡出效果
                     mainElement.classList.remove('loaded'); // 移除 loaded 类以触发淡出效果
                     document.body.classList.add('fade-out');
-
+    
                     setTimeout(() => {
                         loadingElement.classList.add('show'); // 显示加载动画
                         window.location.href = targetUrl;
                     }, 500); // 等待动画结束再跳转
                 });
+            });
+    
+            // 处理浏览器“返回”按钮时的白屏问题
+            window.addEventListener('popstate', function(event) {
+                loadingElement.classList.add('show'); // 显示加载动画
+                mainElement.classList.remove('loaded'); // 确保加载动画重新显示
+    
+                // 模拟内容加载
+                setTimeout(() => {
+                    mainElement.classList.add('loaded'); // 加载完成后显示内容
+                    loadingElement.classList.remove('show'); // 隐藏加载动画
+                }, 500); // 可以根据实际情况调整
             });
         });
     </script>

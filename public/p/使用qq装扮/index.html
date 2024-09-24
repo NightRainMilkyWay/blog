@@ -806,30 +806,42 @@
         document.addEventListener("DOMContentLoaded", function() {
             const mainElement = document.querySelector('.main');
             const loadingElement = document.getElementById('loading');
-
+    
             
             loadingElement.classList.add('show');
-
+    
             setTimeout(() => {
                 mainElement.classList.add('loaded');
                 loadingElement.classList.remove('show'); 
             }, 0); 
-
+    
             const links = document.querySelectorAll('a');
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetUrl = this.href;
-
+    
                     
                     mainElement.classList.remove('loaded'); 
                     document.body.classList.add('fade-out');
-
+    
                     setTimeout(() => {
                         loadingElement.classList.add('show'); 
                         window.location.href = targetUrl;
                     }, 500); 
                 });
+            });
+    
+            
+            window.addEventListener('popstate', function(event) {
+                loadingElement.classList.add('show'); 
+                mainElement.classList.remove('loaded'); 
+    
+                
+                setTimeout(() => {
+                    mainElement.classList.add('loaded'); 
+                    loadingElement.classList.remove('show'); 
+                }, 500); 
             });
         });
     </script>
