@@ -22,21 +22,6 @@
             opacity: 1; /* 加载后可见 */
             transform: translateY(0); /* 回到原位 */
         }
-    
-        @keyframes fade-out-up {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-        }
-    
-        .fade-out {
-            animation: fade-out-up 0.5s forwards;
-        }
     </style>
     {{ end }}
 </head>
@@ -75,22 +60,6 @@
         setTimeout(() => {
             mainElement.classList.add('loaded');
         }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                // 添加淡出效果
-                mainElement.classList.remove('loaded'); // 移除 loaded 类以触发淡出效果
-                document.body.classList.add('fade-out');
-
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 500); // 等待动画结束再跳转
-            });
-        });
     });
 </script>
 </body>

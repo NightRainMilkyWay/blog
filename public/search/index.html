@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0"><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
 <title>搜索</title>
 
@@ -403,55 +406,15 @@
 </script>
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const mainElement = document.querySelector('.main');
-            const loadingElement = document.getElementById('loading');
-    
-            function showContent() {
-                loadingElement.classList.add('show');
-                setTimeout(() => {
-                    mainElement.classList.add('loaded');
-                    loadingElement.style.zIndex = -1;  
-                }, 500); 
-            }
-    
-            
-            showContent();
-    
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetUrl = this.href;
-    
-                    mainElement.classList.remove('loaded');
-                    document.body.classList.add('fade-out');
-                    loadingElement.style.zIndex = 1001;  
-    
-                    setTimeout(() => {
-                        window.location.href = targetUrl; 
-                    }, 500); 
-                });
-            });
-    
-            
-            window.addEventListener('popstate', function(event) {
-                loadingElement.style.zIndex = 1001;  
-                loadingElement.classList.add('show');
-                setTimeout(() => {
-                    loadingElement.style.zIndex = -1;  
-                    window.location.reload(); 
-                }, 500); 
-            });
-    
-            
-            window.onpageshow = function(event) {
-                if (event.persisted) { 
-                    showContent(); 
-                }
-            };
-        });
-    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+        
+        
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); 
+    });
+</script>
 </body>
 </html>

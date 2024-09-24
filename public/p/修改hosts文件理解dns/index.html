@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0"><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
 <title>修改hosts文件理解dns</title>
 
@@ -18,48 +21,17 @@
             margin: 0;
             overflow: hidden;  
         }
-
+    
         .main {
             opacity: 0;  
             transform: translateY(20px);  
             transition: opacity 0.5s ease, transform 0.5s ease;  
         }
-
+    
         .main.loaded {
             opacity: 1;  
             transform: translateY(0);  
         }
-
-        @keyframes fade-out-up {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-        }
-
-        .fade-out {
-            animation: fade-out-up 0.5s forwards;
-        }
-
-        .loading {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: #fff;  
-        z-index: 1001;  
-        opacity: 1;
-        transition: opacity 0.5s ease;
-    }
-    
-    .loaded .loading {
-        z-index: -1;  
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
     </style>
     
 </head>
@@ -1001,55 +973,15 @@ iSERVER:8.8.8.8#53（8.8.8.8)
 </script>
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const mainElement = document.querySelector('.main');
-            const loadingElement = document.getElementById('loading');
-    
-            function showContent() {
-                loadingElement.classList.add('show');
-                setTimeout(() => {
-                    mainElement.classList.add('loaded');
-                    loadingElement.style.zIndex = -1;  
-                }, 500); 
-            }
-    
-            
-            showContent();
-    
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetUrl = this.href;
-    
-                    mainElement.classList.remove('loaded');
-                    document.body.classList.add('fade-out');
-                    loadingElement.style.zIndex = 1001;  
-    
-                    setTimeout(() => {
-                        window.location.href = targetUrl; 
-                    }, 500); 
-                });
-            });
-    
-            
-            window.addEventListener('popstate', function(event) {
-                loadingElement.style.zIndex = 1001;  
-                loadingElement.classList.add('show');
-                setTimeout(() => {
-                    loadingElement.style.zIndex = -1;  
-                    window.location.reload(); 
-                }, 500); 
-            });
-    
-            
-            window.onpageshow = function(event) {
-                if (event.persisted) { 
-                    showContent(); 
-                }
-            };
-        });
-    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+        
+        
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); 
+    });
+</script>
 </body>
 </html>
