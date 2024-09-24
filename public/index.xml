@@ -249,110 +249,20 @@
         
         <guid>http://localhost:1313/p/custom-block/</guid>
         <description>&lt;h2 id=&#34;custom-block&#34;&gt;Custom Block
-&lt;/h2&gt;&lt;style type=&#34;text/css&#34;&gt;
-     
-    notice {
-        --title-color: #fff;
-        --title-background-color: #6be;
-        --content-color: #444;
-        --content-background-color: #e7f2fa;
-    }
-
-    .notice.info {
-        --title-background-color: #d3f6de;
-        --content-background-color: #d3f6de;
-    }
-
-    .notice.tip {
-        --title-background-color: #E8EAFF;
-        --content-background-color: #E8EAFF;
-    }
-
-    .notice.warning {
-        --title-background-color: #FEF4D8;
-        --content-background-color: #FEF4D8;
-    }
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://img.nightrainmilkyway.cn/img/%E5%AF%B9%E5%BC%80%E6%8B%93%E8%80%85%E7%9A%84%E5%87%BB%E7%A0%B4%E7%89%B9%E6%94%BB%E6%A0%B8%E5%BF%83%E5%87%BA%E8%A3%85_25659772723_merge.mp4&#34;
+    poster=&#34;https://img.nightrainmilkyway.cn/img/122622935_p0%20%281%29.png&#34;
     
-    .notice.danger {
-        --title-background-color: #FFE2E7;
-        --content-background-color: #FFE2E7;
-    }
-    
-    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://img.nightrainmilkyway.cn/img/%E5%AF%B9%E5%BC%80%E6%8B%93%E8%80%85%E7%9A%84%E5%87%BB%E7%A0%B4%E7%89%B9%E6%94%BB%E6%A0%B8%E5%BF%83%E5%87%BA%E8%A3%85_25659772723_merge.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
 
-   
-
-     
-    .notice {
-        
-        padding: 1px 18px;  
-        line-height: 24px;  
-        margin-bottom: 24px;  
-        border-radius: 18px;  
-        color: var(--content-color);  
-        background: var(--content-background-color);  
-    }
-    
-    &lt;!--   --&gt;
-    &lt;!-- .notice p:last-child { --&gt;
-        &lt;!-- margin-bottom: 0;   --&gt;
-    &lt;!-- } --&gt;
-    
-     
-    .notice-title {
-        margin: -18px -18px 12px;  
-        padding: 8px 18px;  
-        border-radius: 18px 18px 0 0;  
-        font-weight: 700;  
-        color: var(--title-color);  
-        background: var(--title-background-color);  
-    }
-    
-     
-    .icon-notice {
-        display: inline-flex;  
-        align-self: center;  
-        margin-right: 8px;  
-    }
-    
-     
-    .icon-notice img,
-    .icon-notice svg {
-        height: 1em;  
-        width: 1em;  
-        fill: currentColor;  
-    }
-    
-     
-    .icon-notice img,
-    .icon-notice.baseline svg {
-        top: .125em;  
-        position: relative;  
-    }
-&lt;/style&gt;&lt;div class=&#34;notice info&#34; &gt;
-
-    &lt;p class=&#34;notice-title&#34;&gt;
-        &lt;span class=&#34;icon-notice baseline&#34;&gt;
-            
-        &lt;/span&gt;引言&lt;/p&gt;&lt;p&gt;This is an info box.&lt;/p&gt;&lt;/div&gt;
-&lt;div class=&#34;notice tip&#34; &gt;
-
-    &lt;p class=&#34;notice-title&#34;&gt;
-        &lt;span class=&#34;icon-notice baseline&#34;&gt;
-            
-        &lt;/span&gt;小贴示&lt;/p&gt;&lt;p&gt;This is a tip.&lt;/p&gt;&lt;/div&gt;
-&lt;div class=&#34;notice warning&#34; &gt;
-
-    &lt;p class=&#34;notice-title&#34;&gt;
-        &lt;span class=&#34;icon-notice baseline&#34;&gt;
-            
-        &lt;/span&gt;警告&lt;/p&gt;&lt;p&gt;This is a warning.&lt;/p&gt;&lt;/div&gt;
-&lt;div class=&#34;notice danger&#34; &gt;
-
-    &lt;p class=&#34;notice-title&#34;&gt;
-        &lt;span class=&#34;icon-notice baseline&#34;&gt;
-            
-        &lt;/span&gt;危险&lt;/p&gt;&lt;p&gt;This is a dangerous warning.&lt;/p&gt;&lt;/div&gt;
 &lt;h2 id=&#34;附录&#34;&gt;附录
 &lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
 &lt;/h3&gt;&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
@@ -1422,7 +1332,7 @@ NDK是没有arm架构的，真的没有办法了吗？&lt;/p&gt;
         }
         var key = &#34;2024-09-23&#34;;
         var value = dataMap.get(key);
-        var wordCount =  83 ;
+        var wordCount =  70 ;
         var link = &#34;/p/custom-block/&#34;;
         var title = &#34;Custom Block&#34;;
         

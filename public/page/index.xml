@@ -85,7 +85,7 @@
         }
         var key = &#34;2024-09-23&#34;;
         var value = dataMap.get(key);
-        var wordCount =  83 ;
+        var wordCount =  111 ;
         var link = &#34;/p/custom-block/&#34;;
         var title = &#34;Custom Block&#34;;
         
