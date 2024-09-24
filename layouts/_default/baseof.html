@@ -11,25 +11,20 @@
             margin: 0;
             overflow: hidden; /* 避免滚动条出现 */
         }
-
+        
         .main {
-            visibility: hidden; /* 初始状态不可见 */
             opacity: 0; /* 初始状态透明 */
             transform: translateY(20px); /* 初始位置向下 */
-            transition: visibility 0s 0.5s, opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
         }
-
+        
         .main.loaded {
-            visibility: visible; /* 加载后可见 */
             opacity: 1; /* 加载后可见 */
             transform: translateY(0); /* 回到原位 */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* 移除延迟，确保动画流畅 */
         }
 
         @media (prefers-reduced-motion: no-preference) {
-            html:not(.no-sliding) .main > div,
-            html:not(.no-sliding) .main > div > *,
-            html:not(.no-sliding) .main > div > *:nth-child(n) {
+            html:not(.no-sliding) .main > div > * {
                 --enter-stage: 0;
                 --enter-step: 90ms;
                 --enter-initial: 0ms;
@@ -63,12 +58,12 @@
 
         @keyframes slide-enter {
             0% {
-                opacity: 0;
                 transform: translateY(20px);
+                opacity: 0;
             }
             100% {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
@@ -84,7 +79,7 @@
             {{- $hasWidget = true -}}
         {{- end -}}
     {{- end -}}
-
+    
     <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
         {{- block "left-sidebar" . -}}
             {{ partial "sidebar/left.html" . }}
@@ -94,33 +89,27 @@
             {{- block "main" . }}{{- end }}
         </main>
     </div>
-
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-
+    
     {{ partial "footer/include.html" . }}
 
 <script>
-    function addLoadedClass() {
-        const mainElement = document.querySelector('.main');
-        mainElement.classList.add('loaded');
-    }
-
     document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+
         // 页面内容加载完成后添加 loaded 类
-        setTimeout(addLoadedClass, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
 
-        // 监听 popstate 事件以在历史记录改变时触发动画
-        window.addEventListener('popstate', function() {
-            const mainElement = document.querySelector('.main');
-            // 移除 loaded 类以触发动画
-            mainElement.classList.remove('loaded');
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.href;
 
-            // 等待 DOM 更新后添加 loaded 类
-            setTimeout(() => {
-                addLoadedClass();
-            }, 0);
+                // 跳转到目标链接
+                window.location.href = targetUrl;
+            });
         });
     });
 </script>

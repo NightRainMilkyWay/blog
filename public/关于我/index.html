@@ -20,25 +20,20 @@
             margin: 0;
             overflow: hidden;  
         }
-
+        
         .main {
-            visibility: hidden;  
             opacity: 0;  
             transform: translateY(20px);  
-            transition: visibility 0s 0.5s, opacity 0.5s ease, transform 0.5s ease;  
+            transition: opacity 0.5s ease, transform 0.5s ease;  
         }
-
+        
         .main.loaded {
-            visibility: visible;  
             opacity: 1;  
             transform: translateY(0);  
-            transition: opacity 0.5s ease, transform 0.5s ease;  
         }
 
         @media (prefers-reduced-motion: no-preference) {
-            html:not(.no-sliding) .main > div,
-            html:not(.no-sliding) .main > div > *,
-            html:not(.no-sliding) .main > div > *:nth-child(n) {
+            html:not(.no-sliding) .main > div > * {
                 --enter-stage: 0;
                 --enter-step: 90ms;
                 --enter-initial: 0ms;
@@ -72,12 +67,12 @@
 
         @keyframes slide-enter {
             0% {
-                opacity: 0;
                 transform: translateY(20px);
+                opacity: 0;
             }
             100% {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
@@ -902,11 +897,7 @@ You can click the Preview link to take a look at your changes.
 
         </main>
     </div>
-
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-
+    
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -940,25 +931,23 @@ You can click the Preview link to take a look at your changes.
 
 
 <script>
-    function addLoadedClass() {
-        const mainElement = document.querySelector('.main');
-        mainElement.classList.add('loaded');
-    }
-
     document.addEventListener("DOMContentLoaded", function() {
-        
-        setTimeout(addLoadedClass, 0); 
+        const mainElement = document.querySelector('.main');
 
         
-        window.addEventListener('popstate', function() {
-            const mainElement = document.querySelector('.main');
-            
-            mainElement.classList.remove('loaded');
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); 
 
-            
-            setTimeout(() => {
-                addLoadedClass();
-            }, 0);
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.href;
+
+                
+                window.location.href = targetUrl;
+            });
         });
     });
 </script>
