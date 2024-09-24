@@ -22,14 +22,17 @@
         }
 
         .main {
+            visibility: hidden;  
             opacity: 0;  
             transform: translateY(20px);  
-            transition: opacity 0.5s ease, transform 0.5s ease;  
+            transition: visibility 0s 0.5s, opacity 0.5s ease, transform 0.5s ease;  
         }
 
         .main.loaded {
+            visibility: visible;  
             opacity: 1;  
             transform: translateY(0);  
+            transition: opacity 0.5s ease, transform 0.5s ease;  
         }
     </style>
     
@@ -684,13 +687,26 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function addLoadedClass() {
         const mainElement = document.querySelector('.main');
+        mainElement.classList.add('loaded');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        setTimeout(addLoadedClass, 0); 
 
         
-        setTimeout(() => {
-            mainElement.classList.add('loaded');
-        }, 0); 
+        window.addEventListener('popstate', function() {
+            const mainElement = document.querySelector('.main');
+            
+            mainElement.classList.remove('loaded');
+
+            
+            setTimeout(() => {
+                addLoadedClass();
+            }, 0);
+        });
     });
 </script>
 </body>

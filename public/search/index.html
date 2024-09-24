@@ -407,13 +407,26 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function addLoadedClass() {
         const mainElement = document.querySelector('.main');
+        mainElement.classList.add('loaded');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        setTimeout(addLoadedClass, 0); 
 
         
-        setTimeout(() => {
-            mainElement.classList.add('loaded');
-        }, 0); 
+        window.addEventListener('popstate', function() {
+            const mainElement = document.querySelector('.main');
+            
+            mainElement.classList.remove('loaded');
+
+            
+            setTimeout(() => {
+                addLoadedClass();
+            }, 0);
+        });
     });
 </script>
 </body>

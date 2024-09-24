@@ -13,14 +13,17 @@
         }
 
         .main {
+            visibility: hidden; /* 初始状态不可见 */
             opacity: 0; /* 初始状态透明 */
             transform: translateY(20px); /* 初始位置向下 */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
+            transition: visibility 0s 0.5s, opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
         }
 
         .main.loaded {
+            visibility: visible; /* 加载后可见 */
             opacity: 1; /* 加载后可见 */
             transform: translateY(0); /* 回到原位 */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* 移除延迟，确保动画流畅 */
         }
     </style>
     {{ end }}
@@ -64,12 +67,14 @@
 
         // 监听 popstate 事件以在历史记录改变时触发动画
         window.addEventListener('popstate', function() {
-            // 移除 loaded 类以触发动画
             const mainElement = document.querySelector('.main');
+            // 移除 loaded 类以触发动画
             mainElement.classList.remove('loaded');
 
             // 等待 DOM 更新后添加 loaded 类
-            setTimeout(addLoadedClass, 0);
+            setTimeout(() => {
+                addLoadedClass();
+            }, 0);
         });
     });
 </script>
