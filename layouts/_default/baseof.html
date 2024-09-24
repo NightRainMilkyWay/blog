@@ -114,46 +114,52 @@
     {{ partial "footer/include.html" . }}
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const mainElement = document.querySelector('.main');
-            const loadingElement = document.getElementById('loading');
-    
-            // 页面内容加载完成后显示内容
+    document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+        const loadingElement = document.getElementById('loading');
+
+        function showContent() {
             loadingElement.classList.add('show');
-    
             setTimeout(() => {
                 mainElement.classList.add('loaded');
-                loadingElement.classList.remove('show'); // 隐藏加载动画
-            }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
-    
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetUrl = this.href;
-    
-                    // 添加淡出效果
-                    mainElement.classList.remove('loaded'); // 移除 loaded 类以触发淡出效果
-                    document.body.classList.add('fade-out');
-    
-                    setTimeout(() => {
-                        loadingElement.classList.add('show'); // 显示加载动画
-                        window.location.href = targetUrl;
-                    }, 500); // 等待动画结束再跳转
-                });
-            });
-    
-            // 处理浏览器“返回”按钮时的白屏问题
-            window.addEventListener('popstate', function(event) {
-                // 显示加载动画
-                loadingElement.classList.add('show');
-    
-                // 页面返回时触发刷新，确保动画和内容正常加载
+                loadingElement.classList.remove('show');
+            }, 500); // 确保加载动画有时间显示
+        }
+
+        // 页面内容加载完成后显示
+        showContent();
+
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.href;
+
+                mainElement.classList.remove('loaded');
+                document.body.classList.add('fade-out');
+
                 setTimeout(() => {
-                    window.location.reload(); // 刷新页面，确保返回后正确加载
-                }, 500); // 延迟刷新以保证过渡动画有机会完成
+                    loadingElement.classList.add('show');
+                    window.location.href = targetUrl;
+                }, 500);
             });
         });
-    </script>
+
+        // 处理浏览器返回按钮和页面从缓存恢复的情况
+        window.onpageshow = function(event) {
+            if (event.persisted) { // 如果页面从缓存中恢复
+                showContent(); // 重新触发加载动画
+            }
+        };
+
+        // 处理浏览器“返回”按钮时的白屏问题
+        window.addEventListener('popstate', function(event) {
+            loadingElement.classList.add('show'); // 显示加载动画
+            setTimeout(() => {
+                window.location.reload(); // 确保页面重新加载，避免白屏
+            }, 500); // 等待动画完成再刷新页面
+        });
+    });
+</script>
 </body>
 </html>
