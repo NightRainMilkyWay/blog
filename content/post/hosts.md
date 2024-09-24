@@ -146,6 +146,19 @@ iSERVER:8.8.8.8#53（8.8.8.8)
 {{< /notice >}}
 
 
+## hosts是如何实现科学上网的
+
+这里以GitHub为例
+
+```c
+20.205.243.166　　github.com
+```
+
+GitHub站点毕竟在国外，当dns请求时返回最快的那一个IP，但是想要访问就肯定要走大陆宽带，防火长城就会返回一个假的结果，那么hosts为什么能直接连上GitHub呢，这里就不得不提及域名解析的优先级了，`hosts > DNS`，在DNS域名解析系统建立起来之后hosts被弃用，但仍然保留在Linux，Windows系统内，而且优先级一般大于dns解析结果，从而能够建立连接
+
+当然，如果想流畅的访问GitHub单单只是修改hosts效果并不明显，可以搭配[FastGithub](https://github.com/WangGithubUser/FastGitHub)合法的工具访问
+![20.205.243.166.png](https://img.nightrainmilkyway.cn/img/20.205.243.166.png)
+
 ## 附录
 
 ### 参考文献

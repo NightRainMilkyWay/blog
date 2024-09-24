@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0"><meta charset='utf-8'>
+    
+    
+    <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="安装git 1 pacman -S git 配置git 1 2 git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;youremail@example.com&#34; 测试git 1 git --version 克隆仓库 1 git clone https://github.com/yourusername/yourrepository.git 提交代码 1 2 3 git add . git commit -m &#34;your commit message&#34; git push origin master 拉取代码 1 git pull origin master 使用ssh连接github 生成ssh密钥 1 ssh-keygen -t rsa -C &#34;youremail@example.com&#34; 添加ssh密钥到ssh-agent 1 2 eval &#34;$(ssh-agent -s)&#34; ssh-add ~/.ssh/id_rsa 添加ssh密钥到github 1 cat ~/.ssh/id_rsa.pub 测试ssh连接 1 ssh -T git@github.com 克隆仓库 1 git clone git@github.com:yourusername/yourrepository.git git常用命令及注释 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 git init # 初始化仓库 git add . # 添加所有文件到暂存区 git commit -m &#34;commit message&#34; # 提交暂存区文件到仓库区 git push origin master # 将本地分支推送到远程仓库 git pull origin master # 从远程仓库拉取最新代码 git status # 查看仓库状态 git log # 查看提交历史 git diff # 查看暂存区与工作区差异 git reset --hard HEAD # 回滚到最新提交 git checkout -- file # 撤销工作区修改 git branch # 查看分支 git branch &lt;branch-name&gt; # 创建分支 git checkout &lt;branch-name&gt; # 切换分支 git merge &lt;branch-name&gt; # 合并分支 git remote -v # 查看远程仓库信息 git remote add origin &lt;repository-url&gt; # 添加远程仓库 git remote remove origin # 删除远程仓库 git remote set-url origin &lt;repository-url&gt; # 修改远程仓库地址 git remote update origin --prune # 更新远程仓库信息 git remote show origin # 查看远程仓库详细信息 附录 参考文献 版权信息 本文原载于 nightrainmilkyway.cn，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。\n">
 <title>Zerotermux折腾日记(2)-Arch linux安装git</title>
 
@@ -362,8 +362,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/termux/" >
-                Termux
+            <a href="/categories/termux/" style="background-color: #2a9d8f; color: #fff;">
+                termux
             </a>
         
             <a href="/categories/git/" >
@@ -728,16 +728,8 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        发表了9篇文章，共计8445字
-        总计8.45k字
+        发表了5篇文章，共计5565字
+        总计5.57k字
     </section>
 
     

@@ -22,8 +22,93 @@
 &lt;li&gt;5.请务必安装 CuJankDetector 模块&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;下载&#34;&gt;下载
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TimeBreeze/Tritium/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub release&lt;/a&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;style type=&#34;text/css&#34;&gt;
+     
+    notice {
+        --title-color: #fff;
+        --title-background-color: #6be;
+        --content-color: #444;
+        --content-background-color: #e7f2fa;
+    }
+
+    .notice.info {
+        --title-background-color: #d3f6de;
+        --content-background-color: #d3f6de;
+    }
+
+    .notice.tip {
+        --title-background-color: #E8EAFF;
+        --content-background-color: #E8EAFF;
+    }
+
+    .notice.warning {
+        --title-background-color: #FEF4D8;
+        --content-background-color: #FEF4D8;
+    }
+    
+    .notice.danger {
+        --title-background-color: #FFE2E7;
+        --content-background-color: #FFE2E7;
+    }
+    
+    
+
+   
+
+     
+    .notice {
+        
+        padding: 1px 18px;  
+        line-height: 24px;  
+        margin-bottom: 24px;  
+        border-radius: 18px;  
+        color: var(--content-color);  
+        background: var(--content-background-color);  
+    }
+    
+    &lt;!--   --&gt;
+    &lt;!-- .notice p:last-child { --&gt;
+        &lt;!-- margin-bottom: 0;   --&gt;
+    &lt;!-- } --&gt;
+    
+     
+    .notice-title {
+        margin: -18px -18px 12px;  
+        padding: 8px 18px;  
+        border-radius: 18px 18px 0 0;  
+        font-weight: 700;  
+        color: var(--title-color);  
+        background: var(--title-background-color);  
+    }
+    
+     
+    .icon-notice {
+        display: inline-flex;  
+        align-self: center;  
+        margin-right: 8px;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em;  
+        width: 1em;  
+        fill: currentColor;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em;  
+        position: relative;  
+    }
+&lt;/style&gt;&lt;div class=&#34;notice tip&#34; &gt;
+
+    &lt;p class=&#34;notice-title&#34;&gt;
+        &lt;span class=&#34;icon-notice baseline&#34;&gt;
+            
+        &lt;/span&gt;小贴示&lt;/p&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TimeBreeze/Tritium/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub release&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;h2 id=&#34;使用方法-1--app-导入&#34;&gt;使用方法 1 -app 导入
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-52-03_8500.png&#34;
 	

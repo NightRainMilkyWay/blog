@@ -21,7 +21,7 @@ tags:
 
 {{< video src="https://img.nightrainmilkyway.cn/img/%E5%AF%B9%E5%BC%80%E6%8B%93%E8%80%85%E7%9A%84%E5%87%BB%E7%A0%B4%E7%89%B9%E6%94%BB%E6%A0%B8%E5%BF%83%E5%87%BA%E8%A3%85_25659772723_merge.mp4" poster="https://img.nightrainmilkyway.cn/img/122622935_p0%20(1).png" >}}
 
-
+{{< bilibili AV113147524488386 >}}
 ## 附录
 
 ### 参考文献

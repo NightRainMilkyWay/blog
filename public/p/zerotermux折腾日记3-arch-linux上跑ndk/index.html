@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0"><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言 在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。\n">
+    
+    
+    <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
 <title>Zerotermux折腾日记(3)-Arch linux上跑NDK</title>
 
 <link rel='canonical' href='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
 
 <link rel="stylesheet" href="/scss/style.min.2e05ac4248aaba64ac1fbca9f8c61d1eb06f40fdf4d5fa2ce9f5448379c5b499.css"><meta property='og:title' content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta property='og:description' content="前言 在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。\n">
+<meta property='og:description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
 <meta property='og:url' content='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='termux' /><meta property='article:tag' content='NDK' /><meta property='article:tag' content='zerotermux' /><meta property='article:tag' content='Arch_linux' /><meta property='article:published_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='article:modified_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' />
 <meta name="twitter:title" content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta name="twitter:description" content="前言 在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。\n"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' /><style>
         body {
             margin: 0;
@@ -311,11 +311,11 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#如果按照前面操作的话不出所料应该是报错的因为arch-linux的包管理器中没有ndk这个包所以我们需要手动下载ndk">如果按照前面操作的话，不出所料应该是报错的，因为Arch Linux的包管理器中没有ndk这个包，所以我们需要手动下载NDK。</a></li>
-    <li><a href="#下载ndk">下载NDK</a></li>
-    <li><a href="#配置环境变量">配置环境变量</a></li>
-    <li><a href="#正文">正文</a></li>
-    <li><a href="#解决方案">解决方案</a></li>
+    <li><a href="#下载ndk">下载NDK</a>
+      <ol>
+        <li><a href="#测试">测试</a></li>
+      </ol>
+    </li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#参考文献">参考文献</a></li>
@@ -349,16 +349,16 @@
     
     <header class="article-category">
         
-            <a href="/categories/termux/" >
-                Termux
+            <a href="/categories/termux/" style="background-color: #2a9d8f; color: #fff;">
+                termux
             </a>
         
             <a href="/categories/ndk/" >
                 NDK
             </a>
         
-            <a href="/categories/android/" >
-                Android
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                android
             </a>
         
     </header>
@@ -427,55 +427,352 @@
     });
 </script>
     
+     
+
+
+<div class="post-ai">
+    <div class="ai-title">
+        <i class="fas fa-robot ai-title-icon"></i>
+        <div class="ai-title-text">AI 摘要</div>
+    </div>
+
+    
+    <div id="ai-explanation" class="ai-explanation"></div>
+
+    <div class="ai-explanation ai-explanation-content">
+        
+            在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C&#43;&#43;编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件
+        
+    </div>
+</div>
+
+
+
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const matchingSummary = document.querySelector(".ai-explanation-content").textContent;
+
+    new TypeIt("#ai-explanation", {
+        strings: matchingSummary,
+        speed: 10,
+        lifeLike: true,
+        waitUntilVisible: true,
+    }).go();
+});
+</script>
+    
     
     <section class="article-content">
     
     
     <h2 id="前言">前言
-</h2><p>在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。</p>
-<p>在Arch Linux上安装NDK非常简单，只需要在终端中输入以下命令即可：</p>
+</h2><p>上篇文章讲了如何在<code>termux</code>上快速安装<code>arch linux</code>，然后就可以玩一些好玩的，Google发行的NDK并不支持ARM架构</p>
+<h2 id="下载ndk">下载NDK
+</h2><p><img src="https://img.nightrainmilkyway.cn/img/Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+	
+	
+>
+在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads
+然后解压到root目录下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S ndk
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unzip android-ndk-r27b-linux.zip
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>安装完成后，可以在终端中输入以下命令来验证NDK是否安装成功：</p>
+</div><p>然后安装<code>zip</code>工具链并新建一个test目录</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ndk-build --version
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pacman -S zip <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">mkdir <span class="nb">test</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nb">test</span> <span class="o">&amp;&amp;</span> touch test.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="如果按照前面操作的话不出所料应该是报错的因为arch-linux的包管理器中没有ndk这个包所以我们需要手动下载ndk">如果按照前面操作的话，不出所料应该是报错的，因为Arch Linux的包管理器中没有ndk这个包，所以我们需要手动下载NDK。
-</h2><h2 id="下载ndk">下载NDK
-</h2><p>在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads</p>
-<p>选择适合自己系统的版本进行下载，下载完成后解压到任意目录即可</p>
-<h2 id="配置环境变量">配置环境变量
-</h2><p>将NDK的路径添加到环境变量中，这样就可以在终端中直接使用ndk-build命令了。</p>
-<p>在终端中输入以下命令来编辑环境变量：</p>
+</div><p>并填入以下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -eu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">TEST_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>realpath <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## ndk clang resource dir, get by command: &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --print-resource-dir</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RESOURCE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## ndk sysroot, typically &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/sysroot/</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Android target triple</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TARGET</span><span class="o">=</span>aarch64-linux-android21
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v clang<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span>clang
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="nb">command</span> -v zig<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span><span class="s2">&#34;zig cc&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">	print <span class="s2">&#34;Cannot find clang or zig\n&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## These options are needed for llvmbox</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/c++/v1&#34; \</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include&#34; \</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/aarch64-linux-android&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C compiler...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc - <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;stdio.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
+</span></span></span><span class="line"><span class="cl"><span class="s">		  printf(&#34;%s\n&#34;, &#34;Hello, C!&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">		}
+</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C++ compiler...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc++ -lc++ - <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">		using namespace std;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
+</span></span></span><span class="line"><span class="cl"><span class="s">		  cout &lt;&lt; &#34;Hello, C++!\n&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">		}
+</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v file &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">	file <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><style type="text/css">
+     
+    notice {
+        --title-color: #fff;
+        --title-background-color: #6be;
+        --content-color: #444;
+        --content-background-color: #e7f2fa;
+    }
+
+    .notice.info {
+        --title-background-color: #d3f6de;
+        --content-background-color: #d3f6de;
+    }
+
+    .notice.tip {
+        --title-background-color: #E8EAFF;
+        --content-background-color: #E8EAFF;
+    }
+
+    .notice.warning {
+        --title-background-color: #FEF4D8;
+        --content-background-color: #FEF4D8;
+    }
+    
+    .notice.danger {
+        --title-background-color: #FFE2E7;
+        --content-background-color: #FFE2E7;
+    }
+    
+    
+
+   
+
+     
+    .notice {
+        
+        padding: 1px 18px;  
+        line-height: 24px;  
+        margin-bottom: 24px;  
+        border-radius: 18px;  
+        color: var(--content-color);  
+        background: var(--content-background-color);  
+    }
+    
+    <!--   -->
+    <!-- .notice p:last-child { -->
+        <!-- margin-bottom: 0;   -->
+    <!-- } -->
+    
+     
+    .notice-title {
+        margin: -18px -18px 12px;  
+        padding: 8px 18px;  
+        border-radius: 18px 18px 0 0;  
+        font-weight: 700;  
+        color: var(--title-color);  
+        background: var(--title-background-color);  
+    }
+    
+     
+    .icon-notice {
+        display: inline-flex;  
+        align-self: center;  
+        margin-right: 8px;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice svg {
+        height: 1em;  
+        width: 1em;  
+        fill: currentColor;  
+    }
+    
+     
+    .icon-notice img,
+    .icon-notice.baseline svg {
+        top: .125em;  
+        position: relative;  
+    }
+</style><div class="notice tip" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>小贴示</p><p>项目引用<a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
+    >Android SDK</a></p></div>
+<img src="https://img.nightrainmilkyway.cn/img/android-sndk.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="android-sndk.png"
+	
+	
+></p>
+<h3 id="测试">测试
+</h3><p>在<code>test</code>目录下执行<code>sh test.sh</code>，会打印出以下日志</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/profile
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/bin/clang                                
+</span></span><span class="line"><span class="cl">Test C compiler...                                        
+</span></span><span class="line"><span class="cl">Test C++ compiler...                                       
+</span></span><span class="line"><span class="cl">/root/test//output/hello-c:   
+</span></span><span class="line"><span class="cl">ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>10df539d438a8009, not stripped   
+</span></span><span class="line"><span class="cl">/root/test//output/hello-cpp: ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>8ce9c24e480bcc9d, not stripped   
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="正文">正文
-</h2><p>正常情况在linux上安装上这样，但在termux上安装linux，本质上还是模拟，arm架构能跑动就奇怪了，
-NDK是没有arm架构的，真的没有办法了吗？</p>
-<h2 id="解决方案">解决方案
-</h2><p><a class="link" href="https://github.com/zongou/android-sndk.git"  target="_blank" rel="noopener"
-    >https://github.com/zongou/android-sndk.git</a></p>
-<p>&hellip;待续</p>
-<h2 id="附录">附录
+</div><h2 id="附录">附录
 </h2><h3 id="参考文献">参考文献
-</h3><h3 id="版权信息">版权信息
+</h3><p><a class="link" href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn"  target="_blank" rel="noopener"
+    >NDK下载链接</a></p>
+<p><a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
+    >Android SDK</a></p>
+<h3 id="版权信息">版权信息
 </h3><p>本文原载于 <a class="link" href="https://nightrainmilkyway.cn"  target="_blank" rel="noopener"
     >nightrainmilkyway.cn</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
 
@@ -606,16 +903,8 @@ NDK是没有arm架构的，真的没有办法了吗？</p>
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        发表了9篇文章，共计8445字
-        总计8.45k字
+        发表了5篇文章，共计5565字
+        总计5.57k字
     </section>
 
     

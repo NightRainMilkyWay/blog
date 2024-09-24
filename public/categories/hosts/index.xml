@@ -284,6 +284,29 @@ iSERVER:8.8.8.8#53（8.8.8.8)
             
         &lt;/span&gt;小贴示&lt;/p&gt;&lt;p&gt;网域服务器缓存污染（英语：DNS cache pollution）、DNS污染或DNS劫持，是一种破坏域名系统查询解析的行为。[1]通常有计算机程序自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由计算机程序执行的DNS劫持攻击。污染一词可能取自域名系统域名解析之特性，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响 &lt;a class=&#34;link&#34; href=&#34;https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;参考文献（3）-域名服务器缓存污染&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;h2 id=&#34;hosts是如何实现科学上网的&#34;&gt;hosts是如何实现科学上网的
+&lt;/h2&gt;&lt;p&gt;这里以GitHub为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;20.205.243.166&lt;/span&gt;　　&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;GitHub站点毕竟在国外，当dns请求时返回最快的那一个IP，但是想要访问就肯定要走大陆宽带，防火长城就会返回一个假的结果，那么hosts为什么能直接连上GitHub呢，这里就不得不提及域名解析的优先级了，&lt;code&gt;hosts &amp;gt; DNS&lt;/code&gt;，在DNS域名解析系统建立起来之后hosts被弃用，但仍然保留在Linux，Windows系统内，而且优先级一般大于dns解析结果，从而能够建立连接&lt;/p&gt;
+&lt;p&gt;当然，如果想流畅的访问GitHub单单只是修改hosts效果并不明显，可以搭配&lt;a class=&#34;link&#34; href=&#34;https://github.com/WangGithubUser/FastGitHub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FastGithub&lt;/a&gt;合法的工具访问
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/20.205.243.166.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20.205.243.166.png&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;附录&#34;&gt;附录
 &lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

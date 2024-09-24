@@ -8,12 +8,6 @@
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-09-23T22:12:32+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/p/short_code/</loc>
-    <lastmod>2024-09-23T22:12:32+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/p/custom-block/</loc>
-    <lastmod>2024-09-23T19:42:21+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
   </url><url>
@@ -44,10 +38,10 @@
     <loc>http://localhost:1313/categories/ndk/</loc>
     <lastmod>2024-08-10T21:23:21+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/termux/</loc>
+    <loc>http://localhost:1313/categories/termux/</loc>
     <lastmod>2024-08-10T21:23:21+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/termux/</loc>
+    <loc>http://localhost:1313/tags/termux/</loc>
     <lastmod>2024-08-10T21:23:21+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/zerotermux/</loc>
@@ -82,33 +76,6 @@
   </url><url>
     <loc>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/</loc>
     <lastmod>2024-08-10T00:42:16+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/qq%E8%A3%85%E6%89%AE/</loc>
-    <lastmod>2024-08-07T01:06:31+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E7%99%BE%E5%8F%98%E6%B0%94%E6%B3%A1/</loc>
-    <lastmod>2024-08-07T01:06:31+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/</loc>
-    <lastmod>2024-08-07T01:06:31+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E4%B8%BB%E9%A2%98/</loc>
-    <lastmod>2024-08-07T01:06:31+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/lspatch/</loc>
-    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/lspatch/</loc>
-    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/opatch/</loc>
-    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/opatch/</loc>
-    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/</loc>
-    <lastmod>2024-08-06T20:38:40+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>

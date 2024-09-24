@@ -73,31 +73,7 @@
       
         var key = &#34;2024-09-23&#34;;
         var value = dataMap.get(key);
-        var wordCount =  123 ;
-        var link = &#34;/p/short_code/&#34;;
-        var title = &#34;Short_code&#34;;
-        
-        
-        if (value == null) {
-          dataMap.set(key, [{wordCount, link, title}]);
-        } else {
-          value.push({wordCount, link, title});
-        }
-        var key = &#34;2024-09-23&#34;;
-        var value = dataMap.get(key);
-        var wordCount =  111 ;
-        var link = &#34;/p/custom-block/&#34;;
-        var title = &#34;Custom Block&#34;;
-        
-        
-        if (value == null) {
-          dataMap.set(key, [{wordCount, link, title}]);
-        } else {
-          value.push({wordCount, link, title});
-        }
-        var key = &#34;2024-09-23&#34;;
-        var value = dataMap.get(key);
-        var wordCount =  2531 ;
+        var wordCount =  2803 ;
         var link = &#34;/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/&#34;;
         var title = &#34;修改hosts文件理解dns&#34;;
         
@@ -109,7 +85,7 @@
         }
         var key = &#34;2024-08-10&#34;;
         var value = dataMap.get(key);
-        var wordCount =  572 ;
+        var wordCount =  585 ;
         var link = &#34;/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/&#34;;
         var title = &#34;Zerotermux折腾日记(3)-Arch linux上跑NDK&#34;;
         
@@ -121,7 +97,7 @@
         }
         var key = &#34;2024-08-10&#34;;
         var value = dataMap.get(key);
-        var wordCount =  288 ;
+        var wordCount =  291 ;
         var link = &#34;/p/cuprumturbo-scheduler-%E4%BD%BF%E7%94%A8/&#34;;
         var title = &#34;CuprumTurbo Scheduler 使用&#34;;
         
@@ -148,30 +124,6 @@
         var wordCount =  1174 ;
         var link = &#34;/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/&#34;;
         var title = &#34;Zerotermux折腾日记(1)-安装arch Linux&#34;;
-        
-        
-        if (value == null) {
-          dataMap.set(key, [{wordCount, link, title}]);
-        } else {
-          value.push({wordCount, link, title});
-        }
-        var key = &#34;2024-08-07&#34;;
-        var value = dataMap.get(key);
-        var wordCount =  2452 ;
-        var link = &#34;/p/%E4%BD%BF%E7%94%A8qq%E8%A3%85%E6%89%AE/&#34;;
-        var title = &#34;使用QQ装扮&#34;;
-        
-        
-        if (value == null) {
-          dataMap.set(key, [{wordCount, link, title}]);
-        } else {
-          value.push({wordCount, link, title});
-        }
-        var key = &#34;2024-08-06&#34;;
-        var value = dataMap.get(key);
-        var wordCount =  523 ;
-        var link = &#34;/p/%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8opatch/&#34;;
-        var title = &#34;怎么使用OPatch&#34;;
         
         
         if (value == null) {

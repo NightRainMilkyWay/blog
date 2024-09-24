@@ -6,7 +6,8 @@ image: https://img.nightrainmilkyway.cn/img/1723296375281.webp
 math: 
 license: CC BY-NC-SA 4.0
 hidden: false
-ai: false
+ai: true
+summary: 在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件
 comments: true
 draft: false
 categories:
@@ -21,55 +22,123 @@ tags:
 ---
 
 ## 前言
-
-在Arch Linux上跑NDK，其实和Ubuntu上跑NDK没什么区别，因为Arch Linux的包管理器是pacman，而Ubuntu的包管理器是apt，两者都是基于Debian的包管理器，所以安装NDK的方法是一样的。
-
-
-在Arch Linux上安装NDK非常简单，只需要在终端中输入以下命令即可：
-
-```bash
-sudo pacman -S ndk
-```
-
-安装完成后，可以在终端中输入以下命令来验证NDK是否安装成功：
-
-```bash
-ndk-build --version
-```
-## 如果按照前面操作的话，不出所料应该是报错的，因为Arch Linux的包管理器中没有ndk这个包，所以我们需要手动下载NDK。
+上篇文章讲了如何在`termux`上快速安装`arch linux`，然后就可以玩一些好玩的，Google发行的NDK并不支持ARM架构
 
 ## 下载NDK
-
+![Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg](https://img.nightrainmilkyway.cn/img/Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg)
 在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads
-
-选择适合自己系统的版本进行下载，下载完成后解压到任意目录即可
-
-## 配置环境变量
-
-将NDK的路径添加到环境变量中，这样就可以在终端中直接使用ndk-build命令了。
-
-在终端中输入以下命令来编辑环境变量：
-
-```bash
-sudo nano /etc/profile
+然后解压到root目录下
 ```
- ## 正文
+unzip android-ndk-r27b-linux.zip
+```
 
- 正常情况在linux上安装上这样，但在termux上安装linux，本质上还是模拟，arm架构能跑动就奇怪了，
- NDK是没有arm架构的，真的没有办法了吗？
+然后安装`zip`工具链并新建一个test目录
+```sh
+pacman -S zip &&
+mkdir test && cd test && touch test.sh
+```
 
-## 解决方案
+并填入以下内容
+```sh
+#!/bin/sh
+set -eu
 
-https://github.com/zongou/android-sndk.git
+TEST_DIR="$(dirname "$(realpath "$0")")"
 
-...待续
+## ndk clang resource dir, get by command: <ndk_root>/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --print-resource-dir
+RESOURCE_DIR="${TEST_DIR}/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/"
+
+## ndk sysroot, typically <ndk_root>/toolchains/llvm/prebuilt/linux-x86_64/sysroot/
+SYSROOT="${TEST_DIR}/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/"
+
+## Android target triple
+TARGET=aarch64-linux-android21
+
+if command -v clang; then
+	CLANG=clang
+elif command -v zig; then
+	CLANG="zig cc"
+else
+	print "Cannot find clang or zig\n" >&2
+	exit 1
+fi
+
+## These options are needed for llvmbox
+# -isystem "${SYSROOT}/usr/include/c++/v1" \
+# -isystem "${SYSROOT}/usr/include" \
+# -isystem "${SYSROOT}/usr/include/aarch64-linux-android"
+
+mkdir -p "${TEST_DIR}/output"
+
+echo "Test C compiler..."
+${CLANG} \
+	-B "${TEST_DIR}/bin" \
+	-resource-dir "${RESOURCE_DIR}" \
+	--sysroot="${SYSROOT}" \
+	--target="${TARGET}" \
+	-xc - \
+	"$@" \
+	-o "${TEST_DIR}/output/hello-c" \
+	<<-EOF
+		#include <stdio.h>
+
+		int main() {
+		  printf("%s\n", "Hello, C!");
+		  return 0;
+		}
+	EOF
+
+echo "Test C++ compiler..."
+${CLANG} \
+	-B "${TEST_DIR}/bin" \
+	-resource-dir "${RESOURCE_DIR}" \
+	--sysroot="${SYSROOT}" \
+	--target="${TARGET}" \
+	-xc++ -lc++ - \
+	"$@" \
+	-o "${TEST_DIR}/output/hello-cpp" \
+	<<-EOF
+		#include <iostream>
+		using namespace std;
+
+		int main() {
+		  cout << "Hello, C++!\n";
+		  return 0;
+		}
+	EOF
+
+if command -v file >/dev/null; then
+	file "${TEST_DIR}/output/hello-c" "${TEST_DIR}/output/hello-cpp"
+fi
+
+
+```
+
+{{< notice tip >}}
+项目引用[Android SDK](https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh)
+
+{{< /notice  >}}
+![android-sndk.png](https://img.nightrainmilkyway.cn/img/android-sndk.png)
+### 测试
+在`test`目录下执行`sh test.sh`，会打印出以下日志
+```sh
+/bin/clang                                
+Test C compiler...                                        
+Test C++ compiler...                                       
+/root/test//output/hello-c:   
+ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, BuildID[xxHash]=10df539d438a8009, not stripped   
+/root/test//output/hello-cpp: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, BuildID[xxHash]=8ce9c24e480bcc9d, not stripped   
+```
 
 
 
 ## 附录
 
 ### 参考文献
+[NDK下载链接](https://developer.android.google.cn/ndk/downloads?hl=zh-cn)
 
+[Android SDK](https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh)
 ### 版权信息
+
 
 本文原载于 [nightrainmilkyway.cn](https://nightrainmilkyway.cn)，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。

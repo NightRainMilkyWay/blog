@@ -25,8 +25,9 @@ tags:
 - 5.请务必安装 CuJankDetector 模块
 
 ## 下载
-
+{{< notice tip >}}
 [GitHub release](https://github.com/TimeBreeze/Tritium/releases)
+{{< /notice  >}}
 
 ## 使用方法 1 -app 导入
 ![](https://tritium.nightrainmilkyway.cn/img/ResizedImage_2024-02-11_18-52-03_8500.png)

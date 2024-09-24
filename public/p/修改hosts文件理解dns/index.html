@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0"><meta charset='utf-8'>
+    
+    
+    <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
 <title>修改hosts文件理解dns</title>
 
@@ -317,6 +317,7 @@
         <li><a href="#dns污染">DNS污染</a></li>
       </ol>
     </li>
+    <li><a href="#hosts是如何实现科学上网的">hosts是如何实现科学上网的</a></li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#参考文献">参考文献</a></li>
@@ -732,6 +733,29 @@ iSERVER:8.8.8.8#53（8.8.8.8)
             
         </span>小贴示</p><p>网域服务器缓存污染（英语：DNS cache pollution）、DNS污染或DNS劫持，是一种破坏域名系统查询解析的行为。[1]通常有计算机程序自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由计算机程序执行的DNS劫持攻击。污染一词可能取自域名系统域名解析之特性，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响 <a class="link" href="https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"  target="_blank" rel="noopener"
     >参考文献（3）-域名服务器缓存污染</a></p></div>
+<h2 id="hosts是如何实现科学上网的">hosts是如何实现科学上网的
+</h2><p>这里以GitHub为例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">20.205.243.166</span>　　<span class="n">github</span><span class="p">.</span><span class="n">com</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GitHub站点毕竟在国外，当dns请求时返回最快的那一个IP，但是想要访问就肯定要走大陆宽带，防火长城就会返回一个假的结果，那么hosts为什么能直接连上GitHub呢，这里就不得不提及域名解析的优先级了，<code>hosts &gt; DNS</code>，在DNS域名解析系统建立起来之后hosts被弃用，但仍然保留在Linux，Windows系统内，而且优先级一般大于dns解析结果，从而能够建立连接</p>
+<p>当然，如果想流畅的访问GitHub单单只是修改hosts效果并不明显，可以搭配<a class="link" href="https://github.com/WangGithubUser/FastGitHub"  target="_blank" rel="noopener"
+    >FastGithub</a>合法的工具访问
+<img src="https://img.nightrainmilkyway.cn/img/20.205.243.166.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="20.205.243.166.png"
+	
+	
+></p>
 <h2 id="附录">附录
 </h2><h3 id="参考文献">参考文献
 </h3><p><a class="link" href="https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/"  target="_blank" rel="noopener"
@@ -819,16 +843,8 @@ iSERVER:8.8.8.8#53（8.8.8.8)
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        发表了9篇文章，共计8445字
-        总计8.45k字
+        发表了5篇文章，共计5565字
+        总计5.57k字
     </section>
 
     
