@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-09-23T22:12:32+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-09-23T22:12:32+08:00</lastmod>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-09-23T10:08:44+08:00</lastmod>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/git/</loc>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/git/</loc>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/p/git-flow/</loc>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-09-24T21:36:55+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/dns/</loc>
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
@@ -18,9 +30,6 @@
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/hosts/</loc>
-    <lastmod>2024-09-23T10:08:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-09-23T10:08:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</loc>
@@ -64,12 +73,6 @@
   </url><url>
     <loc>http://localhost:1313/categories/tritium/</loc>
     <lastmod>2024-08-10T21:18:22+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/git/</loc>
-    <lastmod>2024-08-10T20:58:28+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/git/</loc>
-    <lastmod>2024-08-10T20:58:28+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B02-arch-linux%E5%AE%89%E8%A3%85git/</loc>
     <lastmod>2024-08-10T20:58:28+08:00</lastmod>

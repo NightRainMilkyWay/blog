@@ -401,6 +401,18 @@
       
       var dataMap = new Map();
       
+        var key = "2024-09-24";
+        var value = dataMap.get(key);
+        var wordCount =  1167 ;
+        var link = "/p/git-flow/";
+        var title = "Git Flow是什么？为什么需要它";
+        
+        
+        if (value == null) {
+          dataMap.set(key, [{wordCount, link, title}]);
+        } else {
+          value.push({wordCount, link, title});
+        }
         var key = "2024-09-23";
         var value = dataMap.get(key);
         var wordCount =  2803 ;
@@ -688,8 +700,10 @@ You can click the Preview link to take a look at your changes.
         
         
         
-        发表了5篇文章，共计5565字
-        总计5.57k字
+        
+        
+        发表了6篇文章，共计6732字
+        总计6.73k字
     </section>
 
     

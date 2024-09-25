@@ -6,6 +6,8 @@ date: {{ .Date }}
 lastmod: "{{ .Date }}"
 image: 
 math: 
+ai: false
+summary:
 license: CC BY-NC-SA 4.0
 hidden: false
 comments: true
