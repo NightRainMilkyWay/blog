@@ -8,25 +8,25 @@
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
         <lastBuildDate>Mon, 23 Sep 2024 10:08:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/hosts/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>修改hosts文件理解dns</title>
-        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</link>
+        <title>修改hosts文件理解dns - (上)</title>
+        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/</link>
         <pubDate>Mon, 23 Sep 2024 10:08:44 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</guid>
-        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改hosts文件理解dns" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
+        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改hosts文件理解dns - (上)" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
 &lt;/h2&gt;&lt;p&gt;相信大家都看过流浪地球 2，其中有这么一个情节，&lt;code&gt;重启世界根服务器&lt;/code&gt;，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
-&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/f44d30758a58254024433c.png&#34;
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/272.jpg&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;f44d30758a58254024433c.png&#34;
+		alt=&#34;272.jpg&#34;
 	
 	
-&gt;&lt;/p&gt;
-&lt;p&gt;在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
-&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间&lt;/p&gt;
+&gt;
+在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
+&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间 &lt;a class=&#34;link&#34; href=&#34;./../dns&#34; &gt;修改hosts文件理解DNS - （下）&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;当我们打开这个&lt;code&gt;hosts&lt;/code&gt;文件之后可以发现里面有一下内容&lt;/p&gt;
 &lt;p&gt;Windows 目录是: &lt;code&gt;C:\Windows\System32\drivers\etc\hosts&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Linux 目录是: &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;

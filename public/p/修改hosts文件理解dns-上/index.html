@@ -4,19 +4,19 @@
     
     
     <meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
-<title>Zerotermux折腾日记(3)-Arch linux上跑NDK</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
+<title>修改hosts文件理解dns - (上)</title>
 
-<link rel='canonical' href='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
+<link rel='canonical' href='http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/'>
 
-<link rel="stylesheet" href="/scss/style.min.2e05ac4248aaba64ac1fbca9f8c61d1eb06f40fdf4d5fa2ce9f5448379c5b499.css"><meta property='og:title' content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta property='og:description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
-<meta property='og:url' content='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
+<link rel="stylesheet" href="/scss/style.min.2e05ac4248aaba64ac1fbca9f8c61d1eb06f40fdf4d5fa2ce9f5448379c5b499.css"><meta property='og:title' content="修改hosts文件理解dns - (上)">
+<meta property='og:description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
+<meta property='og:url' content='http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='termux' /><meta property='article:tag' content='NDK' /><meta property='article:tag' content='zerotermux' /><meta property='article:tag' content='Arch_linux' /><meta property='article:published_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='article:modified_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' />
-<meta name="twitter:title" content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta name="twitter:description" content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' /><style>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='hosts' /><meta property='article:tag' content='DNS' /><meta property='article:published_time' content='2024-09-23T10:08:44&#43;08:00'/><meta property='article:modified_time' content='2024-09-23T10:08:44&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png' />
+<meta name="twitter:title" content="修改hosts文件理解dns - (上)">
+<meta name="twitter:description" content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png' /><style>
         body {
             margin: 0;
             overflow: hidden;  
@@ -310,12 +310,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#前言">前言</a></li>
-    <li><a href="#下载ndk">下载NDK</a>
+    <li><a href="#hosts-是什么">hosts 是什么？</a></li>
+    <li><a href="#dns-是什么">DNS 是什么</a>
       <ol>
-        <li><a href="#测试">测试</a></li>
+        <li><a href="#域名篡改">域名篡改</a></li>
+        <li><a href="#dns污染">DNS污染</a></li>
       </ol>
     </li>
+    <li><a href="#hosts是如何实现科学上网的">hosts是如何实现科学上网的</a></li>
     <li><a href="#附录">附录</a>
       <ol>
         <li><a href="#参考文献">参考文献</a></li>
@@ -336,9 +338,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/">
+            <a href="/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/">
                 
-                    <img src="https://img.nightrainmilkyway.cn/img/1723296375281.webp" loading="lazy" alt="Featured image of post Zerotermux折腾日记(3)-Arch linux上跑NDK" />
+                    <img src="https://img.nightrainmilkyway.cn/img/122622935_p0%20%281%29.png" loading="lazy" alt="Featured image of post 修改hosts文件理解dns - (上)" />
                 
             </a>
         </div>
@@ -349,16 +351,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/termux/" style="background-color: #2a9d8f; color: #fff;">
-                termux
-            </a>
-        
-            <a href="/categories/ndk/" >
-                NDK
-            </a>
-        
-            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
-                android
+            <a href="/categories/hosts/" >
+                Hosts
             </a>
         
     </header>
@@ -366,7 +360,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/">Zerotermux折腾日记(3)-Arch linux上跑NDK</a>
+            <a href="/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/">修改hosts文件理解dns - (上)</a>
         </h2>
     
         
@@ -388,7 +382,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 10, 2024</time>
+                <time class="article-time--published">Sep 23, 2024</time>
             </div>
         
 
@@ -403,7 +397,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -442,7 +436,7 @@
 
     <div class="ai-explanation ai-explanation-content">
         
-            在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C&#43;&#43;编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件
+            本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。
         
     </div>
 </div>
@@ -469,41 +463,23 @@ document.addEventListener("DOMContentLoaded", function () {
     <section class="article-content">
     
     
-    <h2 id="前言">前言
-</h2><p>上篇文章讲了如何在<code>termux</code>上快速安装<code>arch linux</code>，然后就可以玩一些好玩的，Google发行的NDK并不支持ARM架构</p>
-<h2 id="下载ndk">下载NDK
-</h2><p><img src="https://img.nightrainmilkyway.cn/img/Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+    <h2 id="hosts-是什么">hosts 是什么？
+</h2><p>相信大家都看过流浪地球 2，其中有这么一个情节，<code>重启世界根服务器</code>，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
+<img src="https://img.nightrainmilkyway.cn/img/272.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+		alt="272.jpg"
 	
 	
 >
-在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads
-然后解压到root目录下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unzip android-ndk-r27b-linux.zip
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后安装<code>zip</code>工具链并新建一个test目录</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pacman -S zip <span class="o">&amp;&amp;</span>
-</span></span><span class="line"><span class="cl">mkdir <span class="nb">test</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nb">test</span> <span class="o">&amp;&amp;</span> touch test.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>并填入以下内容</p>
+在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了</p>
+<p>但是后来随着互联网的规模不断扩大，<code>hosts</code>文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间 <a class="link" href="./../dns" >修改hosts文件理解DNS - （下）</a></p>
+<p>当我们打开这个<code>hosts</code>文件之后可以发现里面有一下内容</p>
+<p>Windows 目录是: <code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<p>Linux 目录是: <code>/etc/hosts</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -519,138 +495,29 @@ document.addEventListener("DOMContentLoaded", function () {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -eu
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">TEST_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>realpath <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## ndk clang resource dir, get by command: &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --print-resource-dir</span>
-</span></span><span class="line"><span class="cl"><span class="nv">RESOURCE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## ndk sysroot, typically &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/sysroot/</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SYSROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## Android target triple</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TARGET</span><span class="o">=</span>aarch64-linux-android21
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v clang<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span>clang
-</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="nb">command</span> -v zig<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span><span class="s2">&#34;zig cc&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl">	print <span class="s2">&#34;Cannot find clang or zig\n&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## These options are needed for llvmbox</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/c++/v1&#34; \</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include&#34; \</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/aarch64-linux-android&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C compiler...&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc - <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;stdio.h&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
-</span></span></span><span class="line"><span class="cl"><span class="s">		  printf(&#34;%s\n&#34;, &#34;Hello, C!&#34;);
-</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
-</span></span></span><span class="line"><span class="cl"><span class="s">		}
-</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C++ compiler...&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc++ -lc++ - <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;iostream&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">		using namespace std;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
-</span></span></span><span class="line"><span class="cl"><span class="s">		  cout &lt;&lt; &#34;Hello, C++!\n&#34;;
-</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
-</span></span></span><span class="line"><span class="cl"><span class="s">		}
-</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v file &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	file <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">127.0.0.1</span>       <span class="n">localhost</span>
+</span></span><span class="line"><span class="cl"><span class="o">::</span><span class="mi">1</span>     <span class="n">localhost</span> <span class="n">ip6</span><span class="o">-</span><span class="n">localhost</span> <span class="n">ip6</span><span class="o">-</span><span class="n">loopback</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="o">::</span><span class="mi">1</span> <span class="n">ip6</span><span class="o">-</span><span class="n">allnodes</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="o">::</span><span class="mi">2</span> <span class="n">ip6</span><span class="o">-</span><span class="n">allrouters</span>
+</span></span><span class="line"><span class="cl"><span class="mf">20.205.243.166</span>　　<span class="n">github</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">www</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">gcr</span><span class="p">.</span><span class="n">io</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">www</span><span class="p">.</span><span class="n">gcr</span><span class="p">.</span><span class="n">io</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">com</span><span class="p">.</span><span class="n">google</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">admin</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">accounts</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="mf">61.91.161.217</span>	<span class="n">accounts</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">cn</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><style type="text/css">
+</div><p>看到第一行就是我们所熟悉的<code>127.0.0.1　　localhost</code>，就是在hosts中定义的</p>
+<p>可以看第 5 行前面是 IP 后面是域名一一对应，是不是突然就明白了这个<code>hosts</code>文件的作用</p>
+<h2 id="dns-是什么">DNS 是什么
+</h2><p>DNS（Domain Name System，域名系统），将人类可读的域名（例如 <a class="link" href="https://www.example.com"  target="_blank" rel="noopener"
+    >www.example.com</a>）转换为机器用于相互通信的IP地址（例如 192.0.2.1 或 2001:db8::1）的一种分布式数据库。打个比方来说，DNS就像一个电话簿，IP相当于电话号码，域名相当于联系人</p>
+<style type="text/css">
      
     notice {
         --title-color: #fff;
@@ -735,20 +602,64 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="notice-title">
         <span class="icon-notice baseline">
             
-        </span>小贴示</p><p>项目引用<a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
-    >Android SDK</a></p></div>
-<img src="https://img.nightrainmilkyway.cn/img/android-sndk.png"
+        </span>小贴示</p><p>这几条可以看出一个 IP 地址可以同时对应多个域名，这也就是为什么平时在地址栏上输入 google.com或www.google.com都可以访问 google 了。而https://是浏览器自动帮你加上去的，平时我们访问不了 google 的原因是，google 的域名 在本机转化为 IP 地址后经过中国大陆的防火长城，被防火长城检测到与黑名单内的关键词匹配（如：Google、Facebook、twitter等都在黑名单内），然后就会伪装成目标域名的解析服务器返回虚假的查询结果。关键的是通常的域名查询没有任何认证机制，而且域名的查询一般是基于无连接不可靠的 UDP 协议，所以浏览器只能接受最先到达的格式正确结果，并把之后的所有结果丢弃。所以这也就访问不了啦，这种情况就是所谓的 DNS 缓存污染，也称为 DNS 缓存投毒（这个真形象…）<a class="link" href="https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/"  target="_blank" rel="noopener"
+    >参考文献-从修改hosts文件科学上网中理解DNS（上）</a></p></div>
+<p>一个域名背后可以有多个I地址。当域名解析服务器在解析域名记录的“值”中包含多个IP地址时，LDNS会返回所有IP地址，但返回I地址的顺序是随机的。浏览器默认选取第一个返回的 IP地址作为解析结果，其解析流程如下。</p>
+<ol>
+<li>网站访问者通过浏览器向Local DNS（简称LDNS）发送解析请求。</li>
+<li>LDNS将解析请求逐级转发（递归）至权威DNS。</li>
+<li>权威DNS在收到解析请求后，将所有I地址以随机顺序返回LDNS。</li>
+<li>LDNS将所有IP地址返回浏览器。</li>
+<li>网站访问者的浏览器随机访问其中一个I地址，通常（不是绝对）选取第一个返回的IP地址。在没有做反向代理的情况下，如果返回的IP地址有多个，那么访问到这些IP地址的机会一般是均等的。</li>
+</ol>
+<p><img src="https://img.nightrainmilkyway.cn/img/v2-c3392cab45f8241c0369ec6457000df8_1440w.webp"
 	
 	
 	
 	loading="lazy"
 	
-		alt="android-sndk.png"
+		alt="v2-c3392cab45f8241c0369ec6457000df8_1440w.webp"
 	
 	
 ></p>
-<h3 id="测试">测试
-</h3><p>在<code>test</code>目录下执行<code>sh test.sh</code>，会打印出以下日志</p>
+<p>在DNS解析的描述过程中，浏览器首先通过本地的DNS服务（LDNS）发送第一个
+解析请求，然后由LDNS返回IP地址，访问对应的服务器所提供的互联网服务。
+这样就带来了一个问题：如果LDNS返回的不是公网的域名解析服务解析出的IP地址，
+而是经过本地篡改的呢？</p>
+<h3 id="域名篡改">域名篡改
+</h3><p>域名会被篡改吗？或域名解析服务器在解析域名后返回的IP地址会被篡改吗？
+在回答上述问题前，我们先查看Linux系统中有关DNS的配置文件。</p>
+<div class="notice info" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>引言</p><p><code>/etc/hosts</code>：记录hostname对应的IP地址
+<code>/etc/resolv.conf</code>：设置DNS服务器的IP地址
+<code>/etc/host.conf</code>：指定域名解析的顺序，是先从hosts 解析还是先从DNS解析</p></div>
+<p>LDNS 优先解析hosts 文件（Windows 路径是<code>C：\Windows\System32\driversletclhosts</code>）,在hosts文件中，改变域名指向的I地址，我们将不会访问到原来的公网主机。示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>root@linuxido ~<span class="o">]</span><span class="c1"># ping linuxido.com({})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→在修改前，对城名执行ping命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">PING linuxido.com <span class="o">(</span>123.56.94.254<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 123.56.94.254 <span class="o">(</span>123.56.94.254<span class="o">)</span>: icmp <span class="nv">_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">53</span> <span class="nv">time</span><span class="o">=</span>25.6 ms
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido ~l# dig +short linuxido.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→使用dig命令解析域名</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -756,23 +667,103 @@ document.addEventListener("DOMContentLoaded", function () {
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/bin/clang                                
-</span></span><span class="line"><span class="cl">Test C compiler...                                        
-</span></span><span class="line"><span class="cl">Test C++ compiler...                                       
-</span></span><span class="line"><span class="cl">/root/test//output/hello-c:   
-</span></span><span class="line"><span class="cl">ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>10df539d438a8009, not stripped   
-</span></span><span class="line"><span class="cl">/root/test//output/hello-cpp: ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>8ce9c24e480bcc9d, not stripped   
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">123.56.94.254
+</span></span><span class="line"><span class="cl"><span class="c1">##→修改域名对应的IP地址</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido~<span class="o">]</span><span class="c1"># echo &#39;120.120.120.120 linuxido.com&#39; &gt;&gt; /etc/hosts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@linuxido~<span class="o">]</span><span class="c1"># ping linuxido.com</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="附录">附录
+</div><p>→修改后，再对域名执行ping命今</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PING linuxido.com (120.120.120.120) 56(84) bytes of data.
+</span></span><span class="line"><span class="cl">并→可以看到ping命令失败，无法ping通120.120.120.120
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→使用host命令解析城名，可以看到依然是公网IP地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@linuxido~l# host linuxido.com
+</span></span><span class="line"><span class="cl">linuxido.com has address 123.56.94.254[root@linuxido ~]# nslookup linuxido.com Server:
+</span></span><span class="line"><span class="cl">Address:
+</span></span><span class="line"><span class="cl">8.8.8.8
+</span></span><span class="line"><span class="cl">8.8.8.8#53
+</span></span><span class="line"><span class="cl">Non-authoritative answer:
+</span></span><span class="line"><span class="cl">Name:
+</span></span><span class="line"><span class="cl">linuxido.com Address: 123.56.94.254
+</span></span><span class="line"><span class="cl">[root@linuxido ~]# dig linuxido.com
+</span></span><span class="line"><span class="cl">linuxido.com.
+</span></span><span class="line"><span class="cl">599
+</span></span><span class="line"><span class="cl">IN
+</span></span><span class="line"><span class="cl">A
+</span></span><span class="line"><span class="cl">123.56.94.254
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>##一修改hosts 文件后，dig命令解析的城名依然是公网IP地址。找寻A的记录，它是不经过LDNS
+iSERVER:8.8.8.8#53（8.8.8.8)
+##→本机的DNS地址设置为8.8.8.8，DNS的默认端口是53
+如果没有修改 hosts 文件，在什么情况下可能出现DNS返回错误的IP 地址呢？域名劫持是最可能出现的情况。域名劫持就是通过攻击或伪造域名解析服务器的方式，把目标网站域名解析到错误的 I地址，从而使用户访问一些非法、恶意网站。因此，我们需要使用域名解工具查看访问域名是都真正对应IP地址</p>
+<h3 id="dns污染">DNS污染
+</h3><div class="notice tip" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>小贴示</p><p>网域服务器缓存污染（英语：DNS cache pollution）、DNS污染或DNS劫持，是一种破坏域名系统查询解析的行为。[1]通常有计算机程序自动执行DNS劫持攻击导致DNS服务器缓存了错误记录的现象。而域名服务器缓存投毒（DNS cache poisoning）和DNS缓存投毒指由计算机程序执行的DNS劫持攻击。污染一词可能取自域名系统域名解析之特性，若递归DNS解析器查询上游时收到错误回复，所有下游也会受影响 <a class="link" href="https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"  target="_blank" rel="noopener"
+    >参考文献（3）-域名服务器缓存污染</a></p></div>
+<h2 id="hosts是如何实现科学上网的">hosts是如何实现科学上网的
+</h2><p>这里以GitHub为例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">20.205.243.166</span>　　<span class="n">github</span><span class="p">.</span><span class="n">com</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GitHub站点毕竟在国外，当dns请求时返回最快的那一个IP，但是想要访问就肯定要走大陆宽带，防火长城就会返回一个假的结果，那么hosts为什么能直接连上GitHub呢，这里就不得不提及域名解析的优先级了，<code>hosts &gt; DNS</code>，在DNS域名解析系统建立起来之后hosts被弃用，但仍然保留在Linux，Windows系统内，而且优先级一般大于dns解析结果，从而能够建立连接</p>
+<p>当然，如果想流畅的访问GitHub单单只是修改hosts效果并不明显，可以搭配<a class="link" href="https://github.com/WangGithubUser/FastGitHub"  target="_blank" rel="noopener"
+    >FastGithub</a>合法的工具访问
+<img src="https://img.nightrainmilkyway.cn/img/20.205.243.166.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="20.205.243.166.png"
+	
+	
+></p>
+<h2 id="附录">附录
 </h2><h3 id="参考文献">参考文献
-</h3><p><a class="link" href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn"  target="_blank" rel="noopener"
-    >NDK下载链接</a></p>
-<p><a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
-    >Android SDK</a></p>
+</h3><p><a class="link" href="https://famousczm.github.io/2017/05/07/%E4%BB%8E%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%AD%E7%90%86%E8%A7%A3DNS%EF%BC%88%E4%B8%8A%EF%BC%89/"  target="_blank" rel="noopener"
+    >参考文献（1）-从修改hosts文件科学上网中理解DNS（上）</a></p>
+<p><a class="link" href="" >参考文献（2）-Linux从入门到精通 第八章 Linux网络与安全</a></p>
+<p><a class="link" href="https://zh.m.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"  target="_blank" rel="noopener"
+    >参考文献（3）-域名服务器缓存污染</a></p>
 <h3 id="版权信息">版权信息
 </h3><p>本文原载于 <a class="link" href="https://nightrainmilkyway.cn"  target="_blank" rel="noopener"
     >nightrainmilkyway.cn</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
@@ -784,13 +775,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     <section class="article-tags">
         
-            <a href="/tags/termux/">Termux</a>
+            <a href="/tags/hosts/">Hosts</a>
         
-            <a href="/tags/ndk/">NDK</a>
-        
-            <a href="/tags/zerotermux/">Zerotermux</a>
-        
-            <a href="/tags/arch_linux/">Arch_linux</a>
+            <a href="/tags/dns/">DNS</a>
         
     </section>
 
@@ -816,53 +803,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B02-arch-linux%E5%AE%89%E8%A3%85git/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.nightrainmilkyway.cn/img/1723295107649.webp" loading="lazy" data-key="" data-hash="https://img.nightrainmilkyway.cn/img/1723295107649.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Zerotermux折腾日记(2)-Arch linux安装git</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.nightrainmilkyway.cn/img/1723221912885.webp" loading="lazy" data-key="" data-hash="https://img.nightrainmilkyway.cn/img/1723221912885.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Zerotermux折腾日记(1)-安装arch Linux</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     

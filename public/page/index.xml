@@ -71,6 +71,18 @@
       
       var dataMap = new Map();
       
+        var key = &#34;2024-09-26&#34;;
+        var value = dataMap.get(key);
+        var wordCount =  1069 ;
+        var link = &#34;/p/dns/&#34;;
+        var title = &#34;修改hosts文件理解DNS - （下）&#34;;
+        
+        
+        if (value == null) {
+          dataMap.set(key, [{wordCount, link, title}]);
+        } else {
+          value.push({wordCount, link, title});
+        }
         var key = &#34;2024-09-24&#34;;
         var value = dataMap.get(key);
         var wordCount =  1167 ;
@@ -85,9 +97,9 @@
         }
         var key = &#34;2024-09-23&#34;;
         var value = dataMap.get(key);
-        var wordCount =  2803 ;
-        var link = &#34;/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/&#34;;
-        var title = &#34;修改hosts文件理解dns&#34;;
+        var wordCount =  2821 ;
+        var link = &#34;/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/&#34;;
+        var title = &#34;修改hosts文件理解dns - (上)&#34;;
         
         
         if (value == null) {

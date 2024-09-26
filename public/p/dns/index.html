@@ -4,19 +4,19 @@
     
     
     <meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
-<title>Zerotermux折腾日记(3)-Arch linux上跑NDK</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="DNS系统从最早的HOSTS.TXT文件集中管理演变为分布式、层次化的系统。Paul Mockapetris于1983年提出了DNS协议。随着互联网发展，引入了顶级域名、DNSSEC等，保障安全性与全球可靠性。通过Anycast技术，全球13组根服务器实例分布于各地，保证了高效稳定的域名解析服务">
+<title>修改hosts文件理解DNS - （下）</title>
 
-<link rel='canonical' href='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
+<link rel='canonical' href='http://localhost:1313/p/dns/'>
 
-<link rel="stylesheet" href="/scss/style.min.2e05ac4248aaba64ac1fbca9f8c61d1eb06f40fdf4d5fa2ce9f5448379c5b499.css"><meta property='og:title' content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta property='og:description' content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件">
-<meta property='og:url' content='http://localhost:1313/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/'>
+<link rel="stylesheet" href="/scss/style.min.2e05ac4248aaba64ac1fbca9f8c61d1eb06f40fdf4d5fa2ce9f5448379c5b499.css"><meta property='og:title' content="修改hosts文件理解DNS - （下）">
+<meta property='og:description' content="DNS系统从最早的HOSTS.TXT文件集中管理演变为分布式、层次化的系统。Paul Mockapetris于1983年提出了DNS协议。随着互联网发展，引入了顶级域名、DNSSEC等，保障安全性与全球可靠性。通过Anycast技术，全球13组根服务器实例分布于各地，保证了高效稳定的域名解析服务">
+<meta property='og:url' content='http://localhost:1313/p/dns/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='termux' /><meta property='article:tag' content='NDK' /><meta property='article:tag' content='zerotermux' /><meta property='article:tag' content='Arch_linux' /><meta property='article:published_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='article:modified_time' content='2024-08-10T21:23:21&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' />
-<meta name="twitter:title" content="Zerotermux折腾日记(3)-Arch linux上跑NDK">
-<meta name="twitter:description" content="在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C++编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723296375281.webp' /><style>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DNS' /><meta property='article:published_time' content='2024-09-26T19:37:23&#43;08:00'/><meta property='article:modified_time' content='2024-09-26T19:37:23&#43;08:00'/><meta property='og:image' content='https://img.nightrainmilkyway.cn/img/ResizedImage_2024-09-24_21-39-25_1.webp' />
+<meta name="twitter:title" content="修改hosts文件理解DNS - （下）">
+<meta name="twitter:description" content="DNS系统从最早的HOSTS.TXT文件集中管理演变为分布式、层次化的系统。Paul Mockapetris于1983年提出了DNS协议。随着互联网发展，引入了顶级域名、DNSSEC等，保障安全性与全球可靠性。通过Anycast技术，全球13组根服务器实例分布于各地，保证了高效稳定的域名解析服务"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/ResizedImage_2024-09-24_21-39-25_1.webp' /><style>
         body {
             margin: 0;
             overflow: hidden;  
@@ -310,10 +310,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#前言">前言</a></li>
-    <li><a href="#下载ndk">下载NDK</a>
+    <li><a href="#域名解析系统发展史">域名解析系统发展史</a>
       <ol>
-        <li><a href="#测试">测试</a></li>
+        <li><a href="#早期互联网和主机文件hoststxt">早期互联网和主机文件（HOSTS.TXT）</a></li>
+        <li><a href="#域名空间的扩展-1980年代后期">域名空间的扩展 (1980年代后期)</a></li>
+        <li><a href="#dnssec-的引入-1990年代末---2000年代">DNSSEC 的引入 (1990年代末 - 2000年代)</a></li>
+        <li><a href="#根域名服务器的全球部署">根域名服务器的全球部署</a></li>
+        <li><a href="#国际化域名-idn-的引入">国际化域名 (IDN) 的引入</a></li>
       </ol>
     </li>
     <li><a href="#附录">附录</a>
@@ -336,9 +339,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/">
+            <a href="/p/dns/">
                 
-                    <img src="https://img.nightrainmilkyway.cn/img/1723296375281.webp" loading="lazy" alt="Featured image of post Zerotermux折腾日记(3)-Arch linux上跑NDK" />
+                    <img src="https://img.nightrainmilkyway.cn/img/ResizedImage_2024-09-24_21-39-25_1.webp" loading="lazy" alt="Featured image of post 修改hosts文件理解DNS - （下）" />
                 
             </a>
         </div>
@@ -349,16 +352,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/termux/" style="background-color: #2a9d8f; color: #fff;">
-                termux
-            </a>
-        
-            <a href="/categories/ndk/" >
-                NDK
-            </a>
-        
-            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
-                android
+            <a href="/categories/dns/" >
+                DNS
             </a>
         
     </header>
@@ -366,7 +361,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B03-arch-linux%E4%B8%8A%E8%B7%91ndk/">Zerotermux折腾日记(3)-Arch linux上跑NDK</a>
+            <a href="/p/dns/">修改hosts文件理解DNS - （下）</a>
         </h2>
     
         
@@ -388,7 +383,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 10, 2024</time>
+                <time class="article-time--published">Sep 26, 2024</time>
             </div>
         
 
@@ -403,7 +398,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -442,7 +437,7 @@
 
     <div class="ai-explanation ai-explanation-content">
         
-            在这篇文章中，我记录了如何在Termux上使用Arch Linux运行NDK，重点是通过脚本测试C和C&#43;&#43;编译器的执行，确保成功生成并验证了适用于ARM架构的二进制文件
+            DNS系统从最早的HOSTS.TXT文件集中管理演变为分布式、层次化的系统。Paul Mockapetris于1983年提出了DNS协议。随着互联网发展，引入了顶级域名、DNSSEC等，保障安全性与全球可靠性。通过Anycast技术，全球13组根服务器实例分布于各地，保证了高效稳定的域名解析服务
         
     </div>
 </div>
@@ -469,188 +464,27 @@ document.addEventListener("DOMContentLoaded", function () {
     <section class="article-content">
     
     
-    <h2 id="前言">前言
-</h2><p>上篇文章讲了如何在<code>termux</code>上快速安装<code>arch linux</code>，然后就可以玩一些好玩的，Google发行的NDK并不支持ARM架构</p>
-<h2 id="下载ndk">下载NDK
-</h2><p><img src="https://img.nightrainmilkyway.cn/img/Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+    <h2 id="域名解析系统发展史">域名解析系统发展史
+</h2><h3 id="早期互联网和主机文件hoststxt">早期互联网和主机文件（HOSTS.TXT）
+</h3><p>在DNS出现之前，互联网的域名解析依赖于一个中心化的文件：HOSTS.TXT。这个文件由斯坦福研究所（SRI）的Network Information Center (NIC) 维护，列出了每个域名对应的IP地址。每台计算机必须手动下载并更新这个文件才能进行域名解析。</p>
+<p>随着互联网的发展和联网设备数量的增加，这种方法逐渐显得低效和不可扩展。尤其是随着互联网向全球化发展，HOSTS.TXT文件变得过大且更新频繁，无法满足需求。</p>
+<p>为了应对早期域名解析方案的局限性，Paul Mockapetris在1983年提出了DNS系统的概念并编写了最初的DNS协议规范（RFC 882 和 RFC 883，后被更完善的RFC 1034 和 RFC 1035替代）。DNS的核心思想是通过一个分布式、层级化的系统来进行域名解析，解决了HOSTS.TXT文件集中管理带来的扩展性问题</p>
+<p><a class="link" href="https://img.nightrainmilkyway.cn/img/v2-ed152d58f9c04e9a19e4a053c30dae38_1440w.png"  target="_blank" rel="noopener"
+    ><img src="https://img.nightrainmilkyway.cn/img/v2-ed152d58f9c04e9a19e4a053c30dae38_1440w.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="Screenshot_2024-09-24-19-54-23-824_com.microsoft.emmx-edit.jpg"
+		alt="v2-ed152d58f9c04e9a19e4a053c30dae38_1440w.png"
 	
 	
->
-在Android开发者网站上下载NDK，下载地址为：https://developer.android.com/ndk/downloads
-然后解压到root目录下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unzip android-ndk-r27b-linux.zip
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后安装<code>zip</code>工具链并新建一个test目录</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pacman -S zip <span class="o">&amp;&amp;</span>
-</span></span><span class="line"><span class="cl">mkdir <span class="nb">test</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nb">test</span> <span class="o">&amp;&amp;</span> touch test.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>并填入以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -eu
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">TEST_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="k">$(</span>realpath <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## ndk clang resource dir, get by command: &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --print-resource-dir</span>
-</span></span><span class="line"><span class="cl"><span class="nv">RESOURCE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## ndk sysroot, typically &lt;ndk_root&gt;/toolchains/llvm/prebuilt/linux-x86_64/sysroot/</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SYSROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/../android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/sysroot/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## Android target triple</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TARGET</span><span class="o">=</span>aarch64-linux-android21
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v clang<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span>clang
-</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="nb">command</span> -v zig<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">CLANG</span><span class="o">=</span><span class="s2">&#34;zig cc&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl">	print <span class="s2">&#34;Cannot find clang or zig\n&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## These options are needed for llvmbox</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/c++/v1&#34; \</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include&#34; \</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># -isystem &#34;${SYSROOT}/usr/include/aarch64-linux-android&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C compiler...&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc - <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;stdio.h&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
-</span></span></span><span class="line"><span class="cl"><span class="s">		  printf(&#34;%s\n&#34;, &#34;Hello, C!&#34;);
-</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
-</span></span></span><span class="line"><span class="cl"><span class="s">		}
-</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Test C++ compiler...&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">CLANG</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-B <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/bin&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-resource-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RESOURCE_DIR</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--sysroot<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">SYSROOT</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--target<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-xc++ -lc++ - <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	<span class="s">&lt;&lt;-EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">		#include &lt;iostream&gt;
-</span></span></span><span class="line"><span class="cl"><span class="s">		using namespace std;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">		int main() {
-</span></span></span><span class="line"><span class="cl"><span class="s">		  cout &lt;&lt; &#34;Hello, C++!\n&#34;;
-</span></span></span><span class="line"><span class="cl"><span class="s">		  return 0;
-</span></span></span><span class="line"><span class="cl"><span class="s">		}
-</span></span></span><span class="line"><span class="cl"><span class="s">	EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v file &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">	file <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-c&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TEST_DIR</span><span class="si">}</span><span class="s2">/output/hello-cpp&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><style type="text/css">
+></a></p>
+<h3 id="域名空间的扩展-1980年代后期">域名空间的扩展 (1980年代后期)
+</h3><p>随着DNS的推出，顶级域名（TLDs）逐渐被引入，并按照不同的用途分类：</p>
+<p>通用顶级域名（gTLDs）：如 .com（商业组织）、.org（非营利组织）、.edu（教育机构）、.net（网络相关）。</p>
+<p>国家顶级域名（ccTLDs）：如 .cn（中国）、.uk（英国）等，专门为各国或地区保留。</p>
+<style type="text/css">
      
     notice {
         --title-color: #fff;
@@ -735,44 +569,73 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="notice-title">
         <span class="icon-notice baseline">
             
-        </span>小贴示</p><p>项目引用<a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
-    >Android SDK</a></p></div>
-<img src="https://img.nightrainmilkyway.cn/img/android-sndk.png"
+        </span>小贴示</p><p>域名系统采用层次化结构，其中每一级用“.”符号分隔。根据域名的层级关系，域名可以分为顶级域名（TLD）、二级域名、三级域名等多级域名。下面详细介绍域名的层级划分：</p>
+<ul>
+<li>顶级域名 (TLD)</li>
+</ul>
+<p>顶级域名是域名结构的最高层级，位于域名最右边。TLD通常由ICANN（互联网名称与数字地址分配机构）管理。顶级域名分为以下几类：</p>
+<p>通用顶级域名 (gTLDs)： 这些是最常见的顶级域名，用于特定用途或类型的网站：</p>
+<p>.com：最初为商业机构设计，现在广泛用于各种网站。</p>
+<p>.org：用于非营利组织，但也被许多其他组织采用。</p>
+<p>.net：最初为网络服务提供商设计，现在广泛使用。</p>
+<p>.edu：用于美国的教育机构。</p>
+<p>.gov：用于美国政府部门。</p>
+<p>.mil：用于美国军事机构。
+国家顶级域名 (ccTLDs)： 每个国家或地区都有专门的顶级域名，以两个字母代码表示。常见的 ccTLD 包括：</p>
+<p>.cn：中国</p>
+<p>.uk：英国</p>
+<ul>
+<li>二级域名</li>
+</ul>
+<p>二级域名是位于顶级域名之下的下一级域名，通常是组织或企业的名字，用来标识特定的组织、公司或个人。例如：</p>
+<p>在www.example.com中，example是二级域名。</p>
+<p>在www.google.cn中，google是二级域名。</p>
+<p>二级域名通常由域名持有者根据其需求自定义，它们可以是企业名称、品牌、服务类型或其他识别符</p>
+<ul>
+<li>三级域名及多级域名</li>
+</ul>
+<p>三级域名是位于二级域名之下的域名。三级及多级域名通常用于区分子站点、服务或功能。例如：</p>
+<p>www：是一个常见的三级域名，表示网页服务（World Wide Web
+mail.google.com：mail是三级域名，表示谷歌的邮件服务（Gmail）</p></div>
+<p><img src="https://img.nightrainmilkyway.cn/img/v2-19057161c905080d05210161b0772ae1_1440w.webp"
 	
 	
 	
 	loading="lazy"
 	
-		alt="android-sndk.png"
+		alt="v2-19057161c905080d05210161b0772ae1_1440w.webp"
 	
 	
 ></p>
-<h3 id="测试">测试
-</h3><p>在<code>test</code>目录下执行<code>sh test.sh</code>，会打印出以下日志</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/bin/clang                                
-</span></span><span class="line"><span class="cl">Test C compiler...                                        
-</span></span><span class="line"><span class="cl">Test C++ compiler...                                       
-</span></span><span class="line"><span class="cl">/root/test//output/hello-c:   
-</span></span><span class="line"><span class="cl">ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>10df539d438a8009, not stripped   
-</span></span><span class="line"><span class="cl">/root/test//output/hello-cpp: ELF 64-bit LSB pie executable, ARM aarch64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker64, BuildID<span class="o">[</span>xxHash<span class="o">]=</span>8ce9c24e480bcc9d, not stripped   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="附录">附录
+<h3 id="dnssec-的引入-1990年代末---2000年代">DNSSEC 的引入 (1990年代末 - 2000年代)
+</h3><p>虽然DNS系统设计得非常灵活，但随着互联网的快速发展，安全问题逐渐显现。DNS系统缺乏对解析数据真实性的验证机制，容易受到攻击，如DNS欺骗（DNS Spoofing）和中间人攻击。</p>
+<p>为了解决这些问题，DNSSEC（Domain Name System Security Extensions，域名系统安全扩展）在1990年代末提出，并在2000年代开始逐渐推广。DNSSEC通过对DNS记录进行数字签名，确保解析结果的真实性和完整性，防止恶意篡改。</p>
+<h3 id="根域名服务器的全球部署">根域名服务器的全球部署
+</h3><p>DNS的根域名服务器是DNS体系中最顶层的服务器，最初只在美国部署。但为了提高DNS的可靠性和性能，根域名服务器逐渐被扩展到全球范围内。目前有13组根域名服务器，由不同的组织和公司管理，这些服务器分布在多个国家和地区，通过Anycast技术保证全球用户能够快速访问。
+<img src="https://img.nightrainmilkyway.cn/img/%E4%B8%8B%E8%BD%BD%20%281%29.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="下载 (1).jpeg"
+	
+	
+></p>
+<div class="notice tip" >
+
+    <p class="notice-title">
+        <span class="icon-notice baseline">
+            
+        </span>小贴示</p><h4 id="为什么dns根服务器只能有13台">为什么DNS根服务器只能有13台？
+</h4><p>DNS协议的限制：DNS系统最早的设计是在1980年代，那个时候的互联网协议（如IPv4）和硬件性能都相对有限。DNS查询时使用的是UDP数据包，最大包大小为512字节。在这个限制下，返回给客户端的DNS查询结果列表必须足够小，以免超出512字节的限制</p>
+<p>根服务器IP地址的数量：在DNS系统中，客户端查询根域名时需要获取根域名服务器的IP地址列表。DNS解析器通过“根提示文件”（root hints file）来获取所有根服务器的IP地址信息。13个根服务器的IP地址列表恰好能适应这个512字节的限制。</p></div>
+<h3 id="国际化域名-idn-的引入">国际化域名 (IDN) 的引入
+</h3><p>随着全球互联网用户数量的增长，尤其是非英语国家用户的增加，使用仅支持ASCII字符的域名系统逐渐显得不足。为了支持更多的语言字符，国际化域名（IDN）在2000年代引入，允许使用非拉丁字符的域名（如中文、阿拉伯文、韩文等）</p>
+<h2 id="附录">附录
 </h2><h3 id="参考文献">参考文献
-</h3><p><a class="link" href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn"  target="_blank" rel="noopener"
-    >NDK下载链接</a></p>
-<p><a class="link" href="https://github.com/zongou/android-sndk/blob/main/android-toolchain.sh"  target="_blank" rel="noopener"
-    >Android SDK</a></p>
+</h3><p><a class="link" href="https://zhuanlan.zhihu.com/p/361668909?utm_id=0"  target="_blank" rel="noopener"
+    >为什么全球域名根服务器只能有13台？加一台给中国很难吗？</a></p>
 <h3 id="版权信息">版权信息
 </h3><p>本文原载于 <a class="link" href="https://nightrainmilkyway.cn"  target="_blank" rel="noopener"
     >nightrainmilkyway.cn</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
@@ -784,13 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     <section class="article-tags">
         
-            <a href="/tags/termux/">Termux</a>
-        
-            <a href="/tags/ndk/">NDK</a>
-        
-            <a href="/tags/zerotermux/">Zerotermux</a>
-        
-            <a href="/tags/arch_linux/">Arch_linux</a>
+            <a href="/tags/dns/">DNS</a>
         
     </section>
 
@@ -816,53 +673,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B02-arch-linux%E5%AE%89%E8%A3%85git/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.nightrainmilkyway.cn/img/1723295107649.webp" loading="lazy" data-key="" data-hash="https://img.nightrainmilkyway.cn/img/1723295107649.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Zerotermux折腾日记(2)-Arch linux安装git</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/zerotermux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85arch-linux/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.nightrainmilkyway.cn/img/1723221912885.webp" loading="lazy" data-key="" data-hash="https://img.nightrainmilkyway.cn/img/1723221912885.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Zerotermux折腾日记(1)-安装arch Linux</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     

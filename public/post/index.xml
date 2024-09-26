@@ -7,7 +7,36 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 24 Sep 2024 21:36:55 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 Sep 2024 19:37:23 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>修改hosts文件理解DNS - （下）</title>
+        <link>http://localhost:1313/p/dns/</link>
+        <pubDate>Thu, 26 Sep 2024 19:37:23 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/dns/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/ResizedImage_2024-09-24_21-39-25_1.webp" alt="Featured image of post 修改hosts文件理解DNS - （下）" /&gt;&lt;h2 id=&#34;域名解析系统发展史&#34;&gt;域名解析系统发展史
+&lt;/h2&gt;&lt;h3 id=&#34;早期互联网和主机文件hoststxt&#34;&gt;早期互联网和主机文件（HOSTS.TXT）
+&lt;/h3&gt;&lt;p&gt;在DNS出现之前，互联网的域名解析依赖于一个中心化的文件：HOSTS.TXT。这个文件由斯坦福研究所（SRI）的Network Information Center (NIC) 维护，列出了每个域名对应的IP地址。每台计算机必须手动下载并更新这个文件才能进行域名解析。&lt;/p&gt;
+&lt;p&gt;随着互联网的发展和联网设备数量的增加，这种方法逐渐显得低效和不可扩展。尤其是随着互联网向全球化发展，HOSTS.TXT文件变得过大且更新频繁，无法满足需求。&lt;/p&gt;
+&lt;p&gt;为了应对早期域名解析方案的局限性，Paul Mockapetris在1983年提出了DNS系统的概念并编写了最初的DNS协议规范（RFC 882 和 RFC 883，后被更完善的RFC 1034 和 RFC 1035替代）。DNS的核心思想是通过一个分布式、层级化的系统来进行域名解析，解决了HOSTS.TXT文件集中管理带来的扩展性问题&lt;/p&gt;
+&lt;h3 id=&#34;域名空间的扩展-1980年代后期&#34;&gt;域名空间的扩展 (1980年代后期)
+&lt;/h3&gt;&lt;p&gt;随着DNS的推出，顶级域名（TLDs）逐渐被引入，并按照不同的用途分类：&lt;/p&gt;
+&lt;p&gt;通用顶级域名（gTLDs）：如 .com（商业组织）、.org（非营利组织）、.edu（教育机构）、.net（网络相关）。&lt;/p&gt;
+&lt;p&gt;国家顶级域名（ccTLDs）：如 .cn（中国）、.uk（英国）等，专门为各国或地区保留。&lt;/p&gt;
+&lt;h3 id=&#34;dnssec-的引入-1990年代末---2000年代&#34;&gt;DNSSEC 的引入 (1990年代末 - 2000年代)
+&lt;/h3&gt;&lt;p&gt;虽然DNS系统设计得非常灵活，但随着互联网的快速发展，安全问题逐渐显现。DNS系统缺乏对解析数据真实性的验证机制，容易受到攻击，如DNS欺骗（DNS Spoofing）和中间人攻击。&lt;/p&gt;
+&lt;p&gt;为了解决这些问题，DNSSEC（Domain Name System Security Extensions，域名系统安全扩展）在1990年代末提出，并在2000年代开始逐渐推广。DNSSEC通过对DNS记录进行数字签名，确保解析结果的真实性和完整性，防止恶意篡改。&lt;/p&gt;
+&lt;h3 id=&#34;根域名服务器的全球部署&#34;&gt;根域名服务器的全球部署
+&lt;/h3&gt;&lt;p&gt;DNS的根域名服务器是DNS体系中最顶层的服务器，最初只在美国部署。但为了提高DNS的可靠性和性能，根域名服务器逐渐被扩展到全球范围内。目前有13组根域名服务器，由不同的组织和公司管理，这些服务器分布在多个国家和地区，通过Anycast技术保证全球用户能够快速访问。&lt;/p&gt;
+&lt;h3 id=&#34;国际化域名-idn-的引入&#34;&gt;国际化域名 (IDN) 的引入
+&lt;/h3&gt;&lt;p&gt;随着全球互联网用户数量的增长，尤其是非英语国家用户的增加，使用仅支持ASCII字符的域名系统逐渐显得不足。为了支持更多的语言字符，国际化域名（IDN）在2000年代引入，允许使用非拉丁字符的域名（如中文、阿拉伯文、韩文等）&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录
+&lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h3&gt;&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
+&lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://nightrainmilkyway.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nightrainmilkyway.cn&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Git Flow是什么？为什么需要它</title>
         <link>http://localhost:1313/p/git-flow/</link>
         <pubDate>Tue, 24 Sep 2024 21:36:55 +0800</pubDate>
@@ -49,25 +78,25 @@
 </description>
         </item>
         <item>
-        <title>修改hosts文件理解dns</title>
-        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</link>
+        <title>修改hosts文件理解dns - (上)</title>
+        <link>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/</link>
         <pubDate>Mon, 23 Sep 2024 10:08:44 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns/</guid>
-        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改hosts文件理解dns" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
+        <guid>http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/</guid>
+        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png" alt="Featured image of post 修改hosts文件理解dns - (上)" /&gt;&lt;h2 id=&#34;hosts-是什么&#34;&gt;hosts 是什么？
 &lt;/h2&gt;&lt;p&gt;相信大家都看过流浪地球 2，其中有这么一个情节，&lt;code&gt;重启世界根服务器&lt;/code&gt;，那么这个根服务器到底是什么呢？这里就不得不提及域名解析系统的发展史了
-&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/f44d30758a58254024433c.png&#34;
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/272.jpg&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;f44d30758a58254024433c.png&#34;
+		alt=&#34;272.jpg&#34;
 	
 	
-&gt;&lt;/p&gt;
-&lt;p&gt;在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
-&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间&lt;/p&gt;
+&gt;
+在很早很早以前，域名解析系统还没有建立起来，全球的网络主机还很少的时候，IP 地址的映射主要靠的就是各主机里的 hosts 文件来实现，那时候的 hosts 文件保存着互联网上所有主机地址的映射。而 hosts 文件的更新是由一个专门来维护 hosts 文件的站点来实现。也就是说那时根本就不需要也没有 DNS 服务器这东西，用自己主机上的 hosts 文件就可以找到对方的 IP 地址然后建立连接了&lt;/p&gt;
+&lt;p&gt;但是后来随着互联网的规模不断扩大，&lt;code&gt;hosts&lt;/code&gt;文件的维护也越来越困难，毕竟全球的网络主机都需要通过这个负责维护 hosts 更新站点来更新，hosts 所存放的解析记录数量级不断增加，单单只是检索就要花不少时间 &lt;a class=&#34;link&#34; href=&#34;./../dns&#34; &gt;修改hosts文件理解DNS - （下）&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;当我们打开这个&lt;code&gt;hosts&lt;/code&gt;文件之后可以发现里面有一下内容&lt;/p&gt;
 &lt;p&gt;Windows 目录是: &lt;code&gt;C:\Windows\System32\drivers\etc\hosts&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Linux 目录是: &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
