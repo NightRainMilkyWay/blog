@@ -124,8 +124,8 @@ fi
 ```sh
 /bin/clang                                
 Test C compiler...                                        
-Test C++ compiler...                                       
-/root/test//output/hello-c:   
+Test C++ compiler...                                
+/root/test//output/hello-c:
 ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, BuildID[xxHash]=10df539d438a8009, not stripped   
 /root/test//output/hello-cpp: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, BuildID[xxHash]=8ce9c24e480bcc9d, not stripped   
 ```

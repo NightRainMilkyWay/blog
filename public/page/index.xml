@@ -73,7 +73,7 @@
       
         var key = &#34;2024-09-26&#34;;
         var value = dataMap.get(key);
-        var wordCount =  1069 ;
+        var wordCount =  2016 ;
         var link = &#34;/p/dns/&#34;;
         var title = &#34;修改hosts文件理解DNS - （下）&#34;;
         
