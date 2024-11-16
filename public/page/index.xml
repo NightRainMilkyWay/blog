@@ -73,7 +73,7 @@
       
         var key = &#34;2024-11-13&#34;;
         var value = dataMap.get(key);
-        var wordCount =  54 ;
+        var wordCount =  601 ;
         var link = &#34;/p/first_app/&#34;;
         var title = &#34;记录第一次写APP&#34;;
         
