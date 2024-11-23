@@ -403,6 +403,18 @@
       
         var key = "2024-11-13";
         var value = dataMap.get(key);
+        var wordCount =  1343 ;
+        var link = "/p/stc51_1/";
+        var title = "国信长天单片机";
+        
+        
+        if (value == null) {
+          dataMap.set(key, [{wordCount, link, title}]);
+        } else {
+          value.push({wordCount, link, title});
+        }
+        var key = "2024-11-13";
+        var value = dataMap.get(key);
         var wordCount =  601 ;
         var link = "/p/first_app/";
         var title = "记录第一次写APP";
@@ -730,8 +742,10 @@ You can click the Preview link to take a look at your changes.
         
         
         
-        发表了8篇文章，共计9367字
-        总计9.37k字
+        
+        
+        发表了9篇文章，共计10710字
+        总计10.71k字
     </section>
 
     

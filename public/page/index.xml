@@ -73,6 +73,18 @@
       
         var key = &#34;2024-11-13&#34;;
         var value = dataMap.get(key);
+        var wordCount =  1343 ;
+        var link = &#34;/p/stc51_1/&#34;;
+        var title = &#34;国信长天单片机&#34;;
+        
+        
+        if (value == null) {
+          dataMap.set(key, [{wordCount, link, title}]);
+        } else {
+          value.push({wordCount, link, title});
+        }
+        var key = &#34;2024-11-13&#34;;
+        var value = dataMap.get(key);
         var wordCount =  601 ;
         var link = &#34;/p/first_app/&#34;;
         var title = &#34;记录第一次写APP&#34;;
