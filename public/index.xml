@@ -84,8 +84,6 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;202411182015900.jpg&#34;
-	
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/49a956d5c060406675d0add2c43b13c9.png&#34;
@@ -2189,6 +2187,18 @@ iSERVER:8.8.8.8#53（8.8.8.8)
         
         <guid>http://localhost:1313/archives/</guid>
         <description></description>
+        </item>
+        <item>
+        <title>说说</title>
+        <link>http://localhost:1313/%E8%AF%B4%E8%AF%B4/</link>
+        <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/%E8%AF%B4%E8%AF%B4/</guid>
+        <description>&lt;h2 id=&#34;2024-10-21&#34;&gt;2024-10-21
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;今天是个好日子，我又在这里写下了一篇博客，这是我第一次在这里写博客，希望大家喜欢。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
         </item>
         <item>
         <title>关于我</title>
