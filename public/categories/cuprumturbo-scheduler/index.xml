@@ -13,7 +13,7 @@
         <pubDate>Sun, 24 Nov 2024 19:42:21 +0800</pubDate>
         
         <guid>http://localhost:1313/p/custom-block/</guid>
-        <description>&lt;img src="https://img.nightrainmilkyway.cn/img/119764162_p0.png" alt="Featured image of post CuprumTurbo Scheduler V20 性能前瞻" /&gt;&lt;h2 id=&#34;cuprumturbo-scheduler-v20-性能前瞻&#34;&gt;CuprumTurbo Scheduler V20 性能前瞻
+        <description>&lt;img src="https://raw.gitcode.com/NightRainMilkyWay/PicPlus/files/main/img/107553243_p0.jpg" alt="Featured image of post CuprumTurbo Scheduler V20 性能前瞻" /&gt;&lt;h2 id=&#34;cuprumturbo-scheduler-v20-性能前瞻&#34;&gt;CuprumTurbo Scheduler V20 性能前瞻
 &lt;/h2&gt;&lt;h2 id=&#34;叠甲&#34;&gt;叠甲
 &lt;/h2&gt;&lt;p&gt;GitHub地址：https://github.com/chenzyadb/CuprumTurbo-Scheduler
 CuprumTurbo Scheduler 作者为@chenzyadb&lt;/p&gt;
@@ -31,7 +31,7 @@ CuprumTurbo Scheduler 作者为@chenzyadb&lt;/p&gt;
 &lt;p&gt;那么在CT中有什么用呢？&lt;/p&gt;
 &lt;p&gt;诶，以往的配置文件结构中，各个模块的功能是分开的，比如&lt;code&gt;CpuGovernor，ThreadSchedOpt，MtkGpuGovernor &lt;/code&gt;各个模块之间的参数和模式都是预设好的，模块之间是相互独立的，现在你可以简单理解为动态调整属性&lt;/p&gt;
 &lt;p&gt;举个例子，CPU频率加速,触发条件包含tap swipe gesture heavyload jank bigJank,分别在 点击屏幕 滑动屏幕 手势操作 重负载 掉帧 严重掉帧 时触发.在v19中这些条件对应的boots和extraMargind的值是固定,而在v20中你可以通过setProperty来动态调整这些参数,boots,extraMargin,gpuFreq,ddr,都可以通过setProperty来调整,相对的配置文件也超过了1000行&lt;/p&gt;
-&lt;h2 id=&#34;httpsimgnightrainmilkywaycnimg202411241855728png&#34;&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/202411241855728.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/202411241855728.png&#34;
 	
 	
 	
@@ -39,15 +39,15 @@ CuprumTurbo Scheduler 作者为@chenzyadb&lt;/p&gt;
 	
 	
 &gt;
-&lt;/h2&gt;&lt;h2 id=&#34;httpsimgnightrainmilkywaycnimg202411241859005png&#34;&gt;&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/202411241859005.png&#34;
+&lt;img src=&#34;https://img.nightrainmilkyway.cn/img/202411241859005.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;
-&lt;/h2&gt;&lt;p&gt;比较容易理解的例子就是,当cpu温度过高时，降低powelinmit,来达到限制功耗的目的，最早在V18中出现过，V19就改了&lt;/p&gt;
+&gt;&lt;/p&gt;
+&lt;p&gt;比较容易理解的例子就是,当cpu温度过高时，降低powelinmit,来达到限制功耗的目的，最早在V18中出现过，V19就改了&lt;/p&gt;
 &lt;h1 id=&#34;测试&#34;&gt;测试
 &lt;/h1&gt;&lt;p&gt;测试环境:红米K60 Ulatr,HyperOS 1.0.22,CTv20 Alpha&lt;/p&gt;
 &lt;p&gt;游戏:当然是原神啦&lt;/p&gt;

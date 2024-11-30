@@ -4,7 +4,7 @@ slug: "Custom Block"
 description: 
 date: 2024-11-24T19:42:21+08:00
 lastmod: "2024-11-24T19:42:21+08:00"
-image: https://img.nightrainmilkyway.cn/img/119764162_p0.png
+image: https://raw.gitcode.com/NightRainMilkyWay/PicPlus/files/main/img/107553243_p0.jpg
 math: 
 ai: false
 license: CC BY-NC-SA 4.0
