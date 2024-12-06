@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    
+    <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="标题语法\r一级标题\r二级标题\r三级标题\r四级标题\r五级标题\r六级标题\r强调语法\r粗体（Bold）\rI just love bold text.\n斜体（Italic）\rI just love bold text.\n粗体（Bold）和斜体（Italic）\rI just love bold text.\n引用语法\r1 &gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle.\n多个段落的块引用\r1 2 3 &gt; Dorothy followed her through many of the beautiful rooms in her castle. &gt; &gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood. Dorothy followed her through many of the beautiful rooms in her castle.\n">
+<title>MarkDown语法</title>
+
+<link rel='canonical' href='http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.e3cc34c0a693e3b1dddf088fc842c75700c8862a0fe5eba8a2459d197189c1d3.css"><meta property='og:title' content="MarkDown语法">
+<meta property='og:description' content="标题语法\r一级标题\r二级标题\r三级标题\r四级标题\r五级标题\r六级标题\r强调语法\r粗体（Bold）\rI just love bold text.\n斜体（Italic）\rI just love bold text.\n粗体（Bold）和斜体（Italic）\rI just love bold text.\n引用语法\r1 &gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle.\n多个段落的块引用\r1 2 3 &gt; Dorothy followed her through many of the beautiful rooms in her castle. &gt; &gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood. Dorothy followed her through many of the beautiful rooms in her castle.\n">
+<meta property='og:url' content='http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95/'>
+<meta property='og:site_name' content='Nightrain&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='MarkDown' /><meta property='article:published_time' content='2024-11-24T19:42:21&#43;08:00'/><meta property='article:modified_time' content='2024-11-24T19:42:21&#43;08:00'/><meta property='og:image' content='https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/pixez/106031874_p0.jpg' />
+<meta name="twitter:title" content="MarkDown语法">
+<meta name="twitter:description" content="标题语法\r一级标题\r二级标题\r三级标题\r四级标题\r五级标题\r六级标题\r强调语法\r粗体（Bold）\rI just love bold text.\n斜体（Italic）\rI just love bold text.\n粗体（Bold）和斜体（Italic）\rI just love bold text.\n引用语法\r1 &gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle.\n多个段落的块引用\r1 2 3 &gt; Dorothy followed her through many of the beautiful rooms in her castle. &gt; &gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood. Dorothy followed her through many of the beautiful rooms in her castle.\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/pixez/106031874_p0.jpg' /><style>
+        body {
+            margin: 0;
+            overflow: hidden;  
+        }
+        
+        .main {
+            opacity: 0;  
+            transform: translateY(20px);  
+            transition: opacity 0.5s ease, transform 0.5s ease;  
+        }
+        
+        .main.loaded {
+            opacity: 1;  
+            transform: translateY(0);  
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html:not(.no-sliding) .main > div > * {
+                --enter-stage: 0;
+                --enter-step: 90ms;
+                --enter-initial: 0ms;
+                animation: slide-enter 1s both 1;
+                animation-delay: calc(
+                    var(--enter-initial) + var(--enter-stage) * var(--enter-step)
+                );
+            }
+
+            .main > div > *:nth-child(1) { --enter-stage: 1; }
+            .main > div > *:nth-child(2) { --enter-stage: 2; }
+            .main > div > *:nth-child(3) { --enter-stage: 3; }
+            .main > div > *:nth-child(4) { --enter-stage: 4; }
+            .main > div > *:nth-child(5) { --enter-stage: 5; }
+            .main > div > *:nth-child(6) { --enter-stage: 6; }
+            .main > div > *:nth-child(7) { --enter-stage: 7; }
+            .main > div > *:nth-child(8) { --enter-stage: 8; }
+            .main > div > *:nth-child(9) { --enter-stage: 9; }
+            .main > div > *:nth-child(10) { --enter-stage: 10; }
+            .main > div > *:nth-child(11) { --enter-stage: 11; }
+            .main > div > *:nth-child(12) { --enter-stage: 12; }
+            .main > div > *:nth-child(13) { --enter-stage: 13; }
+            .main > div > *:nth-child(14) { --enter-stage: 14; }
+            .main > div > *:nth-child(15) { --enter-stage: 15; }
+            .main > div > *:nth-child(16) { --enter-stage: 16; }
+            .main > div > *:nth-child(17) { --enter-stage: 17; }
+            .main > div > *:nth-child(18) { --enter-stage: 18; }
+            .main > div > *:nth-child(19) { --enter-stage: 19; }
+            .main > div > *:nth-child(20) { --enter-stage: 20; }
+        }
+
+        @keyframes slide-enter {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    
+</head>
+<body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/%E4%BD%9C%E8%80%85_hu17985603097938475114.webp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🤓</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Nightrain&#39;s Blog</a></h1>
+            <h2 class="site-description">梦——それは现実の続き；现実——それは梦の终わり</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/nightrainmilkyway'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E%E6%88%91/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E8%AF%B4%E8%AF%B4/' >
+                
+                
+                
+                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1732355528602" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4408" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M529.7 860.5h348.5c19.2 0 34.8 15.6 34.8 34.8 0 19.2-15.6 34.8-34.8 34.8H529.7c-19.2 0-34.8-15.6-34.8-34.8 0-19.2 15.6-34.8 34.8-34.8z m-209.1 69.7h-0.5l-188.9-2.8c-9.6-0.1-18.7-4.2-25.1-11.3-6.5-7-9.8-16.5-9.1-26l14.7-206.3c0.6-8.3 4.1-16.1 10-22.1l536.5-541.4c29.5-29.5 80.5-29.4 109.8-0.1l135.9 136c30.3 30.3 30.3 79.4 0 109.7L345.2 920.1c-6.6 6.5-15.4 10.1-24.6 10.1z m-151.5-71.9l137.4 2 548.2-543.9c1.8-1.8 2.2-4 2.2-5.4 0-1.5-0.4-3.7-2.3-5.6l-135.9-136c-3.8-3.8-7.3-3.8-11.1 0L180.2 701.6l-11.1 156.7z" fill="#333333" p-id="4409"></path></svg>
+                
+                <span>说说</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#二级标题">二级标题</a>
+      <ol>
+        <li><a href="#三级标题">三级标题</a>
+          <ol>
+            <li><a href="#四级标题">四级标题</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#粗体bold">粗体（Bold）</a></li>
+    <li><a href="#斜体italic">斜体（Italic）</a></li>
+    <li><a href="#粗体bold和斜体italic">粗体（Bold）和斜体（Italic）</a></li>
+  </ol>
+
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#多个段落的块引用">多个段落的块引用</a></li>
+        <li><a href="#嵌套块引用">嵌套块引用</a></li>
+        <li><a href="#带有其它元素的块引用">带有其它元素的块引用</a>
+          <ol>
+            <li><a href="#the-quarterly-results-look-great">The quarterly results look great!</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#有序列表">有序列表</a></li>
+    <li><a href="#无序列表">无序列表</a>
+      <ol>
+        <li><a href="#套嵌使用">套嵌使用</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/markdown%E8%AF%AD%E6%B3%95/">
+                
+                    <img src="https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/pixez/106031874_p0.jpg" loading="lazy" alt="Featured image of post MarkDown语法" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    
+    <header class="article-category">
+        
+            <a href="/categories/markdown/" >
+                MarkDown
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/markdown%E8%AF%AD%E6%B3%95/">MarkDown语法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 24, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+<script src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE" crossorigin="anonymous" />
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+    
+    
+    <section class="article-content">
+    
+    
+    <h1 id="标题语法">标题语法
+</h1><h1 id="一级标题">一级标题
+</h1><h2 id="二级标题">二级标题
+</h2><h3 id="三级标题">三级标题
+</h3><h4 id="四级标题">四级标题
+</h4><h5 id="五级标题">五级标题
+</h5><h6 id="六级标题">六级标题
+</h6><h1 id="强调语法">强调语法
+</h1><h2 id="粗体bold">粗体（Bold）
+</h2><p>I just love <strong>bold text</strong>.</p>
+<h2 id="斜体italic">斜体（Italic）
+</h2><p>I just love <em>bold text</em>.</p>
+<h2 id="粗体bold和斜体italic">粗体（Bold）和斜体（Italic）
+</h2><p>I just love <em><strong>bold text</strong></em>.</p>
+<h1 id="引用语法">引用语法
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">Dorothy followed her through many of the beautiful rooms in her castle.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+</blockquote>
+<h3 id="多个段落的块引用">多个段落的块引用
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">Dorothy followed her through many of the beautiful rooms in her castle.
+</span></span></span><span class="line"><span class="cl"><span class="ge"></span><span class="k">&gt;
+</span></span></span><span class="line"><span class="cl"><span class="k"></span><span class="ge">&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
+</blockquote>
+<h3 id="嵌套块引用">嵌套块引用
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">Dorothy followed her through many of the beautiful rooms in her castle.
+</span></span></span><span class="line"><span class="cl"><span class="ge"></span><span class="k">&gt;
+</span></span></span><span class="line"><span class="cl"><span class="k"></span><span class="ge">&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+<blockquote>
+<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
+</blockquote>
+</blockquote>
+<h3 id="带有其它元素的块引用">带有其它元素的块引用
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&gt; #### The quarterly results look great!
+</span></span><span class="line"><span class="cl">&gt;
+</span></span><span class="line"><span class="cl">&gt; - Revenue was off the chart.
+</span></span><span class="line"><span class="cl">&gt; - Profits were higher than ever.
+</span></span><span class="line"><span class="cl">&gt;
+</span></span><span class="line"><span class="cl">&gt;  *Everything* is going according to **plan**.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<h4 id="the-quarterly-results-look-great">The quarterly results look great!
+</h4><ul>
+<li>Revenue was off the chart.</li>
+<li>Profits were higher than ever.</li>
+</ul>
+<p><em>Everything</em> is going according to <strong>plan</strong>.</p>
+</blockquote>
+<h1 id="列表语法">列表语法
+</h1><h2 id="有序列表">有序列表
+</h2><ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+<li>Fourth item</li>
+</ol>
+<h2 id="无序列表">无序列表
+</h2><ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+<li>Fourth item</li>
+</ul>
+<h3 id="套嵌使用">套嵌使用
+</h3><ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item
+<ul>
+<li>Indented item</li>
+<li>Indented item</li>
+</ul>
+</li>
+<li>Fourth item</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">This is a regular paragraph.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Foo<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is another regular paragraph.
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/markdown/">MarkDown</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="running-time">
+        本博客已运行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    
+    <section class="totalcount">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        发表了11篇文章，共计11992字
+        总计11.99k字
+    </section>
+
+    
+    <span id="busuanzi_container_site_pv" style='display:none'> 本站总访问量 <span id="busuanzi_value_site_pv"></span> ´次
+    </span>
+    <span id="busuanzi_container_site_uv" style='display:none'> 总访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+
+<script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        
+        now.setTime(now.getTime() + 250);
+        
+        
+        var grt = new Date("2023/03/18 00:00:00"); 
+        
+        
+        var days = (now - grt) / 1000 / 60 / 60 / 24;
+        var dnum = Math.floor(days);
+        
+        var hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        var hnum = Math.floor(hours);
+        if (String(hnum).length == 1) { hnum = "0" + hnum; }
+        
+        var minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        var mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) { mnum = "0" + mnum; }
+        
+        var seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        var snum = Math.round(seconds);
+        if (String(snum).length == 1) { snum = "0" + snum; }
+
+        
+        document.getElementById("timeDate").innerHTML = "本站已稳定运行 " + dnum + " 天";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+
+    
+    setInterval(createtime, 250); 
+</script>
+
+
+    <span id="voyager">载入旅行者一号离地球距离信息...</span>
+
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            
+            now.setTime(now.getTime()+250);
+            var start = new Date("08/01/2022 00:00:00"); 
+            var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); 
+            var unit = (dis / 149600000).toFixed(6);  
+    
+            document.getElementById("voyager").innerHTML = "<br>旅行者 1 号当前距离地球 "+ dis +" 千米，约为 "+ unit +" 个天文单位 🚀"
+        }
+        setInterval("createtime()",250); 
+    </script> 
+
+    <section class="powerby">
+        
+            梦——それは现実の続き；现実——それは梦の终わり <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+    
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+        </main>
+    </div>
+    
+    <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2023-3-18'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "·分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mainElement = document.querySelector('.main');
+
+        
+        setTimeout(() => {
+            mainElement.classList.add('loaded');
+        }, 0); 
+
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.href;
+
+                
+                window.location.href = targetUrl;
+            });
+        });
+    });
+</script>
+</body>
+</html>

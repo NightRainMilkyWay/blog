@@ -95,6 +95,18 @@
         } else {
           value.push({wordCount, link, title});
         }
+        var key = &#34;2024-11-24&#34;;
+        var value = dataMap.get(key);
+        var wordCount =  402 ;
+        var link = &#34;/p/custom-block/&#34;;
+        var title = &#34;MarkDown语法&#34;;
+        
+        
+        if (value == null) {
+          dataMap.set(key, [{wordCount, link, title}]);
+        } else {
+          value.push({wordCount, link, title});
+        }
         var key = &#34;2024-11-13&#34;;
         var value = dataMap.get(key);
         var wordCount =  1343 ;
