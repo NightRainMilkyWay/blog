@@ -36,7 +36,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+    favicon: https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/%E4%BD%9C%E8%80%85.png
 
     footer:
         since: 2023

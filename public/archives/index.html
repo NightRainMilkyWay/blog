@@ -13,50 +13,22 @@
 <meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2019-05-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-05-28T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="归档">
 <meta name="twitter:description" content="">
+    <link rel="shortcut icon" href="https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/%E4%BD%9C%E8%80%85.png" />
+
         <style>
-             
-            .container {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: slideUp 1s ease-out forwards;
-            }
-
-            @keyframes slideUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .article-container {
-                opacity: 0;
-                transform: translateY(30px);
-                animation: fadeInUp 1s ease-out forwards;
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
             }
 
             @keyframes fadeInUp {
-                0% {
+                from {
                     opacity: 0;
-                    transform: translateY(30px);
+                    transform: translateY(50px);  
                 }
-                100% {
+                to {
                     opacity: 1;
                     transform: translateY(0);
                 }
-            }
-
-            footer {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: fadeInUp 1s ease-out 0.5s forwards;
-            }
-
-            footer.visible {
-                opacity: 1;
             }
         </style>
     </head>
@@ -279,8 +251,7 @@
     </ol>
 </aside>
 
-            <main class="main full-width">
-                <div class="article-container">
+            <main class="main full-width fade-in-up">
     <header>
         <h2 class="section-title">Categories</h2>
         <div class="subsection-list">
@@ -818,10 +789,8 @@
 </footer>
 
 
-                </div>
             </main>
         </div>
-
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -853,11 +822,5 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-        <script>
-            
-            window.onload = function() {
-                document.querySelector('footer').classList.add('visible');
-            };
-        </script>
     </body>
 </html>

@@ -14,50 +14,22 @@
 <meta name="twitter:title" content="CuprumTurbo Scheduler 使用">
 <meta name="twitter:description" content="使用须知\r1.安装软件或者模块之前请务必删除 asoulopt 2.使用软件和模块时请勿开启系统的性能模式开关，如果有 Extreme gt 请务必开启 3.使用模块的就没有必要安装软件 4.模块是由 scene 控制，scene 需要关闭核心分配 5.请务必安装 CuJankDetector 模块 下载\r小贴示\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723295109779.webp' />
+    <link rel="shortcut icon" href="https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/%E4%BD%9C%E8%80%85.png" />
+
         <style>
-             
-            .container {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: slideUp 1s ease-out forwards;
-            }
-
-            @keyframes slideUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .article-container {
-                opacity: 0;
-                transform: translateY(30px);
-                animation: fadeInUp 1s ease-out forwards;
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
             }
 
             @keyframes fadeInUp {
-                0% {
+                from {
                     opacity: 0;
-                    transform: translateY(30px);
+                    transform: translateY(50px);  
                 }
-                100% {
+                to {
                     opacity: 1;
                     transform: translateY(0);
                 }
-            }
-
-            footer {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: fadeInUp 1s ease-out 0.5s forwards;
-            }
-
-            footer.visible {
-                opacity: 1;
             }
         </style>
     </head>
@@ -328,8 +300,7 @@
     </aside>
 
 
-            <main class="main full-width">
-                <div class="article-container">
+            <main class="main full-width fade-in-up">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
@@ -838,10 +809,8 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-                </div>
             </main>
         </div>
-
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -873,11 +842,5 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-        <script>
-            
-            window.onload = function() {
-                document.querySelector('footer').classList.add('visible');
-            };
-        </script>
     </body>
 </html>

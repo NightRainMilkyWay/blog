@@ -13,50 +13,22 @@
 <meta property='og:type' content='article'><meta property='article:section' content='Page' />
 <meta name="twitter:title" content="关于我">
 <meta name="twitter:description" content=" 自由开发者 | 开源爱好者 | 技术博主？\n这世界很宽容，宽容到绝对可以允许抬高三公分的枪口，也可以宽容到每个人都可以问心无愧的活着。没有人理应去要求你爱这个世界，但我由衷的希望你爱着自己\n">
+    <link rel="shortcut icon" href="https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/%E4%BD%9C%E8%80%85.png" />
+
         <style>
-             
-            .container {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: slideUp 1s ease-out forwards;
-            }
-
-            @keyframes slideUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .article-container {
-                opacity: 0;
-                transform: translateY(30px);
-                animation: fadeInUp 1s ease-out forwards;
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
             }
 
             @keyframes fadeInUp {
-                0% {
+                from {
                     opacity: 0;
-                    transform: translateY(30px);
+                    transform: translateY(50px);  
                 }
-                100% {
+                to {
                     opacity: 1;
                     transform: translateY(0);
                 }
-            }
-
-            footer {
-                opacity: 0;
-                transform: translateY(50px);
-                animation: fadeInUp 1s ease-out 0.5s forwards;
-            }
-
-            footer.visible {
-                opacity: 1;
             }
         </style>
     </head>
@@ -283,8 +255,7 @@
 
     
 
-            <main class="main full-width">
-                <div class="article-container">
+            <main class="main full-width fade-in-up">
     <article class="main-article">
     <header class="article-header">
 
@@ -920,10 +891,8 @@ You can click the Preview link to take a look at your changes.
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-                </div>
             </main>
         </div>
-
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -955,11 +924,5 @@ You can click the Preview link to take a look at your changes.
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-        <script>
-            
-            window.onload = function() {
-                document.querySelector('footer').classList.add('visible');
-            };
-        </script>
     </body>
 </html>
