@@ -1,117 +1,44 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
-<head>
-    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"> -->
-    <!-- <meta http-equiv="Pragma" content="no-cache"> -->
-    <!-- <meta http-equiv="Expires" content="0"> -->
-    {{- partial "head/head.html" . -}}
-    {{- block "head" . -}}
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden; /* 避免滚动条出现 */
-        }
-        
-        .main {
-            opacity: 0; /* 初始状态透明 */
-            transform: translateY(20px); /* 初始位置向下 */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* 过渡效果 */
-        }
-        
-        .main.loaded {
-            opacity: 1; /* 加载后可见 */
-            transform: translateY(0); /* 回到原位 */
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            html:not(.no-sliding) .main > div > * {
-                --enter-stage: 0;
-                --enter-step: 90ms;
-                --enter-initial: 0ms;
-                animation: slide-enter 1s both 1;
-                animation-delay: calc(
-                    var(--enter-initial) + var(--enter-stage) * var(--enter-step)
-                );
+    <head>
+        {{- partial "head/head.html" . -}}
+        {{- block "head" . -}}{{ end }}
+        <style>
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
             }
 
-            .main > div > *:nth-child(1) { --enter-stage: 1; }
-            .main > div > *:nth-child(2) { --enter-stage: 2; }
-            .main > div > *:nth-child(3) { --enter-stage: 3; }
-            .main > div > *:nth-child(4) { --enter-stage: 4; }
-            .main > div > *:nth-child(5) { --enter-stage: 5; }
-            .main > div > *:nth-child(6) { --enter-stage: 6; }
-            .main > div > *:nth-child(7) { --enter-stage: 7; }
-            .main > div > *:nth-child(8) { --enter-stage: 8; }
-            .main > div > *:nth-child(9) { --enter-stage: 9; }
-            .main > div > *:nth-child(10) { --enter-stage: 10; }
-            .main > div > *:nth-child(11) { --enter-stage: 11; }
-            .main > div > *:nth-child(12) { --enter-stage: 12; }
-            .main > div > *:nth-child(13) { --enter-stage: 13; }
-            .main > div > *:nth-child(14) { --enter-stage: 14; }
-            .main > div > *:nth-child(15) { --enter-stage: 15; }
-            .main > div > *:nth-child(16) { --enter-stage: 16; }
-            .main > div > *:nth-child(17) { --enter-stage: 17; }
-            .main > div > *:nth-child(18) { --enter-stage: 18; }
-            .main > div > *:nth-child(19) { --enter-stage: 19; }
-            .main > div > *:nth-child(20) { --enter-stage: 20; }
-        }
-
-        @keyframes slide-enter {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px); /* 增加动画距离 */
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
-    {{ end }}
-</head>
-<body class="{{ block `body-class` . }}{{ end }}">
-    {{- partial "head/colorScheme" . -}}
+        </style>
+    </head>
+    <body class="{{ block `body-class` . }}{{ end }}">
+        {{- partial "head/colorScheme" . -}}
 
-    {{/* The container is wider when there's any activated widget */}}
-    {{- $hasWidget := false -}}
-    {{- range .Site.Params.widgets -}}
-        {{- if gt (len .) 0 -}}
-            {{- $hasWidget = true -}}
+        {{/* The container is wider when there's any activated widget */}}
+        {{- $hasWidget := false -}}
+        {{- range .Site.Params.widgets -}}
+            {{- if gt (len .) 0 -}}
+                {{- $hasWidget = true -}}
+            {{- end -}}
         {{- end -}}
-    {{- end -}}
-    
-    <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
-        {{- block "left-sidebar" . -}}
-            {{ partial "sidebar/left.html" . }}
-        {{- end -}}
-        {{- block "right-sidebar" . -}}{{ end }}
-        <main class="main full-width">
-            {{- block "main" . }}{{- end }}
-        </main>
-    </div>
-    
-    {{ partial "footer/include.html" . }}
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainElement = document.querySelector('.main');
-
-        // 页面内容加载完成后添加 loaded 类
-        setTimeout(() => {
-            mainElement.classList.add('loaded');
-        }, 0); // 使用 setTimeout 确保在 DOM 更新后添加类
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                // 跳转到目标链接
-                window.location.href = targetUrl;
-            });
-        });
-    });
-</script>
-</body>
+        <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
+            {{- block "left-sidebar" . -}}
+                {{ partial "sidebar/left.html" . }}
+            {{- end -}}
+            {{- block "right-sidebar" . -}}{{ end }}
+            <main class="main full-width fade-in-up">
+                {{- block "main" . }}{{- end }}
+            </main>
+        </div>
+        {{ partial "footer/include.html" . }}
+    </body>
 </html>

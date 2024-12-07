@@ -14,10 +14,22 @@
 <meta name="twitter:title" content="MarkDown语法">
 <meta name="twitter:description" content="标题语法\r一级标题\r二级标题\r三级标题\r四级标题\r五级标题\r六级标题\r强调语法\r粗体（Bold）\rI just love bold text.\n斜体（Italic）\rI just love bold text.\n粗体（Bold）和斜体（Italic）\rI just love bold text.\n引用语法\r1 &gt; Dorothy followed her through many of the beautiful rooms in her castle. Dorothy followed her through many of the beautiful rooms in her castle.\n多个段落的块引用\r1 2 3 &gt; Dorothy followed her through many of the beautiful rooms in her castle. &gt; &gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood. Dorothy followed her through many of the beautiful rooms in her castle.\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/pixez/108359728_p0.jpg' />
-        
-        
-        <link rel="stylesheet" href="/css/home.css">
+        <style>
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
+            }
 
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);  
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
     </head>
     <body class="
     article-page
@@ -44,12 +56,7 @@
         }
     })();
 </script>
-
-        <div class="loading">
-            <div class="spinner"></div>
-        </div>
-
-        <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -315,7 +322,7 @@
     </aside>
 
 
-            <main class="main full-width">
+            <main class="main full-width fade-in-up">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
@@ -788,7 +795,6 @@
 
             </main>
         </div>
-
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
@@ -820,8 +826,5 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-
-        
-        <script src="/js/home.js"></script>
     </body>
 </html>

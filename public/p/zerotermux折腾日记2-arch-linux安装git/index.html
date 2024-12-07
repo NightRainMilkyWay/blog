@@ -14,10 +14,52 @@
 <meta name="twitter:title" content="Zerotermux折腾日记(2)-Arch linux安装git">
 <meta name="twitter:description" content="安装git\r1 pacman -S git 配置git\r1 2 git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;youremail@example.com&#34; 测试git\r1 git --version 克隆仓库\r1 git clone https://github.com/yourusername/yourrepository.git 提交代码\r1 2 3 git add . git commit -m &#34;your commit message&#34; git push origin master 拉取代码\r1 git pull origin master 使用ssh连接github\r生成ssh密钥\r1 ssh-keygen -t rsa -C &#34;youremail@example.com&#34; 添加ssh密钥到ssh-agent\r1 2 eval &#34;$(ssh-agent -s)&#34; ssh-add ~/.ssh/id_rsa 添加ssh密钥到github\r1 cat ~/.ssh/id_rsa.pub 测试ssh连接\r1 ssh -T git@github.com 克隆仓库\r1 git clone git@github.com:yourusername/yourrepository.git git常用命令及注释\r1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 git init # 初始化仓库 git add . # 添加所有文件到暂存区 git commit -m &#34;commit message&#34; # 提交暂存区文件到仓库区 git push origin master # 将本地分支推送到远程仓库 git pull origin master # 从远程仓库拉取最新代码 git status # 查看仓库状态 git log # 查看提交历史 git diff # 查看暂存区与工作区差异 git reset --hard HEAD # 回滚到最新提交 git checkout -- file # 撤销工作区修改 git branch # 查看分支 git branch &lt;branch-name&gt; # 创建分支 git checkout &lt;branch-name&gt; # 切换分支 git merge &lt;branch-name&gt; # 合并分支 git remote -v # 查看远程仓库信息 git remote add origin &lt;repository-url&gt; # 添加远程仓库 git remote remove origin # 删除远程仓库 git remote set-url origin &lt;repository-url&gt; # 修改远程仓库地址 git remote update origin --prune # 更新远程仓库信息 git remote show origin # 查看远程仓库详细信息 附录\r参考文献\r版权信息\r本文原载于 nightrainmilkyway.cn，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/1723295107649.webp' />
-        
-        
-        <link rel="stylesheet" href="/css/home.css">
+        <style>
+             
+            .container {
+                opacity: 0;
+                transform: translateY(50px);
+                animation: slideUp 1s ease-out forwards;
+            }
 
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .article-container {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 1s ease-out forwards;
+            }
+
+            @keyframes fadeInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            footer {
+                opacity: 0;
+                transform: translateY(50px);
+                animation: fadeInUp 1s ease-out 0.5s forwards;
+            }
+
+            footer.visible {
+                opacity: 1;
+            }
+        </style>
     </head>
     <body class="
     article-page
@@ -44,12 +86,7 @@
         }
     })();
 </script>
-
-        <div class="loading">
-            <div class="spinner"></div>
-        </div>
-
-        <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -303,6 +340,7 @@
 
 
             <main class="main full-width">
+                <div class="article-container">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
@@ -869,6 +907,7 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
+                </div>
             </main>
         </div>
 
@@ -903,8 +942,11 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-
-        
-        <script src="/js/home.js"></script>
+        <script>
+            
+            window.onload = function() {
+                document.querySelector('footer').classList.add('visible');
+            };
+        </script>
     </body>
 </html>

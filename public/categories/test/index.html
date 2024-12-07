@@ -14,10 +14,52 @@
 <meta name="twitter:title" content="Category: Test - Nightrain's Blog">
 <meta name="twitter:description" content="This is an example category"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' /><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/categories/test/index.xml">
-        
-        
-        <link rel="stylesheet" href="/css/home.css">
+        <style>
+             
+            .container {
+                opacity: 0;
+                transform: translateY(50px);
+                animation: slideUp 1s ease-out forwards;
+            }
 
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .article-container {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 1s ease-out forwards;
+            }
+
+            @keyframes fadeInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            footer {
+                opacity: 0;
+                transform: translateY(50px);
+                animation: fadeInUp 1s ease-out 0.5s forwards;
+            }
+
+            footer.visible {
+                opacity: 1;
+            }
+        </style>
     </head>
     <body class="">
     <script>
@@ -42,12 +84,7 @@
         }
     })();
 </script>
-
-        <div class="loading">
-            <div class="spinner"></div>
-        </div>
-
-        <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -424,6 +461,7 @@
 
 
             <main class="main full-width">
+                <div class="article-container">
     <header>
         <h3 class="section-title">
             
@@ -575,6 +613,7 @@
 </footer>
 
 
+                </div>
             </main>
         </div>
 
@@ -609,8 +648,11 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-
-        
-        <script src="/js/home.js"></script>
+        <script>
+            
+            window.onload = function() {
+                document.querySelector('footer').classList.add('visible');
+            };
+        </script>
     </body>
 </html>

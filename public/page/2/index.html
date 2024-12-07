@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-<head>
-	<meta name="generator" content="Hugo 0.135.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    
-    
-    <meta charset='utf-8'>
+    <head>
+	<meta name="generator" content="Hugo 0.135.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="梦——それは现実の続き；现実——それは梦の终わり">
 <title>Pager 2 - Nightrain&#39;s Blog</title>
 
@@ -16,70 +13,25 @@
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
 <meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-11-24T19:42:21&#43;08:00 '/>
 <meta name="twitter:title" content="Nightrain's Blog">
-<meta name="twitter:description" content="梦——それは现実の続き；现実——それは梦の终わり"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml"><style>
-        body {
-            margin: 0;
-            overflow: hidden;  
-        }
-        
-        .main {
-            opacity: 0;  
-            transform: translateY(20px);  
-            transition: opacity 0.5s ease, transform 0.5s ease;  
-        }
-        
-        .main.loaded {
-            opacity: 1;  
-            transform: translateY(0);  
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            html:not(.no-sliding) .main > div > * {
-                --enter-stage: 0;
-                --enter-step: 90ms;
-                --enter-initial: 0ms;
-                animation: slide-enter 1s both 1;
-                animation-delay: calc(
-                    var(--enter-initial) + var(--enter-stage) * var(--enter-step)
-                );
+<meta name="twitter:description" content="梦——それは现実の続き；现実——それは梦の终わり"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml">
+        <style>
+            .fade-in-up {
+                animation: fadeInUp 1s ease-out;
             }
 
-            .main > div > *:nth-child(1) { --enter-stage: 1; }
-            .main > div > *:nth-child(2) { --enter-stage: 2; }
-            .main > div > *:nth-child(3) { --enter-stage: 3; }
-            .main > div > *:nth-child(4) { --enter-stage: 4; }
-            .main > div > *:nth-child(5) { --enter-stage: 5; }
-            .main > div > *:nth-child(6) { --enter-stage: 6; }
-            .main > div > *:nth-child(7) { --enter-stage: 7; }
-            .main > div > *:nth-child(8) { --enter-stage: 8; }
-            .main > div > *:nth-child(9) { --enter-stage: 9; }
-            .main > div > *:nth-child(10) { --enter-stage: 10; }
-            .main > div > *:nth-child(11) { --enter-stage: 11; }
-            .main > div > *:nth-child(12) { --enter-stage: 12; }
-            .main > div > *:nth-child(13) { --enter-stage: 13; }
-            .main > div > *:nth-child(14) { --enter-stage: 14; }
-            .main > div > *:nth-child(15) { --enter-stage: 15; }
-            .main > div > *:nth-child(16) { --enter-stage: 16; }
-            .main > div > *:nth-child(17) { --enter-stage: 17; }
-            .main > div > *:nth-child(18) { --enter-stage: 18; }
-            .main > div > *:nth-child(19) { --enter-stage: 19; }
-            .main > div > *:nth-child(20) { --enter-stage: 20; }
-        }
-
-        @keyframes slide-enter {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);  
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
-    
-</head>
-<body class="">
+        </style>
+    </head>
+    <body class="">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -478,7 +430,7 @@
     </aside>
 
 
-        <main class="main full-width">
+            <main class="main full-width fade-in-up">
     
     
     
@@ -1093,10 +1045,9 @@
     </section>
 </footer>
 
-        </main>
-    </div>
-    
-    <script 
+            </main>
+        </div>
+        <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
@@ -1127,27 +1078,5 @@
     document.getElementById('runningdays').innerHTML = result;
 </script>
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainElement = document.querySelector('.main');
-
-        
-        setTimeout(() => {
-            mainElement.classList.add('loaded');
-        }, 0); 
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                
-                window.location.href = targetUrl;
-            });
-        });
-    });
-</script>
-</body>
+    </body>
 </html>
