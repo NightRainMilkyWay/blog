@@ -1,84 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    
-    
-    <meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="梦——それは现実の続き；现実——それは梦の终わり">
 <title>404 Page not found</title>
 
 <link rel='canonical' href='http://localhost:1313/404.html'>
 
-<link rel="stylesheet" href="/scss/style.min.e3cc34c0a693e3b1dddf088fc842c75700c8862a0fe5eba8a2459d197189c1d3.css"><meta property='og:title' content="404 Page not found">
+<link rel="stylesheet" href="/scss/style.min.2892386dc9f27ec62cf62290f6d261abab39c7dda085010a694892e2f897ccea.css"><meta property='og:title' content="404 Page not found">
 <meta property='og:description' content="梦——それは现実の続き；现実——それは梦の终わり">
 <meta property='og:url' content='http://localhost:1313/404.html'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
 <meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-11-24T19:42:21&#43;08:00 '/>
 <meta name="twitter:title" content="404 Page not found">
-<meta name="twitter:description" content="梦——それは现実の続き；现実——それは梦の终わり"><style>
-        body {
-            margin: 0;
-            overflow: hidden;  
-        }
+<meta name="twitter:description" content="梦——それは现実の続き；现実——それは梦の终わり">
         
-        .main {
-            opacity: 0;  
-            transform: translateY(20px);  
-            transition: opacity 0.5s ease, transform 0.5s ease;  
-        }
         
-        .main.loaded {
-            opacity: 1;  
-            transform: translateY(0);  
-        }
+        <link rel="stylesheet" href="/css/home.css">
 
-        @media (prefers-reduced-motion: no-preference) {
-            html:not(.no-sliding) .main > div > * {
-                --enter-stage: 0;
-                --enter-step: 90ms;
-                --enter-initial: 0ms;
-                animation: slide-enter 1s both 1;
-                animation-delay: calc(
-                    var(--enter-initial) + var(--enter-stage) * var(--enter-step)
-                );
-            }
-
-            .main > div > *:nth-child(1) { --enter-stage: 1; }
-            .main > div > *:nth-child(2) { --enter-stage: 2; }
-            .main > div > *:nth-child(3) { --enter-stage: 3; }
-            .main > div > *:nth-child(4) { --enter-stage: 4; }
-            .main > div > *:nth-child(5) { --enter-stage: 5; }
-            .main > div > *:nth-child(6) { --enter-stage: 6; }
-            .main > div > *:nth-child(7) { --enter-stage: 7; }
-            .main > div > *:nth-child(8) { --enter-stage: 8; }
-            .main > div > *:nth-child(9) { --enter-stage: 9; }
-            .main > div > *:nth-child(10) { --enter-stage: 10; }
-            .main > div > *:nth-child(11) { --enter-stage: 11; }
-            .main > div > *:nth-child(12) { --enter-stage: 12; }
-            .main > div > *:nth-child(13) { --enter-stage: 13; }
-            .main > div > *:nth-child(14) { --enter-stage: 14; }
-            .main > div > *:nth-child(15) { --enter-stage: 15; }
-            .main > div > *:nth-child(16) { --enter-stage: 16; }
-            .main > div > *:nth-child(17) { --enter-stage: 17; }
-            .main > div > *:nth-child(18) { --enter-stage: 18; }
-            .main > div > *:nth-child(19) { --enter-stage: 19; }
-            .main > div > *:nth-child(20) { --enter-stage: 20; }
-        }
-
-        @keyframes slide-enter {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
-    
-</head>
-<body class="">
+    </head>
+    <body class="">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -101,7 +41,12 @@
         }
     })();
 </script>
-<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+
+        <div class="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -297,7 +242,7 @@
     </ol>
 </aside>
 
-        <main class="main full-width">
+            <main class="main full-width">
     <div class="not-found-card">
         <h1 class="article-title">404 错误</h1>
         <h2 class="article-subtitle">页面不存在</h2>
@@ -423,10 +368,10 @@
 </footer>
 
 
-        </main>
-    </div>
-    
-    <script 
+            </main>
+        </div>
+
+        <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
@@ -458,26 +403,7 @@
 </script>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainElement = document.querySelector('.main');
-
         
-        setTimeout(() => {
-            mainElement.classList.add('loaded');
-        }, 0); 
-
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.href;
-
-                
-                window.location.href = targetUrl;
-            });
-        });
-    });
-</script>
-</body>
+        <script src="/js/home.js"></script>
+    </body>
 </html>
