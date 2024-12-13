@@ -174,7 +174,7 @@ a {
 // 页面基本配色
 :root {
     // 全局顶部边距
-    --main-top-padding: 30px;
+    --main-top-padding: 100px;
     // 全局卡片圆角
     --card-border-radius: 25px;
     // 标签云卡片圆角
@@ -233,6 +233,8 @@ code {
         height: 305px;
     }
 }
+
+
 
 //---------------------------------------------------
 // 全局页面布局间距调整
@@ -657,5 +659,302 @@ main.main {
 
   @include respond(md) {
     padding-top: var(--main-top-padding);
+  }
+}
+
+/* 整体 Hero 区域样式 */
+.hero {
+  height: 100vh; /* 全屏高度 */
+  display: flex;
+  flex-direction: column; /* 主轴方向设置为列 */
+  justify-content: space-between; /* 上下对齐分布 */
+  align-items: center; /* 居中对齐 */
+  background-color: #EBEBEB; /* 背景色 */
+  padding: 20px;
+}
+
+.hero-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* 最大宽度 */
+  justify-content: space-between; /* 左右内容分布 */
+  align-items: center; /* 内容垂直居中 */
+  flex: 1; /* 占据剩余空间 */
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  flex: 1; /* 左右各占50% */
+  padding-right: 20px;
+  height: 100%; /* 使其占满父容器的高度 */
+}
+
+.hero-text h1 {
+  font-size: 3.5rem; /* 标题字体大小 */
+  color: #333;
+}
+
+.hero-text .subtitle {
+  font-size: 1.8rem; /* 副标题字体 */
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.hero-text .description {
+  font-size: 1.2rem; /* 描述文字 */
+  color: #777;
+}
+.hero-image {
+  flex: 1; /* 左右各占50% */
+  text-align: center;
+}
+
+.hero-image img {
+  width: 300px; /* 头像宽度 */
+  height: 300px; /* 头像高度 */
+  border-radius: 50%; /* 圆形头像 */
+  object-fit: cover;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 底部区域 */
+.hero-footer {
+  text-align: center;
+  margin-top: 20px; /* 与上方内容的间距 */
+  padding: 20px 0;
+}
+
+.hero-footer .footer-text {
+  font-size: 1.2rem; /* 底部文字大小 */
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.hero-footer .arrow {
+  font-size: 2rem; /* 箭头大小 */
+  color: #333; /* 箭头颜色 */
+  animation: float 2s infinite; /* 上下浮动动画 */
+}
+
+/* 箭头上下浮动动画 */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* 向上移动 */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.jump-text0,
+.jump-text1,
+.jump-text2,
+.jump-text3,
+.jump-text4,
+.jump-text5,
+.jump-text6,
+.jump-text7,
+.jump-text8,
+.jump-text9,
+.jump-text10,
+.jump-text11,
+.jump-text12,
+.jump-text13,
+.jump-text14,
+.jump-text15,
+.jump-text16,
+.jump-text17,
+.jump-text18,
+.jump-text19,
+.jump-text20,
+.jump-text21,
+.jump-text22,
+.jump-text23,
+.jump-text24,
+.jump-text25,
+.jump-text26,
+.jump-text27,
+.jump-text28,
+.jump-text29,
+.jump-text30,
+.jump-text31,
+.jump-text32,
+.jump-text33,
+.jump-text34,
+.jump-text35,
+.jump-text36,
+.jump-text37,
+.jump-text38,
+.jump-text39,
+.jump-text40,
+.jump-text41,
+.jump-text42,
+.jump-text43,
+.jump-text44,
+.jump-text45,
+.jump-text46,
+.jump-text47,
+.jump-text48,
+.jump-text49 {
+  display: inline-block;
+  animation: jump 0.5s forwards;
+  opacity: 0;
+  margin: 0; /* 移除间隔 */
+}
+
+.jump-text0 { animation-delay: 0s; }
+.jump-text1 { animation-delay: 0.1s; }
+.jump-text2 { animation-delay: 0.2s; }
+.jump-text3 { animation-delay: 0.3s; }
+.jump-text4 { animation-delay: 0.4s; }
+.jump-text5 { animation-delay: 0.5s; }
+.jump-text6 { animation-delay: 0.6s; }
+.jump-text7 { animation-delay: 0.7s; }
+.jump-text8 { animation-delay: 0.8s; }
+.jump-text9 { animation-delay: 0.9s; }
+.jump-text10 { animation-delay: 1s; }
+.jump-text11 { animation-delay: 1.1s; }
+.jump-text12 { animation-delay: 1.2s; }
+.jump-text13 { animation-delay: 1.3s; }
+.jump-text14 { animation-delay: 1.4s; }
+.jump-text15 { animation-delay: 1.5s; }
+.jump-text16 { animation-delay: 1.6s; }
+.jump-text17 { animation-delay: 1.7s; }
+.jump-text18 { animation-delay: 1.8s; }
+.jump-text19 { animation-delay: 1.9s; }
+.jump-text20 { animation-delay: 2s; }
+.jump-text21 { animation-delay: 2.1s; }
+.jump-text22 { animation-delay: 2.2s; }
+.jump-text23 { animation-delay: 2.3s; }
+.jump-text24 { animation-delay: 2.4s; }
+.jump-text25 { animation-delay: 2.5s; }
+.jump-text26 { animation-delay: 2.6s; }
+.jump-text27 { animation-delay: 2.7s; }
+.jump-text28 { animation-delay: 2.8s; }
+.jump-text29 { animation-delay: 2.9s; }
+.jump-text30 { animation-delay: 3s; }
+.jump-text31 { animation-delay: 3.1s; }
+.jump-text32 { animation-delay: 3.2s; }
+.jump-text33 { animation-delay: 3.3s; }
+.jump-text34 { animation-delay: 3.4s; }
+.jump-text35 { animation-delay: 3.5s; }
+.jump-text36 { animation-delay: 3.6s; }
+.jump-text37 { animation-delay: 3.7s; }
+.jump-text38 { animation-delay: 3.8s; }
+.jump-text39 { animation-delay: 3.9s; }
+.jump-text40 { animation-delay: 4s; }
+.jump-text41 { animation-delay: 4.1s; }
+.jump-text42 { animation-delay: 4.2s; }
+.jump-text43 { animation-delay: 4.3s; }
+.jump-text44 { animation-delay: 4.4s; }
+.jump-text45 { animation-delay: 4.5s; }
+.jump-text46 { animation-delay: 4.6s; }
+.jump-text47 { animation-delay: 4.7s; }
+.jump-text48 { animation-delay: 4.8s; }
+.jump-text49 { animation-delay: 4.9s; }
+@keyframes float-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-text .final-text {
+  animation: float-up 1s ease-out forwards;
+  opacity: 0; /* 初始状态下隐藏 */
+}
+
+/* 顶部导航栏样式 */
+.top-navbar {
+  position: fixed; /* 固定在顶部 */
+  top: 10px; /* 顶部距离调整为10px */
+  right: 450px; /* 右侧距离调整为20px */
+  left: 350px; /* 左侧距离调整为20px */
+  height: 60px; /* 导航栏高度 */
+  background: rgba(255, 255, 255, 0.6); /* 半透明背景 */
+  backdrop-filter: blur(8px); /* 背景模糊效果 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  z-index: 999; /* 优先级最高 */
+  border-radius: 40px; /* 圆角 */
+  overflow: hidden; /* 确保圆角效果不被溢出 */
+  padding: 10px 0; /* 上下内边距 */
+}
+
+/* 导航栏内部容器 */
+.navbar-container {
+  max-width: 960px; /* 最大宽度 */
+  margin: 0 auto; /* 居中 */
+  padding: 0 10px; /* 左右内边距改为10px */
+  display: flex;
+  justify-content: center; /* 链接居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+/* 导航栏链接容器 */
+.navbar-links {
+  display: flex;
+  justify-content: center; /* 链接居中 */
+  gap: 20px; /* 链接间距 */
+  flex-grow: 1; /* 使导航栏链接部分扩展以填充剩余空间 */
+}
+
+/* 导航链接样式 */
+.navbar-links a {
+  font-size: 16px;
+  text-decoration: none; /* 去掉下划线 */
+  color: #333; /* 字体颜色 */
+  padding: 8px 12px; /* 内边距 */
+  border-radius: 20px; /* 圆角 */
+  transition: all 0.3s ease; /* 动画效果 */
+}
+
+/* 悬停效果 */
+.navbar-links a:hover {
+  background: #f8f8f8; /* 鼠标悬停背景色 */
+  color: #ff4081; /* 鼠标悬停字体颜色 */
+}
+
+/* 当前页面链接样式 */
+.navbar-links a.active {
+  background: #ffe4ed; 
+  color: #ff4081; 
+}
+
+/* 适应移动设备 */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .navbar-links {
+    flex-direction: column; 
+    gap: 10px; 
   }
 }

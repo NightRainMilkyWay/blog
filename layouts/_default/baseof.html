@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
-    <head>
-        {{- partial "head/head.html" . -}}
-        {{- block "head" . -}}{{ end }}
-        <style>
-            .fade-in-up {
-                animation: fadeInUp 1s ease-out;
-            }
+<html
+  lang="{{ .Site.LanguageCode }}"
+  dir="{{ default `ltr` .Language.LanguageDirection }}"
+>
+  <head>
+    {{ if or .IsHome (eq .Type "home") }} {{ partial "hero.html" . }}
+    <!-- 仅在主页加载 hero 部分 -->
+    {{ end }} {{- partial "head/head.html" . -}} {{- block "head" . -}}{{ end }}
+    <style>
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
 
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(50px); /* 增加动画距离 */
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        </style>
-    </head>
-    <body class="{{ block `body-class` . }}{{ end }}">
-        {{- partial "head/colorScheme" . -}}
-
-        {{/* The container is wider when there's any activated widget */}}
-        {{- $hasWidget := false -}}
-        {{- range .Site.Params.widgets -}}
-            {{- if gt (len .) 0 -}}
-                {{- $hasWidget = true -}}
-            {{- end -}}
-        {{- end -}}
-        <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
-            {{- block "left-sidebar" . -}}
-                {{ partial "sidebar/left.html" . }}
-            {{- end -}}
-            {{- block "right-sidebar" . -}}{{ end }}
-            <main class="main full-width fade-in-up">
-                {{- block "main" . }}{{- end }}
-            </main>
-        </div>
-        {{ partial "footer/include.html" . }}
-    </body>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px); /* 增加动画距离 */
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="{{ block `body-class` . }}{{ end }}">
+    {{- partial "head/colorScheme" . -}} {{/* The container is wider when
+    there's any activated widget */}} {{- $hasWidget := false -}} {{- range
+    .Site.Params.widgets -}} {{- if gt (len .) 0 -}} {{- $hasWidget = true -}}
+    {{- end -}} {{- end -}}
+    <div
+      class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}"
+    >
+      {{- block "left-sidebar" . -}} {{ partial "sidebar/left.html" . }} {{- end
+      -}} {{- block "right-sidebar" . -}}{{ end }}
+      <main class="main full-width fade-in-up">
+        {{- block "main" . }}{{- end }}
+      </main>
+    </div>
+    {{ partial "footer/include.html" . }}
+  </body>
 </html>

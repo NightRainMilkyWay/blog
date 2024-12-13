@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        
+     <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
 <title>修改hosts文件理解dns - (上)</title>
 
 <link rel='canonical' href='http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/'>
 
-<link rel="stylesheet" href="/scss/style.min.2892386dc9f27ec62cf62290f6d261abab39c7dda085010a694892e2f897ccea.css"><meta property='og:title' content="修改hosts文件理解dns - (上)">
+<link rel="stylesheet" href="/scss/style.min.b3aa364d1b736e091a4e61c7cb2de66e1c92e1bd773fa5a42be36d3f075de762.css"><meta property='og:title' content="修改hosts文件理解dns - (上)">
 <meta property='og:description' content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。">
 <meta property='og:url' content='http://localhost:1313/p/%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6%E7%90%86%E8%A7%A3dns-%E4%B8%8A/'>
 <meta property='og:site_name' content='Nightrain&#39;s Blog'>
@@ -15,6 +17,19 @@
 <meta name="twitter:description" content="本文介绍了 hosts 文件和 DNS（域名系统）的功能与历史。早期互联网中，hosts 文件用于映射 IP 地址与主机名，但随着网络规模的扩大，这种方法变得不再有效，因此引入了 DNS。DNS 将人类可读的域名转换为机器可识别的 IP 地址，类似于电话簿的功能。文章还探讨了域名篡改和 DNS 污染的问题，说明了在解析过程中可能出现的安全隐患，以及如何通过配置文件来管理域名解析。"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.nightrainmilkyway.cn/img/122622935_p0 (1).png' />
     <link rel="shortcut icon" href="https://raw.gitcode.com/NightRainMilkyWay/img/raw/main/%E4%BD%9C%E8%80%85.png" />
+<header class="top-navbar">
+  <div class="navbar-container">
+    
+    <nav class="navbar-links">
+      <a href="http://localhost:1313/" class="">首页</a>
+      <a href="http://localhost:1313/posts" class="">文稿</a>
+      <a href="http://localhost:1313/handwriting" class="">手记</a>
+      <a href="http://localhost:1313/time" class="">时光</a>
+      <a href="http://localhost:1313/links" class="">友链</a>
+      <a href="http://localhost:1313/more" class="">更多</a>
+    </nav>
+  </div>
+</header>
 
         <style>
             .fade-in-up {

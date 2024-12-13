@@ -1,0 +1,13 @@
+<header class="top-navbar">
+  <div class="navbar-container">
+    <!-- 右侧导航链接 -->
+    <nav class="navbar-links">
+      <a href="{{ .Site.BaseURL }}" class="{{ if .IsHome }}active{{ end }}">首页</a>
+      <a href="{{ .Site.BaseURL }}关于我" class="{{ if in .Path "posts" }}active{{ end }}">关于</a>
+      <a href="{{ .Site.BaseURL }}说说" class="{{ if in .Path "handwriting" }}active{{ end }}">手记</a>
+      <a href="{{ .Site.BaseURL }}time" class="{{ if in .Path "time" }}active{{ end }}">时光</a>
+      <a href="{{ .Site.BaseURL }}links" class="{{ if in .Path "links" }}active{{ end }}">友链</a>
+      <a href="{{ .Site.BaseURL }}more" class="{{ if in .Path "more" }}active{{ end }}">更多</a>
+    </nav>
+  </div>
+</header>
